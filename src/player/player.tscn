@@ -268,16 +268,6 @@ random_pitch = 1.5
 streams_count = 1
 stream_0/stream = ExtResource("18_a4vah")
 
-[sub_resource type="Gradient" id="Gradient_oyld2"]
-offsets = PackedFloat32Array(0, 0.006369427, 0.8089172)
-colors = PackedColorArray(0.75159234, 0.75159234, 0.75159234, 1, 0.3375796, 0.3375796, 0.3375796, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_phdu6"]
-gradient = SubResource("Gradient_oyld2")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
-
 [node name="Player" type="CharacterBody2D" unique_id=2070335124]
 script = ExtResource("1_4anbu")
 max_speed = 450.0
@@ -455,12 +445,6 @@ stream = SubResource("AudioStreamRandomizer_xmpm3")
 
 [node name="run_sound" type="AudioStreamPlayer" parent="." unique_id=335528450]
 stream = SubResource("AudioStreamRandomizer_h0enb")
-
-[node name="PointLight2Dold" type="PointLight2D" parent="." unique_id=650825640]
-position = Vector2(0, -31)
-color = Color(1, 0.6745098, 1, 1)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_phdu6")
 
 [node name="jump_particle" parent="." unique_id=842905782 instance=ExtResource("19_vwi60")]
 

@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://dy80i5m5jbd5"]
+
+[ext_resource type="Texture2D" uid="uid://6sperlai5t1p" path="res://sprites/rooms/ground.png" id="1_p0cym"]
+[ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="3_4j1ba"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_mu531"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_j2cwt"]
+[ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="6_4qwl1"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_ltygr"]
+[ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="7_j2cwt"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_crkjd"]
+distance = -39.0
+
+[sub_resource type="Resource" id="Resource_7157o"]
+script = ExtResource("5_j2cwt")
+
+[node name="room_blueprint" type="Node2D" unique_id=277320518]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=967362121]
+visible = false
+offset_left = -18448.0
+offset_top = -20514.0
+offset_right = 23979.0
+offset_bottom = 14532.0
+color = Color(0.9098039, 0.9098039, 0.9098039, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=417271694]
+position = Vector2(0.2869873, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1344861902]
+position = Vector2(0.2869873, -82.90402)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1135400909]
+position = Vector2(1, 176)
+shape = SubResource("WorldBoundaryShape2D_crkjd")
+
+[node name="pts" type="Node2D" parent="." unique_id=1044465393]
+position = Vector2(0.2869873, -82.90402)
+
+[node name="pt_blueprint" parent="pts" unique_id=314320358 instance=ExtResource("6_4qwl1")]
+position = Vector2(111, 123)
+
+[node name="pt_blueprint2" parent="pts" unique_id=116590227 instance=ExtResource("6_4qwl1")]
+position = Vector2(-100, 78)
+
+[node name="pt_blueprint3" parent="pts" unique_id=642841483 instance=ExtResource("6_4qwl1")]
+position = Vector2(284, 16)
+
+[node name="pt_blueprint4" parent="pts" unique_id=699979611 instance=ExtResource("6_4qwl1")]
+position = Vector2(139, -126)
+
+[node name="pt_blueprint6" parent="pts" unique_id=321910978 instance=ExtResource("6_4qwl1")]
+position = Vector2(-23, -196)
+
+[node name="pt_blueprint7" parent="pts" unique_id=429702536 instance=ExtResource("6_4qwl1")]
+position = Vector2(-23, -240)
+
+[node name="pt_blueprint8" parent="pts" unique_id=1605169318 instance=ExtResource("6_4qwl1")]
+position = Vector2(-23, -285)
+
+[node name="pt_blueprint9" parent="pts" unique_id=760283771 instance=ExtResource("6_4qwl1")]
+position = Vector2(-132, -348)
+
+[node name="pt_blueprint10" parent="pts" unique_id=122834389 instance=ExtResource("6_4qwl1")]
+position = Vector2(94, -427)
+
+[node name="pt_blueprint11" parent="pts" unique_id=1590163472 instance=ExtResource("6_4qwl1")]
+position = Vector2(177, -470)
+
+[node name="pt_blueprint12" parent="pts" unique_id=219194887 instance=ExtResource("6_4qwl1")]
+position = Vector2(261, -513)
+
+[node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(0, -50)
+script = ExtResource("4_mu531")
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_7157o")
+follow_offset = Vector2(0, -50)
+follow_damping = true
+follow_damping_value = Vector2(1, 1)
+limit_left = -950
+limit_top = -1000
+limit_right = 950
+limit_bottom = 330
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
+physics_interpolation_mode = 1
+top_level = true
+position = Vector2(0, -50)
+process_callback = 0
+limit_left = -950
+limit_top = -1000
+limit_right = 950
+limit_bottom = 330
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1226431024]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("6_ltygr")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="ball" parent="." unique_id=2002415136 instance=ExtResource("7_j2cwt")]
+position = Vector2(-208, -211)

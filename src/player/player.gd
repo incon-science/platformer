@@ -341,7 +341,6 @@ func apply_stretch() -> void:
 @onready var dash_sound: AudioStreamPlayer = $dash_sound
 @onready var slide_sound: AudioStreamPlayer = $slide_sound
 @onready var run_sound: AudioStreamPlayer = $run_sound
-@onready var point_light_2_dold: PointLight2D = $PointLight2Dold
 @onready var jump_particle: CPUParticles2D = $jump_particle
 @onready var ground_particle: CPUParticles2D = $ground_particle
 
