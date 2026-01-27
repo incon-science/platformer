@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c04jfrcrutvnd"]
+
+[ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="1_cxdpd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6fe78"]
+size = Vector3(192, 48, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fe78"]
+size = Vector2(192, 48)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cxdpd"]
+size = Vector3(48, 192, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxdpd"]
+size = Vector2(48, 192)
+
+[node name="TestLevel1" type="Node2D" unique_id=1138717283]
+metadata/_edit_lock_ = true
+
+[node name="Floor1" type="StaticBody2D" parent="." unique_id=2012771564]
+position = Vector2(191, 667)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor1" unique_id=1643041734]
+self_modulate = Color(0, 0, 0, 1)
+mesh = SubResource("BoxMesh_6fe78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor1" unique_id=1612324223]
+shape = SubResource("RectangleShape2D_6fe78")
+
+[node name="Floor2" type="StaticBody2D" parent="." unique_id=395971821]
+position = Vector2(539, 576)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor2" unique_id=825469774]
+self_modulate = Color(0, 0, 0, 1)
+mesh = SubResource("BoxMesh_6fe78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=865869616]
+shape = SubResource("RectangleShape2D_6fe78")
+
+[node name="Floor3" type="StaticBody2D" parent="." unique_id=346203635]
+position = Vector2(856, 255)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor3" unique_id=858135059]
+self_modulate = Color(0, 0, 0, 1)
+mesh = SubResource("BoxMesh_6fe78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3" unique_id=741699953]
+shape = SubResource("RectangleShape2D_6fe78")
+
+[node name="Wall1" type="StaticBody2D" parent="." unique_id=319053777]
+position = Vector2(784, 402)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall1" unique_id=851388635]
+self_modulate = Color(0, 0, 0, 1)
+mesh = SubResource("BoxMesh_cxdpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" unique_id=1446850070]
+shape = SubResource("RectangleShape2D_cxdpd")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=1057207830]
+position = Vector2(597, 242)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall2" unique_id=1412815529]
+self_modulate = Color(0, 0, 0, 1)
+mesh = SubResource("BoxMesh_cxdpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=393251419]
+shape = SubResource("RectangleShape2D_cxdpd")
+
+[node name="Player" parent="." unique_id=1735514412 instance=ExtResource("1_cxdpd")]
+position = Vector2(189, 633)
