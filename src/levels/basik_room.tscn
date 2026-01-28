@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://d0idjcg45flp4"]
+
+[ext_resource type="Texture2D" uid="uid://b42g5ijdmrwef" path="res://sprites/rooms/basik.png" id="1_nyvph"]
+[ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="2_swwew"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_nmdn2"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_shypv"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_bmghh"]
+
+[sub_resource type="Resource" id="Resource_b4br2"]
+script = ExtResource("5_bmghh")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1aiwd"]
+distance = 54.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro755"]
+size = Vector2(275, 174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8qq8"]
+size = Vector2(312, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lqmv"]
+size = Vector2(179, 305)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyvph"]
+size = Vector2(3, 604)
+
+[node name="basik_room" type="Node2D" unique_id=1997840322]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=4618226]
+position = Vector2(-202, 177.00002)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_nyvph")
+
+[node name="Player" parent="." unique_id=2070335124 instance=ExtResource("2_swwew")]
+position = Vector2(-171, 379)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1640193445]
+physics_interpolation_mode = 1
+top_level = true
+position = Vector2(-171, 234)
+process_callback = 0
+limit_bottom = 594
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=574010765]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_nmdn2")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=299994431 node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(-171, 234)
+script = ExtResource("4_shypv")
+follow_mode = 5
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_b4br2")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_bottom = 594
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=736682404]
+position = Vector2(-214, -174)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1003355864]
+position = Vector2(43, 635)
+shape = SubResource("WorldBoundaryShape2D_1aiwd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1745549011]
+position = Vector2(-248.5, 493)
+shape = SubResource("RectangleShape2D_ro755")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=620753750]
+position = Vector2(-171, 143.5)
+shape = SubResource("RectangleShape2D_d8qq8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=477442338]
+position = Vector2(323.5, 421.5)
+shape = SubResource("RectangleShape2D_8lqmv")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=16871753]
+position = Vector2(-387, 372)
+shape = SubResource("RectangleShape2D_nyvph")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1457968111]
+position = Vector2(410.5, 373)
+shape = SubResource("RectangleShape2D_nyvph")

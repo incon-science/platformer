@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dr4h3pc0jii81"]
+
+[ext_resource type="Texture2D" uid="uid://dmvaix6lq7611" path="res://sprites/fractale.png" id="1_k6s3g"]
+
+[sub_resource type="Gradient" id="Gradient_cy2nw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k6s3g"]
+gradient = SubResource("Gradient_cy2nw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8000001, 0.20000002)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6s3g"]
+size = Vector2(56, 32)
+
+[node name="fractale" type="RigidBody2D" unique_id=764819064]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=861767194]
+scale = Vector2(0.033, 0.033)
+texture = ExtResource("1_k6s3g")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=774169807]
+texture = SubResource("GradientTexture2D_k6s3g")
+texture_scale = 0.96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020229240]
+shape = SubResource("RectangleShape2D_k6s3g")

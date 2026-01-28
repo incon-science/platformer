@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dhihe4rrnqw3d"]
+
+[ext_resource type="Texture2D" uid="uid://cs773gk0fxngv" path="res://sprites/rooms/unnamevectord.png" id="1_3s88y"]
+[ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="2_wcg16"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_3s88y"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_1qo4e"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_je0tm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uxlox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s88y"]
+size = Vector2(1100, 1112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qo4e"]
+size = Vector2(1088, 1057)
+
+[sub_resource type="Resource" id="Resource_3s88y"]
+script = ExtResource("4_1qo4e")
+
+[node name="transition_rooms" type="Node2D" unique_id=645547803]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440240781]
+texture = ExtResource("1_3s88y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1457820279]
+position = Vector2(-3, -696)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1599127]
+position = Vector2(3, 699)
+shape = SubResource("WorldBoundaryShape2D_uxlox")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=362364671]
+position = Vector2(1734, 38)
+shape = SubResource("RectangleShape2D_3s88y")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=929563367]
+position = Vector2(-1687, 55.5)
+shape = SubResource("RectangleShape2D_1qo4e")
+
+[node name="Player" parent="." unique_id=2070335124 instance=ExtResource("2_wcg16")]
+unique_name_in_owner = true
+position = Vector2(-5, -96)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=37423970]
+physics_interpolation_mode = 1
+top_level = true
+position = Vector2(-5, -96)
+zoom = Vector2(0.25, 0.25)
+process_callback = 0
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=821236633]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_je0tm")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1428854751 node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(-5, -96)
+script = ExtResource("3_3s88y")
+follow_mode = 5
+follow_target = NodePath("../Player")
+zoom = Vector2(0.25, 0.25)
+tween_resource = SubResource("Resource_3s88y")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

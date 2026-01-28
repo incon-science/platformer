@@ -102,6 +102,10 @@ var _on_wall: bool = false: # This variable mustn't be edited manually
 func _physics_process(_delta: float) -> void:
 	_on_wall = is_on_wall()
 	
+	if Input.is_action_pressed("timeslow"):
+			Engine.time_scale = 0.1
+	else :
+			Engine.time_scale = 1
 	sprite_animation()
 	sound_animation()
 
@@ -353,9 +357,8 @@ func try_play_new_anim(anim,rotation_=0.0) -> void:
 
 var en_train_de_tomber = false
 func sprite_animation() -> void:
-	Engine.time_scale = 1
 	if is_on_floor() :
-		if velocity.x == 0.0 :
+		if velocity.x > -40 and velocity.x < 40 :
 			try_play_new_anim("idle")
 		else :
 			if velocity.x > -100 and velocity.x < 100 :

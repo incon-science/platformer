@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://c07ghb70rt8ft"]
+
+[ext_resource type="Texture2D" uid="uid://bqk6rdvd68f2m" path="res://sprites/rooms/escalier.png" id="1_xoqhc"]
+[ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="2_x4p2d"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_lr8qc"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_fyuvr"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_1eobr"]
+[ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="6_x4p2d"]
+
+[sub_resource type="Resource" id="Resource_10ye1"]
+script = ExtResource("5_1eobr")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_265jx"]
+distance = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xoqhc"]
+size = Vector2(394, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4p2d"]
+size = Vector2(393, 127.5)
+
+[node name="escalier_room" type="Node2D" unique_id=274503240]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=801998414]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_xoqhc")
+
+[node name="Player" parent="." unique_id=2070335124 instance=ExtResource("2_x4p2d")]
+position = Vector2(-211, 450)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1469663831]
+physics_interpolation_mode = 1
+top_level = true
+position = Vector2(-211, 234)
+process_callback = 0
+limit_bottom = 594
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=810755211]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_lr8qc")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=111120746 node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(-211, 234)
+script = ExtResource("4_fyuvr")
+follow_mode = 5
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_10ye1")
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_bottom = 594
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1824018828]
+position = Vector2(-214, -174)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1318301113]
+position = Vector2(3, 680)
+shape = SubResource("WorldBoundaryShape2D_265jx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2123248166]
+position = Vector2(-461, 740)
+shape = SubResource("RectangleShape2D_xoqhc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1867713593]
+polygon = PackedVector2Array(139, 690, 140, 633, 161, 633, 165, 609, 191, 607, 192, 576, 212, 574, 212, 550, 237, 548, 238, 516, 258, 509, 259, 480, 283, 477, 285, 449, 305, 449, 308, 409, 326, 409, 334, 382, 350, 376, 353, 352, 374, 345, 379, 319, 393, 314, 401, 288, 424, 278, 425, 255, 439, 248, 447, 222, 467, 219, 471, 185, 489, 185, 495, 155, 521, 153, 522, 123, 543, 120, 549, 89, 566, 85, 570, 56, 589, 52, 587, 23, 589, 12, 674, 11, 674, 699)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1082121651]
+position = Vector2(855.5, 58)
+shape = SubResource("RectangleShape2D_x4p2d")
+
+[node name="ball" parent="." unique_id=2002415136 instance=ExtResource("6_x4p2d")]
+position = Vector2(414, -223)
+inertia = 10.0
+linear_velocity = Vector2(-10, 0)

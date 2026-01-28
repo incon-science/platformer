@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_j2cwt"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="6_4qwl1"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_ltygr"]
-[ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="7_j2cwt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_crkjd"]
 distance = -39.0
@@ -14,15 +13,7 @@ distance = -39.0
 [sub_resource type="Resource" id="Resource_7157o"]
 script = ExtResource("5_j2cwt")
 
-[node name="room_blueprint" type="Node2D" unique_id=277320518]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=967362121]
-visible = false
-offset_left = -18448.0
-offset_top = -20514.0
-offset_right = 23979.0
-offset_bottom = 14532.0
-color = Color(0.9098039, 0.9098039, 0.9098039, 1)
+[node name="room_blueprint" type="Node2D" unique_id=1528742533]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=417271694]
 position = Vector2(0.2869873, -82.90402)
@@ -33,6 +24,7 @@ texture = ExtResource("1_p0cym")
 position = Vector2(0.2869873, -82.90402)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1135400909]
+z_index = 1
 position = Vector2(1, 176)
 shape = SubResource("WorldBoundaryShape2D_crkjd")
 
@@ -40,37 +32,31 @@ shape = SubResource("WorldBoundaryShape2D_crkjd")
 position = Vector2(0.2869873, -82.90402)
 
 [node name="pt_blueprint" parent="pts" unique_id=314320358 instance=ExtResource("6_4qwl1")]
-position = Vector2(111, 123)
-
-[node name="pt_blueprint2" parent="pts" unique_id=116590227 instance=ExtResource("6_4qwl1")]
-position = Vector2(-100, 78)
+position = Vector2(159.71301, 120)
 
 [node name="pt_blueprint3" parent="pts" unique_id=642841483 instance=ExtResource("6_4qwl1")]
-position = Vector2(284, 16)
+position = Vector2(332.713, 13)
 
 [node name="pt_blueprint4" parent="pts" unique_id=699979611 instance=ExtResource("6_4qwl1")]
-position = Vector2(139, -126)
+position = Vector2(187.71301, -129)
 
 [node name="pt_blueprint6" parent="pts" unique_id=321910978 instance=ExtResource("6_4qwl1")]
-position = Vector2(-23, -196)
-
-[node name="pt_blueprint7" parent="pts" unique_id=429702536 instance=ExtResource("6_4qwl1")]
-position = Vector2(-23, -240)
-
-[node name="pt_blueprint8" parent="pts" unique_id=1605169318 instance=ExtResource("6_4qwl1")]
-position = Vector2(-23, -285)
+position = Vector2(25.713013, -199)
 
 [node name="pt_blueprint9" parent="pts" unique_id=760283771 instance=ExtResource("6_4qwl1")]
-position = Vector2(-132, -348)
+position = Vector2(-83.28699, -351)
 
 [node name="pt_blueprint10" parent="pts" unique_id=122834389 instance=ExtResource("6_4qwl1")]
-position = Vector2(94, -427)
+position = Vector2(115.71301, -432.09595)
 
 [node name="pt_blueprint11" parent="pts" unique_id=1590163472 instance=ExtResource("6_4qwl1")]
-position = Vector2(177, -470)
+position = Vector2(271.713, -476.09595)
 
 [node name="pt_blueprint12" parent="pts" unique_id=219194887 instance=ExtResource("6_4qwl1")]
-position = Vector2(261, -513)
+position = Vector2(355.713, -519.09595)
+
+[node name="pt_blueprint5" parent="pts" unique_id=920875960 instance=ExtResource("6_4qwl1")]
+position = Vector2(-4.2869873, 193.90402)
 
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 
@@ -78,12 +64,15 @@ position = Vector2(261, -513)
 top_level = true
 position = Vector2(0, -50)
 script = ExtResource("4_mu531")
-follow_mode = 2
+follow_mode = 5
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_7157o")
 follow_offset = Vector2(0, -50)
 follow_damping = true
 follow_damping_value = Vector2(1, 1)
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
 limit_left = -950
 limit_top = -1000
 limit_right = 950
@@ -99,12 +88,10 @@ limit_left = -950
 limit_top = -1000
 limit_right = 950
 limit_bottom = 330
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1226431024]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("6_ltygr")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
-
-[node name="ball" parent="." unique_id=2002415136 instance=ExtResource("7_j2cwt")]
-position = Vector2(-208, -211)

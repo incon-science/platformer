@@ -2,13 +2,33 @@
 
 [ext_resource type="Texture2D" uid="uid://dlm5ckn5uidyv" path="res://sprites/ball.png" id="1_ooewl"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ooewl"]
+bounce = 0.5
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dht28"]
-radius = 139.03236
+radius = 14.0
+
+[sub_resource type="Gradient" id="Gradient_ooewl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dht28"]
+gradient = SubResource("Gradient_ooewl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
 
 [node name="ball" type="RigidBody2D" unique_id=2002415136]
+physics_material_override = SubResource("PhysicsMaterial_ooewl")
+max_contacts_reported = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1746818905]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_ooewl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=96468265]
 shape = SubResource("CircleShape2D_dht28")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1672441485]
+texture = SubResource("GradientTexture2D_dht28")
+texture_scale = 0.6
