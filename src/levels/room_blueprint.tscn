@@ -16,6 +16,7 @@ script = ExtResource("5_j2cwt")
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=417271694]
+z_index = -2
 position = Vector2(0.2869873, -82.90402)
 scale = Vector2(0.274, 0.274)
 texture = ExtResource("1_p0cym")

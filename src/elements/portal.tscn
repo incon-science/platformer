@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bhno22n7k5cmv"]
+
+[ext_resource type="Texture2D" uid="uid://cja8bufkkrb3n" path="res://sprites/Dimensional_Portal.png" id="1_dlg23"]
+[ext_resource type="Script" uid="uid://bp14pkcgijb4t" path="res://src/elements/portal.gd" id="1_x8jcb"]
+[ext_resource type="Shader" uid="uid://dcr6h31dqnlky" path="res://shaders/outline.gdshader" id="2_v4510"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i26i4"]
+shader = ExtResource("2_v4510")
+shader_parameter/outline_color = Color(0, 0, 0, 0.21176471)
+shader_parameter/outline_size = 1.0
+shader_parameter/alpha_threshold = 0.0
+shader_parameter/outline_samples = 4
+shader_parameter/shade_color = Color(1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8jcb"]
+atlas = ExtResource("1_dlg23")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4510"]
+atlas = ExtResource("1_dlg23")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i26i4"]
+atlas = ExtResource("1_dlg23")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7rqh"]
+atlas = ExtResource("1_dlg23")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28ilu"]
+atlas = ExtResource("1_dlg23")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0qxu"]
+atlas = ExtResource("1_dlg23")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjlqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8jcb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4510")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i26i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7rqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28ilu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0qxu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_cy2nw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dlg23"]
+gradient = SubResource("Gradient_cy2nw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8000001, 0.20000002)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlg23"]
+size = Vector2(16, 69)
+
+[node name="portal" type="Area2D" unique_id=871669185]
+script = ExtResource("1_x8jcb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1361277709]
+material = SubResource("ShaderMaterial_i26i4")
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_vjlqy")
+autoplay = "default"
+frame_progress = 0.37745503
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1802170706]
+position = Vector2(-1.4305115e-06, -3.8146973e-06)
+scale = Vector2(0.6765464, 1.4497421)
+color = Color(0.5786111, 0.99999994, 0.44816893, 1)
+energy = 1.62
+texture = SubResource("GradientTexture2D_dlg23")
+texture_scale = 1.49
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=577988718]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_dlg23")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

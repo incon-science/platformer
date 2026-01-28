@@ -106,6 +106,7 @@ func _physics_process(_delta: float) -> void:
 			Engine.time_scale = 0.1
 	else :
 			Engine.time_scale = 1
+			
 	sprite_animation()
 	sound_animation()
 

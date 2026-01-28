@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_lbesy"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_ug60w"]
 [ext_resource type="PackedScene" uid="uid://c2jk0o1fmnmuq" path="res://src/vivants/mouse.tscn" id="6_jjfcg"]
+[ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="7_v2qre"]
 
 [sub_resource type="Resource" id="Resource_gdbuc"]
 script = ExtResource("5_ug60w")
@@ -33,12 +34,12 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_jgx4s")
 
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("2_jjfcg")]
-position = Vector2(-211, 450)
+position = Vector2(-303, 450)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1173661651]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(-211, 234)
+position = Vector2(-303, 234)
 process_callback = 0
 limit_bottom = 594
 editor_draw_limits = true
@@ -51,7 +52,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=224636324 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-211, 234)
+position = Vector2(-303, 234)
 script = ExtResource("4_lbesy")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -88,3 +89,15 @@ shape = SubResource("RectangleShape2D_lbesy")
 
 [node name="mouse" parent="." unique_id=278523563 instance=ExtResource("6_jjfcg")]
 position = Vector2(238, 444)
+
+[node name="portal" parent="." unique_id=1750795610 node_paths=PackedStringArray("portal_target") instance=ExtResource("7_v2qre")]
+z_index = -2
+position = Vector2(-210, 457)
+rotation = 1.5707964
+portal_target = NodePath("../portal2")
+
+[node name="portal2" parent="." unique_id=1331243644 node_paths=PackedStringArray("portal_target") instance=ExtResource("7_v2qre")]
+z_index = -2
+position = Vector2(-3, 457)
+rotation = 1.5707964
+portal_target = NodePath("../portal")
