@@ -102,13 +102,7 @@ var _on_wall: bool = false: # This variable mustn't be edited manually
 func _physics_process(_delta: float) -> void:
 	_on_wall = is_on_wall()
 	
-	if Input.is_action_pressed("timeslow"):
-			Engine.time_scale = 0.1
-	else :
-			Engine.time_scale = 1
-			
 	logic_gameplay()
-			
 	sprite_animation()
 	sound_animation()
 
@@ -170,15 +164,14 @@ func calculate_gravity_limit() -> float:
 func jump() -> void:
 	velocity.y = jump_velocity
 	apply_stretch()
+		
+	try_play_new_anim("jumpup")
+	jump_sound.play()
+	jump_particle.restart()
 
 func try_jump() -> void:
-	if Input.is_action_just_pressed("jump") and !is_inside_portal:
+	if Input.is_action_just_pressed("jump"):
 		jump()
-		
-		try_play_new_anim("jumpup")
-		jump_sound.play()
-		jump_particle.restart()
-
 
 func try_coyote_jump() -> void:
 	if not jump_coyote_timer.is_stopped():
@@ -227,14 +220,14 @@ func wall_jump() -> void:
 	apply_stretch()
 	
 	state_machine.activate_state_by_name.call_deferred("WallJumpState")
+		
+	try_play_new_anim("jumpup",0.33*wall_jump_dir)
+	walljump_sound.play()
+	jump_particle.restart()
 
 func try_wall_jump(ignore_wall: bool = false) -> void:
-	if Input.is_action_just_pressed("jump") and (is_on_wall() or ignore_wall) and !is_inside_portal:
+	if Input.is_action_just_pressed("jump") and (is_on_wall() or ignore_wall):
 		wall_jump()
-		
-		try_play_new_anim("jumpup",0.33* -get_last_wall_dir())
-		walljump_sound.play()
-		jump_particle.restart()
 
 func try_coyote_wall_jump() -> void:
 	if not wall_jump_coyote_timer.is_stopped():
@@ -354,12 +347,19 @@ func apply_stretch() -> void:
 var is_inside_portal : bool = false
 var save_velocity : Vector2
 
-func logic_gameplay():
+func portal_logic():
 	if !is_on_floor() and !is_on_wall():
 		save_velocity = velocity
 	else :
 		if !is_inside_portal:
 			save_velocity.y = -jump_velocity
+			
+func logic_gameplay():
+	if Input.is_action_pressed("timeslow"):
+			Engine.time_scale = 0.1
+	else :
+			Engine.time_scale = 1
+	portal_logic()
 	
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":
