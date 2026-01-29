@@ -67,6 +67,7 @@ fill_to = Vector2(0.8000001, 0.20000002)
 metadata/_snap_enabled = true
 
 [node name="mouse" type="CharacterBody2D" unique_id=278523563]
+z_index = 1
 script = ExtResource("1_cy2nw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=333972740]

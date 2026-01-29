@@ -107,6 +107,8 @@ func _physics_process(_delta: float) -> void:
 	else :
 			Engine.time_scale = 1
 			
+	logic_gameplay()
+			
 	sprite_animation()
 	sound_animation()
 
@@ -170,7 +172,7 @@ func jump() -> void:
 	apply_stretch()
 
 func try_jump() -> void:
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and !is_inside_portal:
 		jump()
 		
 		try_play_new_anim("jumpup")
@@ -227,7 +229,7 @@ func wall_jump() -> void:
 	state_machine.activate_state_by_name.call_deferred("WallJumpState")
 
 func try_wall_jump(ignore_wall: bool = false) -> void:
-	if Input.is_action_just_pressed("jump") and (is_on_wall() or ignore_wall):
+	if Input.is_action_just_pressed("jump") and (is_on_wall() or ignore_wall) and !is_inside_portal:
 		wall_jump()
 		
 		try_play_new_anim("jumpup",0.33* -get_last_wall_dir())
@@ -349,8 +351,16 @@ func apply_stretch() -> void:
 @onready var jump_particle: CPUParticles2D = $jump_particle
 @onready var ground_particle: CPUParticles2D = $ground_particle
 
+var is_inside_portal : bool = false
+var save_velocity : Vector2
 
-
+func logic_gameplay():
+	if !is_on_floor() and !is_on_wall():
+		save_velocity = velocity
+	else :
+		if !is_inside_portal:
+			save_velocity.y = -jump_velocity
+	
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":
 		sprite.rotation=rotation_
@@ -392,6 +402,8 @@ func sound_animation() -> void:
 		saut_en_cours_for_sound = true
 	if is_on_floor():
 		if saut_en_cours_for_sound :
-			land_sound.play()
+			if !is_inside_portal : land_sound.play()
 			saut_en_cours_for_sound = false
 			ground_particle.restart()
+			
+			
