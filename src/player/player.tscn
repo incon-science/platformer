@@ -282,6 +282,7 @@ metadata/_snap_count = 3
 
 [node name="Player" type="CharacterBody2D" unique_id=2070335124]
 z_index = 1
+collision_layer = 3
 script = ExtResource("1_4anbu")
 max_speed = 450.0
 max_h_velocity_ratio = 3.0
