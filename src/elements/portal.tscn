@@ -123,6 +123,9 @@ metadata/_snap_enabled = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i26i4"]
 size = Vector2(30, 90)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7rqh"]
+size = Vector2(104, 96)
+
 [node name="portal" type="Area2D" unique_id=871669185]
 script = ExtResource("1_x8jcb")
 
@@ -143,5 +146,10 @@ texture_scale = 1.49
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=577988718]
 shape = SubResource("RectangleShape2D_i26i4")
 
+[node name="no_jump" type="Area2D" parent="." unique_id=1983354250]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_jump" unique_id=1840828980]
+shape = SubResource("RectangleShape2D_p7rqh")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="no_jump" to="." method="_on_no_jump_body_entered"]

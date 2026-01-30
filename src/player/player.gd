@@ -150,7 +150,7 @@ func calculate_gravity() -> float:
 	return get_default_gravity() * (
 			jump_peak_gravity_ratio if not jump_peak_gravity_timer.is_stopped()
 			else after_dash_gravity_ratio if not after_dash_gravity_timer.is_stopped()
-			else jump_not_held_gravity_ratio if not Input.is_action_pressed("jump")
+			else jump_not_held_gravity_ratio if not Input.is_action_pressed("jump") or inside_nojump_portal
 			else down_held_gravity_ratio if Input.is_action_pressed("down") and velocity.y > 0
 			else 1.0
 	)
@@ -162,15 +162,13 @@ func calculate_gravity_limit() -> float:
 	)
 
 func jump() -> void:
-	"""if !is_inside_portal:
+	if !inside_nojump_portal:
 		velocity.y = jump_velocity
 		apply_stretch()
 			
 		try_play_new_anim("jumpup")
 		jump_sound.play()
 		jump_particle.restart()
-		print("jump")"""
-	pass
 
 func try_jump() -> void:
 	if Input.is_action_just_pressed("jump"):
@@ -347,14 +345,14 @@ func apply_stretch() -> void:
 @onready var jump_particle: CPUParticles2D = $jump_particle
 @onready var ground_particle: CPUParticles2D = $ground_particle
 
-var is_inside_portal : bool = false
+var inside_portal : bool = false
+var inside_nojump_portal : bool = false
 var save_velocity : Vector2
 func portal_logic():
 	if !is_on_floor() and !is_on_wall():
 		save_velocity = velocity
 	else :
-		if !is_inside_portal:
-			save_velocity.y = -jump_velocity
+		if !inside_portal : save_velocity.y = -jump_velocity
 			
 func logic_gameplay():
 	if Input.is_action_pressed("timeslow"):
@@ -402,9 +400,9 @@ func sound_animation() -> void:
 		
 	if velocity.y != 0.0 :
 		saut_en_cours_for_sound = true
-	if is_on_floor():
+	if is_on_floor() and !inside_nojump_portal:
 		if saut_en_cours_for_sound :
-			if !is_inside_portal : land_sound.play()
+			land_sound.play()
 			saut_en_cours_for_sound = false
 			ground_particle.restart()
 			

@@ -6,36 +6,30 @@ class_name Portal
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
 
-var exited = true
-
 func _ready() -> void:
 	if portal_reverse_color :
 		point_light_2d.color = "#f0d3ff"
 		animated_sprite_2d.play("reverse")
-
 func _process(delta: float) -> void:
 	pass
-	
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player :
-		body.stop_jump_timers()
-		
-		exited = false
-		if !body.is_inside_portal:
-			body.is_inside_portal = true 
+		if !body.inside_portal:
 			body.position = portal_target.global_position 
 			body.velocity.y = body.save_velocity.y * -1
-						
+			
+			body.inside_portal = true
+			
 			body.hide()
 			await get_tree().create_timer(0.02).timeout
 			body.show()
 			
+			await get_tree().create_timer(0.1).timeout
+			body.inside_portal = false
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_no_jump_body_entered(body: Node2D) -> void:
 	if body is Player :
-		body.stop_jump_timers()
-		
-		exited = true
-		if portal_target.exited :
-			body.is_inside_portal = false
-			
+		body.inside_nojump_portal = true
+		await get_tree().create_timer(0.5).timeout
+		body.inside_nojump_portal = false
