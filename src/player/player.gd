@@ -162,7 +162,7 @@ func calculate_gravity_limit() -> float:
 	)
 
 func jump() -> void:
-	if !is_zone_nojump_portal:
+	if !is_inside_portal:
 		velocity.y = jump_velocity
 		apply_stretch()
 			
@@ -348,7 +348,6 @@ func apply_stretch() -> void:
 
 var is_inside_portal : bool = false
 var save_velocity : Vector2
-var is_zone_nojump_portal : bool = false
 func portal_logic():
 	if !is_on_floor() and !is_on_wall():
 		save_velocity = velocity

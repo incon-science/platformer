@@ -5,7 +5,6 @@ class_name Portal
 @export var portal_reverse_color:bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
-@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
 var exited = true
 
@@ -15,21 +14,18 @@ func _ready() -> void:
 		animated_sprite_2d.play("reverse")
 
 func _process(delta: float) -> void:
-	if shape_cast_2d.is_colliding():
-		var body = shape_cast_2d.get_collider(0)
-		if body is Player:
-			body.is_zone_nojump_portal = true
-			await get_tree().create_timer(2).timeout
-			body.is_zone_nojump_portal = false
+	pass
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player :
+		body.stop_jump_timers()
+		
 		exited = false
 		if !body.is_inside_portal:
 			body.is_inside_portal = true 
 			body.position = portal_target.position
 			body.velocity.y = body.save_velocity.y * -1
-							
+						
 			body.hide()
 			await get_tree().create_timer(0.02).timeout
 			body.show()
@@ -37,6 +33,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player :
+		body.stop_jump_timers()
+		
 		exited = true
 		if portal_target.exited :
 			body.is_inside_portal = false
