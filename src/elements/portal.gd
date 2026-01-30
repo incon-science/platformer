@@ -34,3 +34,4 @@ func _on_body_exited(body: Node2D) -> void:
 		exited = true
 		if portal_target.exited :
 			body.is_inside_portal = false
+			
