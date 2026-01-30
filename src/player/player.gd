@@ -162,14 +162,15 @@ func calculate_gravity_limit() -> float:
 	)
 
 func jump() -> void:
-	if !is_inside_portal:
+	"""if !is_inside_portal:
 		velocity.y = jump_velocity
 		apply_stretch()
 			
 		try_play_new_anim("jumpup")
 		jump_sound.play()
 		jump_particle.restart()
-		print("jump")
+		print("jump")"""
+	pass
 
 func try_jump() -> void:
 	if Input.is_action_just_pressed("jump"):

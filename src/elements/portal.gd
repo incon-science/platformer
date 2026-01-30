@@ -23,7 +23,7 @@ func _on_body_entered(body: Node2D) -> void:
 		exited = false
 		if !body.is_inside_portal:
 			body.is_inside_portal = true 
-			body.position = portal_target.position
+			body.position = portal_target.global_position 
 			body.velocity.y = body.save_velocity.y * -1
 						
 			body.hide()
