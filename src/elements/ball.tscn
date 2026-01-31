@@ -18,9 +18,8 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8, 0.2)
 metadata/_snap_enabled = true
 
-[node name="ball" type="RigidBody2D" unique_id=2002415136]
+[node name="ball" type="RigidBody2D" unique_id=70415818]
 physics_material_override = SubResource("PhysicsMaterial_ooewl")
-max_contacts_reported = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1746818905]
 scale = Vector2(0.1, 0.1)

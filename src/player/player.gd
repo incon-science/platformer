@@ -400,7 +400,7 @@ func sound_animation() -> void:
 		
 	if velocity.y != 0.0 :
 		saut_en_cours_for_sound = true
-	if is_on_floor() and !inside_nojump_portal:
+	if is_on_floor() and !inside_portal:
 		if saut_en_cours_for_sound :
 			land_sound.play()
 			saut_en_cours_for_sound = false
