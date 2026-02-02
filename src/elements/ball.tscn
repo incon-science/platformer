@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://jitchrxcsgsf"]
 
+[ext_resource type="Script" uid="uid://cb1gity7t24by" path="res://src/elements/ball.gd" id="1_dht28"]
 [ext_resource type="Texture2D" uid="uid://dlm5ckn5uidyv" path="res://sprites/ball.png" id="1_ooewl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ooewl"]
-bounce = 0.5
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dht28"]
 radius = 14.0
@@ -20,6 +21,8 @@ metadata/_snap_enabled = true
 
 [node name="ball" type="RigidBody2D" unique_id=70415818]
 physics_material_override = SubResource("PhysicsMaterial_ooewl")
+can_sleep = false
+script = ExtResource("1_dht28")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1746818905]
 scale = Vector2(0.1, 0.1)

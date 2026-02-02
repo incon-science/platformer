@@ -27,6 +27,9 @@ func _on_body_entered(body: Node2D) -> void:
 			
 			await get_tree().create_timer(0.1).timeout
 			body.inside_portal = false
+	
+	if body is Ball :
+		body.go_teleport = portal_target.global_position
 
 func _on_no_jump_body_entered(body: Node2D) -> void:
 	if body is Player :

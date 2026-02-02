@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_3s88y"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_1qo4e"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_je0tm"]
+[ext_resource type="PackedScene" uid="uid://j3gcywxflkf1" path="res://src/tentacle/scenes/arm.tscn" id="6_1qo4e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uxlox"]
 
@@ -68,3 +69,8 @@ dead_zone_width = 0.5
 dead_zone_height = 0.5
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Arm" parent="." unique_id=1104907447 node_paths=PackedStringArray("target") instance=ExtResource("6_1qo4e")]
+position = Vector2(-1560, -1579)
+scale = Vector2(5, 5)
+target = NodePath("../Player")
