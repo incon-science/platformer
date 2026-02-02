@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_lbesy"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_ug60w"]
 [ext_resource type="PackedScene" uid="uid://c2jk0o1fmnmuq" path="res://src/vivants/mouse.tscn" id="6_jjfcg"]
-[ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="7_v2qre"]
 
 [sub_resource type="Resource" id="Resource_gdbuc"]
 script = ExtResource("5_ug60w")
@@ -89,14 +88,3 @@ shape = SubResource("RectangleShape2D_gdbuc")
 
 [node name="mouse" parent="." unique_id=278523563 instance=ExtResource("6_jjfcg")]
 position = Vector2(250, 455)
-
-[node name="portal" parent="." unique_id=1750795610 node_paths=PackedStringArray("portal_target") instance=ExtResource("7_v2qre")]
-position = Vector2(-210, 457)
-rotation = 1.5707964
-portal_target = NodePath("../portal2")
-
-[node name="portal2" parent="." unique_id=1331243644 node_paths=PackedStringArray("portal_target") instance=ExtResource("7_v2qre")]
-position = Vector2(-3, 457)
-rotation = 1.5707964
-portal_target = NodePath("../portal")
-portal_reverse_color = true

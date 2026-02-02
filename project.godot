@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="≅"
+config/name="black m"
 config/description="A feature-rich 2D platformer controller."
 run/main_scene="uid://bl14lcvp4g2nh"
 config/features=PackedStringArray("4.6", "GL Compatibility")

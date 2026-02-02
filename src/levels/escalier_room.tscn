@@ -14,7 +14,7 @@ script = ExtResource("5_1eobr")
 distance = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xoqhc"]
-size = Vector2(394, 200)
+size = Vector2(1101, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4p2d"]
 size = Vector2(393, 127.5)
@@ -64,7 +64,7 @@ position = Vector2(3, 680)
 shape = SubResource("WorldBoundaryShape2D_265jx")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2123248166]
-position = Vector2(-461, 740)
+position = Vector2(-814.5, 740)
 shape = SubResource("RectangleShape2D_xoqhc")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1867713593]
