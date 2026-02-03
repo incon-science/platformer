@@ -14,10 +14,17 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player :
+	if body is Player or body is Ball:
 		if !body.inside_portal:
-			body.position = portal_target.global_position 
-			body.velocity.y = body.save_velocity.y * -1
+			body.global_position = portal_target.global_position 
+			#body.velocity.y = body.save_velocity.y * -1
+			#body.velocity = body.velocity.rotated(portal_target.rotation)   
+			#body.velocity = body.save_velocity.bounce(Vector2(-1,0).rotated(portal_target.rotation))
+			var magnitude = body.save_velocity.length()
+			var vecteur_droit = Vector2(-magnitude,0)
+			var vecteur_rotated = vecteur_droit.rotated(portal_target.rotation)
+			body.velocity = vecteur_rotated
+			
 			
 			body.inside_portal = true
 			
@@ -28,8 +35,6 @@ func _on_body_entered(body: Node2D) -> void:
 			await get_tree().create_timer(0.1).timeout
 			body.inside_portal = false
 	
-	if body is Ball :
-		body.go_teleport = portal_target.global_position
 
 func _on_no_jump_body_entered(body: Node2D) -> void:
 	if body is Player :
