@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d0idjcg45flp4"]
 
 [ext_resource type="Texture2D" uid="uid://b42g5ijdmrwef" path="res://sprites/rooms/basik.png" id="1_nyvph"]
+[ext_resource type="Texture2D" uid="uid://6sperlai5t1p" path="res://sprites/rooms/ground.png" id="1_swwew"]
 [ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="2_swwew"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_nmdn2"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_shypv"]
@@ -27,6 +28,11 @@ size = Vector2(3, 604)
 
 [node name="basik_room" type="Node2D" unique_id=1997840322]
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1226718350]
+position = Vector2(-187, 208)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_swwew")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=4618226]
 position = Vector2(-202, 177.00002)
 scale = Vector2(0.2, 0.2)
@@ -41,7 +47,6 @@ top_level = true
 position = Vector2(-171, 234)
 process_callback = 0
 limit_bottom = 594
-editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=574010765]
 process_priority = 300
@@ -60,7 +65,6 @@ follow_damping = true
 follow_damping_value = Vector2(1, 1)
 dead_zone_width = 0.5
 dead_zone_height = 0.5
-draw_limits = true
 limit_bottom = 594
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
@@ -92,4 +96,9 @@ position = Vector2(410.5, 373)
 shape = SubResource("RectangleShape2D_nyvph")
 
 [node name="ball" parent="." unique_id=2080036255 instance=ExtResource("6_nyvph")]
-position = Vector2(-173, -144)
+position = Vector2(-581, -74)
+starting_vel = Vector2(100, 0)
+bouncing = true
+
+[node name="ball2" parent="." unique_id=1774326186 instance=ExtResource("6_nyvph")]
+position = Vector2(402, 377)

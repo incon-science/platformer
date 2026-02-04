@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name Ball
 
 var jump_velocity = 560
+@export var starting_vel = Vector2(0,0)
+@export var bouncing = false
 
 var inside_portal : bool = false
 var inside_nojump_portal : bool = false
@@ -11,7 +13,10 @@ func portal_logic():
 		save_velocity = velocity
 	else :
 		if !inside_portal : save_velocity.y = -jump_velocity
-
+		
+func _ready() -> void:
+	velocity = starting_vel
+	
 func _physics_process(delta: float) -> void:
 	portal_logic()
 	
@@ -20,9 +25,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	
-	if !inside_nojump_portal:
+	if !inside_nojump_portal and bouncing:
 		var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 		if collision:
 			var reflect = collision.get_remainder().bounce(collision.get_normal())
 			velocity = velocity.bounce(collision.get_normal())
 			move_and_collide(reflect)
+	elif !bouncing :
+		move_and_slide()

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://denjct5e4x1jd"]
+
+[ext_resource type="Texture2D" uid="uid://clfrcc3vsenmn" path="res://sprites/AnimationSheet_Character.png" id="1_ncwtw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7pen"]
+atlas = ExtResource("1_ncwtw")
+region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytytk"]
+atlas = ExtResource("1_ncwtw")
+region = Rect2(192, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfiml"]
+atlas = ExtResource("1_ncwtw")
+region = Rect2(224, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85alw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7pen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytytk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfiml")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cadavre" type="AnimatedSprite2D" unique_id=258405330]
+sprite_frames = SubResource("SpriteFrames_85alw")
