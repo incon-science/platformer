@@ -15,6 +15,9 @@ size = Vector2(1100, 1112)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1qo4e"]
 size = Vector2(1088, 1057)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je0tm"]
+size = Vector2(4747, 791)
+
 [sub_resource type="Resource" id="Resource_3s88y"]
 script = ExtResource("4_1qo4e")
 
@@ -37,6 +40,10 @@ shape = SubResource("RectangleShape2D_3s88y")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=929563367]
 position = Vector2(-1687, 55.5)
 shape = SubResource("RectangleShape2D_1qo4e")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=209706113]
+position = Vector2(71, -861)
+shape = SubResource("RectangleShape2D_je0tm")
 
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("2_wcg16")]
 unique_name_in_owner = true
@@ -65,6 +72,7 @@ follow_target = NodePath("../Player")
 zoom = Vector2(0.25, 0.25)
 tween_resource = SubResource("Resource_3s88y")
 follow_damping = true
+follow_damping_value = Vector2(1, 1)
 dead_zone_width = 0.5
 dead_zone_height = 0.5
 draw_limits = true

@@ -384,6 +384,9 @@ func sprite_animation() -> void:
 	if en_train_de_tomber and is_on_floor():
 		try_play_new_anim("jumpground")
 		en_train_de_tomber = false
+		
+	if inside_portal:
+		try_play_new_anim("teleport")
 			
 var saut_en_cours_for_sound = false
 func sound_animation() -> void:

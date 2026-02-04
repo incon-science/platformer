@@ -5,6 +5,7 @@ class_name Portal
 @export var portal_reverse_color:bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
+@onready var sound: AudioStreamPlayer2D = $sound
 
 func _ready() -> void:
 	if portal_reverse_color :
@@ -28,6 +29,8 @@ func _on_body_entered(body: Node2D) -> void:
 			
 			body.inside_portal = true
 			
+			sound.play()
+			
 			body.hide()
 			await get_tree().create_timer(0.02).timeout
 			body.show()
@@ -38,6 +41,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_no_jump_body_entered(body: Node2D) -> void:
 	if body is Player :
+		
 		body.inside_nojump_portal = true
 		await get_tree().create_timer(0.5).timeout
 		body.inside_nojump_portal = false
