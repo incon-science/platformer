@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_uyhl4"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_jj565"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_v5qbg"]
-[ext_resource type="PackedScene" uid="uid://j3gcywxflkf1" path="res://src/tentacle/scenes/arm.tscn" id="8_v5qbg"]
 [ext_resource type="PackedScene" uid="uid://do35bbyy0qllr" path="res://src/platforms/platform.tscn" id="9_v5qbg"]
 
 [sub_resource type="Resource" id="Resource_fepdi"]
@@ -98,11 +97,6 @@ follow_damping_value = Vector2(1, 1)
 dead_zone_width = 0.5
 dead_zone_height = 0.5
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
-
-[node name="Arm" parent="." unique_id=1104907447 node_paths=PackedStringArray("target") instance=ExtResource("8_v5qbg")]
-position = Vector2(-597, -991)
-scale = Vector2(3, 3)
-target = NodePath("../Player")
 
 [node name="platform" parent="." unique_id=1864631675 instance=ExtResource("9_v5qbg")]
 position = Vector2(387, 8)
