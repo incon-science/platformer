@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dhmslis0y0ejr" path="res://src/levels/blackwhite_room.tscn" id="15_1rkoo"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="16_nfd4m"]
 [ext_resource type="PackedScene" uid="uid://dr4h3pc0jii81" path="res://src/elements/fractale.tscn" id="17_p2ed6"]
+[ext_resource type="Texture2D" uid="uid://b5ysjxsq5dsto" path="res://sprites/rooms/DOOR.png" id="18_tnyhu"]
 [ext_resource type="PackedScene" uid="uid://cpvhasyan240q" path="res://src/elements/cadavre_exquis.tscn" id="19_76snk"]
 [ext_resource type="PackedScene" uid="uid://b05muqmrcfpjp" path="res://src/levels/bouche_degout.tscn" id="19_hwdj1"]
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="21_n78m8"]
@@ -31,14 +32,15 @@ size = Vector2(6836, 53)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7157o"]
 size = Vector2(1307.3567, 21.999954)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1fom"]
+size = Vector2(466.64352, 12863)
+
 [sub_resource type="Gradient" id="Gradient_76snk"]
 offsets = PackedFloat32Array(0, 0.98214287, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.26190478, 0.26190478, 0.26190478, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n78m8"]
 gradient = SubResource("Gradient_76snk")
-
-[sub_resource type="FontVariation" id="FontVariation_p2ed6"]
 
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
@@ -87,6 +89,7 @@ follow_damping_value = Vector2(0.5, 0.5)
 dead_zone_width = 0.5
 dead_zone_height = 0.5
 draw_limits = true
+limit_left = -2712
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
@@ -110,6 +113,7 @@ physics_interpolation_mode = 1
 top_level = true
 position = Vector2(-461, -105)
 process_callback = 0
+limit_left = -2712
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1226431024]
@@ -128,45 +132,49 @@ texture = ExtResource("2_ltygr")
 [node name="jump_room" parent="Structure" unique_id=864433486 instance=ExtResource("3_7ls7j")]
 position = Vector2(5434, -1407.38)
 
-[node name="sol collision & balcon" type="StaticBody2D" parent="Structure" unique_id=1344861902]
+[node name="sol collision & balcon & door" type="StaticBody2D" parent="Structure" unique_id=1344861902]
 position = Vector2(0.2869873, -82.90402)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Structure/sol collision & balcon" unique_id=1135400909]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Structure/sol collision & balcon & door" unique_id=1135400909]
 z_index = 1
 position = Vector2(-87.28699, 233.40402)
 shape = SubResource("RectangleShape2D_76snk")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Structure/sol collision & balcon" unique_id=2020693134]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Structure/sol collision & balcon & door" unique_id=2020693134]
 z_index = 1
 position = Vector2(6844.713, 230.90402)
 shape = SubResource("RectangleShape2D_76snk")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Structure/sol collision & balcon" unique_id=150459240]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Structure/sol collision & balcon & door" unique_id=150459240]
 z_index = 1
 position = Vector2(9173.713, 230.90402)
 shape = SubResource("RectangleShape2D_76snk")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Structure/sol collision & balcon" unique_id=587111306]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Structure/sol collision & balcon & door" unique_id=587111306]
 position = Vector2(1768.035, -850.5)
 shape = SubResource("RectangleShape2D_7157o")
 
-[node name="pt_blueprint" parent="Structure/sol collision & balcon" unique_id=920875960 instance=ExtResource("16_nfd4m")]
+[node name="pt_blueprint" parent="Structure/sol collision & balcon & door" unique_id=920875960 instance=ExtResource("16_nfd4m")]
 position = Vector2(12618.713, 175.90402)
 
-[node name="pt_blueprint2" parent="Structure/sol collision & balcon" unique_id=910585693 instance=ExtResource("16_nfd4m")]
+[node name="pt_blueprint2" parent="Structure/sol collision & balcon & door" unique_id=910585693 instance=ExtResource("16_nfd4m")]
 position = Vector2(12620.713, 123.90402)
 
-[node name="pt_blueprint3" parent="Structure/sol collision & balcon" unique_id=677743539 instance=ExtResource("16_nfd4m")]
+[node name="pt_blueprint3" parent="Structure/sol collision & balcon & door" unique_id=677743539 instance=ExtResource("16_nfd4m")]
 position = Vector2(12618.713, 76.90402)
 
-[node name="pt_blueprint4" parent="Structure/sol collision & balcon" unique_id=511748334 instance=ExtResource("16_nfd4m")]
+[node name="pt_blueprint4" parent="Structure/sol collision & balcon & door" unique_id=511748334 instance=ExtResource("16_nfd4m")]
 position = Vector2(12617.713, 34.904022)
 
-[node name="pt_blueprint5" parent="Structure/sol collision & balcon" unique_id=726854834 instance=ExtResource("16_nfd4m")]
+[node name="pt_blueprint5" parent="Structure/sol collision & balcon & door" unique_id=726854834 instance=ExtResource("16_nfd4m")]
 position = Vector2(12591.713, -10.095978)
 
-[node name="pt_blueprint6" parent="Structure/sol collision & balcon" unique_id=640792385 instance=ExtResource("16_nfd4m")]
+[node name="pt_blueprint6" parent="Structure/sol collision & balcon & door" unique_id=640792385 instance=ExtResource("16_nfd4m")]
 position = Vector2(12529.713, -42.095978)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Structure/sol collision & balcon & door" unique_id=252062872]
+position = Vector2(-2480.609, -6205.596)
+shape = SubResource("RectangleShape2D_f1fom")
 
 [node name="platforms" type="Node2D" parent="Structure" unique_id=1655471774]
 
@@ -322,7 +330,7 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(13044, -2616, 12194, -2731, 11950, -2731, 12221, -2460, 12653, -2336, 12795, -2143, 12947, -1798, 12910, -1518, 12676, -1495, 12759, -1261, 12777, -1059, 12814, -829, 12952, -797, 13099, -567, 13093, -544, 13084, -519, 13084, -517, 14060, -186)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Structure/right_decor" unique_id=1030167250]
-polygon = PackedVector2Array(13044, -2616, 12194, -2731, 11950, -2731, 12221, -2460, 12653, -2336, 12795, -2143, 12947, -1798, 12910, -1518, 12676, -1495, 12759, -1261, 12777, -1059, 12814, -829, 12952, -797, 13080, -609, 13100, -571, 13090, -535, 13084, -515, 14063, -188)
+polygon = PackedVector2Array(13044, -2616, 12194, -2731, 11950, -2731, 12221, -2460, 12653, -2336, 12795, -2143, 12947, -1798, 12910, -1518, 12676, -1495, 12759, -1261, 12777, -1059, 12814, -829, 12952, -797, 12970, -778, 12989, -747, 13007, -722, 13021, -700, 13911, -537)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Structure/right_decor" unique_id=1349891364]
 polygon = PackedVector2Array(12986, 182, 12958, 43, 13008, -13, 13056, -430, 14081, -90, 15341, -160, 13050, 922, 12973, 815)
@@ -394,17 +402,18 @@ position = Vector2(12755, -713)
 [node name="basik_room2" parent="Structure" unique_id=1997840322 instance=ExtResource("2_ypife")]
 position = Vector2(15318, -429)
 
-[node name="Label" type="Label" parent="." unique_id=1586135999]
-z_index = 2
-offset_left = -1915.0
-offset_top = 16.0
-offset_right = 35.0
-offset_bottom = 115.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = SubResource("FontVariation_p2ed6")
-theme_override_font_sizes/font_size = 72
-text = "find me"
-horizontal_alignment = 1
+[node name="door" type="Node2D" parent="Structure" unique_id=144549061]
+
+[node name="DOOR" type="Sprite2D" parent="Structure/door" unique_id=788111329]
+position = Vector2(-808, -77.00001)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("18_tnyhu")
+
+[node name="Line2D" type="Line2D" parent="Structure/door" unique_id=1056411248]
+position = Vector2(0, 5)
+points = PackedVector2Array(-2053, -214, -2057, -7235)
+width = 5.0
+default_color = Color(0, 0, 0, 1)
 
 [node name="portals" type="Node2D" parent="." unique_id=1879768166]
 
