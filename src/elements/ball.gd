@@ -4,6 +4,7 @@ class_name Ball
 var jump_velocity = 560
 @export var starting_vel = Vector2(0,0)
 @export var bouncing = false
+@onready var bouing: AudioStreamPlayer2D = $bouing
 
 var inside_portal : bool = false
 var inside_nojump_portal : bool = false
@@ -31,5 +32,6 @@ func _physics_process(delta: float) -> void:
 			var reflect = collision.get_remainder().bounce(collision.get_normal())
 			velocity = velocity.bounce(collision.get_normal())
 			move_and_collide(reflect)
+			bouing.play()
 	elif !bouncing :
 		move_and_slide()

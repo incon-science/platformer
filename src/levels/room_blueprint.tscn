@@ -394,36 +394,16 @@ position = Vector2(12755, -713)
 [node name="basik_room2" parent="Structure" unique_id=1997840322 instance=ExtResource("2_ypife")]
 position = Vector2(15318, -429)
 
-[node name="otherfractalzone" type="Node2D" parent="Structure" unique_id=1365806110]
-
-[node name="pt_blueprint" parent="Structure/otherfractalzone" unique_id=1217233792 instance=ExtResource("16_nfd4m")]
-position = Vector2(6314, 1681)
-
-[node name="pt_blueprint2" parent="Structure/otherfractalzone" unique_id=1577702235 instance=ExtResource("16_nfd4m")]
-position = Vector2(6471, 1570)
-
-[node name="pt_blueprint3" parent="Structure/otherfractalzone" unique_id=692917152 instance=ExtResource("16_nfd4m")]
-position = Vector2(6582, 1419)
-
-[node name="pt_blueprint4" parent="Structure/otherfractalzone" unique_id=469413963 instance=ExtResource("16_nfd4m")]
-position = Vector2(6309, 1403)
-
-[node name="pt_blueprint5" parent="Structure/otherfractalzone" unique_id=359532499 instance=ExtResource("16_nfd4m")]
-position = Vector2(6137, 1318)
-
-[node name="pt_blueprint6" parent="Structure/otherfractalzone" unique_id=44198226 instance=ExtResource("16_nfd4m")]
-position = Vector2(5900, 1232)
-
 [node name="Label" type="Label" parent="." unique_id=1586135999]
 z_index = 2
-offset_left = 3231.0
-offset_top = 1728.0
-offset_right = 5181.0
-offset_bottom = 1827.0
+offset_left = -1915.0
+offset_top = 16.0
+offset_right = 35.0
+offset_bottom = 115.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_p2ed6")
 theme_override_font_sizes/font_size = 72
-text = "find_me 👁"
+text = "find me"
 horizontal_alignment = 1
 
 [node name="portals" type="Node2D" parent="." unique_id=1879768166]
@@ -438,6 +418,16 @@ portal_reverse_color = true
 position = Vector2(7962, 116)
 rotation = 1.5707964
 portal_target = NodePath("../portal")
+
+[node name="portalHAUT" parent="portals" unique_id=1311602281 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
+position = Vector2(-668.99994, 2389.0002)
+rotation = -3.1398473
+portal_target = NodePath("../portalHAUT2")
+
+[node name="portalHAUT2" parent="portals" unique_id=1307065446 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
+position = Vector2(12440, -2804)
+rotation = 3.9269907
+portal_target = NodePath("../portalHAUT")
 
 [node name="cadavres" type="Node2D" parent="." unique_id=430257683]
 
@@ -459,4 +449,4 @@ position = Vector2(8112, -2092)
 position = Vector2(4047, -194)
 
 [node name="fractale3" parent="fractals" unique_id=754536176 instance=ExtResource("17_p2ed6")]
-position = Vector2(5904, 1198)
+position = Vector2(12018, -2740)
