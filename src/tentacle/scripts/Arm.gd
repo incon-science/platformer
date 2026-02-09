@@ -132,7 +132,7 @@ func _physics_process(delta: float) -> void:
 		var decalage_reverse = decalage*Vector2(-1,-1)/scale
 		target_pos = decalage_reverse+Vector2(256,256)
 	else :
-		var decalage = global_position-$"../../Player".global_position+((Vector2(512,512)/2)*scale)
+		var decalage = global_position-$"../../../Player".global_position+((Vector2(512,512)/2)*scale)
 		var decalage_reverse = decalage*Vector2(-1,-1)/scale
 		target_pos = decalage_reverse+Vector2(256,256)
 	

@@ -18,7 +18,7 @@ position = Vector2(-3, -696)
 position = Vector2(155.5, 715.5)
 shape = SubResource("RectangleShape2D_gy0ak")
 
-[node name="Arm" parent="." unique_id=1104907447 node_paths=PackedStringArray("target") instance=ExtResource("6_1qo4e")]
+[node name="Arm" parent="." unique_id=1104907447 instance=ExtResource("6_1qo4e")]
+z_index = 1
 position = Vector2(-1560, -1579)
 scale = Vector2(5, 5)
-target = NodePath("")

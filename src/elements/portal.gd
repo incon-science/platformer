@@ -9,7 +9,7 @@ class_name Portal
 
 func _ready() -> void:
 	if portal_reverse_color :
-		point_light_2d.color = "#f0d3ff"
+		point_light_2d.color = Color("d477ffff")
 		animated_sprite_2d.play("reverse")
 func _process(delta: float) -> void:
 	pass

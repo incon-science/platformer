@@ -27,8 +27,9 @@ size = Vector3(48, 64, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_4anbu"]
 size = Vector3(16, 16, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnmj6"]
-size = Vector2(32, 62)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jcdrv"]
+radius = 18.0
+height = 62.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2smqc"]
 atlas = ExtResource("12_jcdrv")
@@ -351,9 +352,20 @@ fill_to = Vector2(0.85714287, 0.14285715)
 metadata/_snap_enabled = true
 metadata/_snap_count = 3
 
+[sub_resource type="Gradient" id="Gradient_hja65"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5shm8"]
+gradient = SubResource("Gradient_hja65")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
+
 [node name="Player" type="CharacterBody2D" unique_id=2070335124]
-z_index = 1
+z_index = 5
 collision_layer = 3
+floor_snap_length = 2.0
 script = ExtResource("1_4anbu")
 max_speed = 450.0
 max_h_velocity_ratio = 3.0
@@ -415,8 +427,9 @@ position = Vector2(-5, -44)
 mesh = SubResource("BoxMesh_4anbu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656249480]
+z_index = 1
 position = Vector2(0, -31)
-shape = SubResource("RectangleShape2D_qnmj6")
+shape = SubResource("CapsuleShape2D_jcdrv")
 
 [node name="StateMachine" type="Node" parent="." unique_id=2054057317 node_paths=PackedStringArray("target_node", "default_state")]
 script = ExtResource("2_rxibo")
@@ -508,7 +521,7 @@ one_shot = true
 position = Vector2(0, -36)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_j2873")
-animation = &"teleport"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=703265265]
@@ -538,6 +551,11 @@ stream = SubResource("AudioStreamRandomizer_h0enb")
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=479851347]
 position = Vector2(0, -32)
 texture = SubResource("GradientTexture2D_hja65")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1117608192]
+position = Vector2(0, -41)
+texture = SubResource("GradientTexture2D_5shm8")
+texture_scale = 17.35
 
 [connection signal="wall_entered" from="." to="." method="_on_wall_entered"]
 [connection signal="wall_exited" from="." to="." method="_on_wall_exited"]

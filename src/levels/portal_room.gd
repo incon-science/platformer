@@ -1,4 +1,5 @@
 extends Node2D
+@onready var player: Player = %Player
 
 #@onready var player: Player = $Player
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -11,7 +12,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-	"""if player.global_position.y < -178 :
-		sprite_2d.z_index = 2
-	else :
-		sprite_2d.z_index = 0"""

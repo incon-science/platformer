@@ -43,7 +43,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qshff"]
-size = Vector2(3601, 15)
+size = Vector2(1934.0298, 15)
 
 [node name="blackwhite_room" type="Node2D" unique_id=1082967431]
 
@@ -73,9 +73,9 @@ speed_scale = 0.1
 position = Vector2(32.529785, -413.62503)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1221338130]
-position = Vector2(-1621, 405)
+position = Vector2(-787.5149, 405)
 shape = SubResource("RectangleShape2D_qshff")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1277190941]
-position = Vector2(3478.4702, 404.5)
+position = Vector2(2637.4702, 404.5)
 shape = SubResource("RectangleShape2D_qshff")

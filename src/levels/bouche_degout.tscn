@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b05muqmrcfpjp"]
+
+[ext_resource type="Texture2D" uid="uid://ds23ynuqkc3" path="res://sprites/rooms/TUNNEL.png" id="1_kvi24"]
+
+[node name="bouche degout" type="Node2D" unique_id=666465979]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=810955225]
+texture = ExtResource("1_kvi24")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=953189899]
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=916409187]
+polygon = PackedVector2Array(-11, -2381, -18, -1641, -543, -1648, -543, -1473, 540, -1446, 540, -295, -845, -262, -832, -67, 937, -67, 944, 848, 2269, 795, 1442, -1984)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1536434695]
+polygon = PackedVector2Array(-375, -2374, -368, -1964, -839, -1984, -839, -1055, 157, -1049, 150, -807, -1195, -813, -1189, 418, 587, 418, 594, 761, -2278, 552, -1976, -1796)
