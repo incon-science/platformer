@@ -12,9 +12,6 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8000001, 0.20000002)
 metadata/_snap_enabled = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6s3g"]
-size = Vector2(56, 32)
-
 [node name="fractale" type="RigidBody2D" unique_id=764819064]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=861767194]
@@ -22,8 +19,10 @@ scale = Vector2(0.033, 0.033)
 texture = ExtResource("1_k6s3g")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=774169807]
+color = Color(1, 0.24705882, 0, 1)
+energy = 3.95
 texture = SubResource("GradientTexture2D_k6s3g")
-texture_scale = 0.96
+texture_scale = 1.4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020229240]
-shape = SubResource("RectangleShape2D_k6s3g")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1305410271]
+polygon = PackedVector2Array(-22, 19, 0, -20, 23, 20)

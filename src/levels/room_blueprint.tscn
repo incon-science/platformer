@@ -2,12 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://6sperlai5t1p" path="res://sprites/rooms/ground.png" id="1_p0cym"]
 [ext_resource type="Texture2D" uid="uid://cbca72wf68jj6" path="res://sprites/rooms/balcon.png" id="2_ltygr"]
+[ext_resource type="PackedScene" uid="uid://d0idjcg45flp4" path="res://src/levels/basik_room.tscn" id="2_ypife"]
 [ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="3_4j1ba"]
+[ext_resource type="PackedScene" uid="uid://chfqb1iho3vax" path="res://src/levels/jump_room.tscn" id="3_7ls7j"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_mu531"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_j2cwt"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_ltygr"]
 [ext_resource type="PackedScene" uid="uid://dayo7lbiwbhw3" path="res://src/elements/tas_de_cadavre.tscn" id="7_j2cwt"]
 [ext_resource type="PackedScene" uid="uid://do35bbyy0qllr" path="res://src/platforms/platform.tscn" id="8_ltygr"]
+[ext_resource type="PackedScene" uid="uid://bl14lcvp4g2nh" path="res://src/levels/room_1.tscn" id="9_7157o"]
+[ext_resource type="PackedScene" uid="uid://c07ghb70rt8ft" path="res://src/levels/escalier_room.tscn" id="12_7ls7j"]
+[ext_resource type="PackedScene" uid="uid://dhihe4rrnqw3d" path="res://src/levels/transition_rooms.tscn" id="13_h1car"]
+[ext_resource type="PackedScene" uid="uid://cekaf18v66rc3" path="res://src/levels/portal_room.tscn" id="14_lqwi2"]
+[ext_resource type="PackedScene" uid="uid://dhmslis0y0ejr" path="res://src/levels/blackwhite_room.tscn" id="15_1rkoo"]
+[ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="16_nfd4m"]
+[ext_resource type="PackedScene" uid="uid://dr4h3pc0jii81" path="res://src/elements/fractale.tscn" id="17_p2ed6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_crkjd"]
 distance = -39.0
@@ -18,25 +27,110 @@ size = Vector2(1307.3567, 21.999954)
 [sub_resource type="Resource" id="Resource_7157o"]
 script = ExtResource("5_j2cwt")
 
+[sub_resource type="FontVariation" id="FontVariation_p2ed6"]
+
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=417271694]
+[node name="basik_room" parent="." unique_id=1997840322 instance=ExtResource("2_ypife")]
+position = Vector2(459, -779)
+
+[node name="jump_room" parent="." unique_id=864433486 instance=ExtResource("3_7ls7j")]
+position = Vector2(5434, -1407.38)
+
+[node name="grounds" type="Node2D" parent="." unique_id=1342394230]
+position = Vector2(-1537, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="grounds" unique_id=417271694]
 position = Vector2(0.2869873, -82.90402)
 scale = Vector2(0.274, 0.274)
 texture = ExtResource("1_p0cym")
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=26605865]
+[node name="Sprite2D4" type="Sprite2D" parent="grounds" unique_id=26605865]
 position = Vector2(-1816, -82.90402)
 scale = Vector2(0.274, 0.274)
 texture = ExtResource("1_p0cym")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=548388051]
+[node name="Sprite2D3" type="Sprite2D" parent="grounds" unique_id=548388051]
 position = Vector2(1837, -82.90402)
 scale = Vector2(0.274, 0.274)
 texture = ExtResource("1_p0cym")
 
+[node name="Sprite2D5" type="Sprite2D" parent="grounds" unique_id=1905093213]
+position = Vector2(3690, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="grounds2" type="Node2D" parent="." unique_id=819938893]
+position = Vector2(13118, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="grounds2" unique_id=414461017]
+position = Vector2(0.2869873, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D4" type="Sprite2D" parent="grounds2" unique_id=684922060]
+position = Vector2(-1816, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D3" type="Sprite2D" parent="grounds2" unique_id=917710108]
+position = Vector2(1837, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D5" type="Sprite2D" parent="grounds2" unique_id=1224982935]
+position = Vector2(3690, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="grounds4" type="Node2D" parent="." unique_id=145267647]
+position = Vector2(20472, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="grounds4" unique_id=83439519]
+position = Vector2(0.2869873, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D4" type="Sprite2D" parent="grounds4" unique_id=1576528854]
+position = Vector2(-1816, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D3" type="Sprite2D" parent="grounds4" unique_id=1061838194]
+position = Vector2(1837, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D5" type="Sprite2D" parent="grounds4" unique_id=4514921]
+position = Vector2(3690, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="grounds3" type="Node2D" parent="." unique_id=362431471]
+position = Vector2(5802, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="grounds3" unique_id=1163333370]
+position = Vector2(0.2869873, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D4" type="Sprite2D" parent="grounds3" unique_id=2119556278]
+position = Vector2(-1816, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D3" type="Sprite2D" parent="grounds3" unique_id=2063065609]
+position = Vector2(1837, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Sprite2D5" type="Sprite2D" parent="grounds3" unique_id=729455195]
+position = Vector2(3690, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1245590761]
-position = Vector2(1966.0001, -986.0001)
+position = Vector2(1966.0001, -983.90405)
 scale = Vector2(0.274, 0.274)
 texture = ExtResource("2_ltygr")
 
@@ -49,10 +143,11 @@ position = Vector2(1, 176)
 shape = SubResource("WorldBoundaryShape2D_crkjd")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=587111306]
-position = Vector2(1768.0347, -852.09595)
+position = Vector2(1768.035, -850.5)
 shape = SubResource("RectangleShape2D_7157o")
 
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
+unique_name_in_owner = true
 position = Vector2(-185, 86)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
@@ -63,7 +158,7 @@ follow_mode = 2
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_7157o")
 follow_damping = true
-follow_damping_value = Vector2(1, 1)
+follow_damping_value = Vector2(0.5, 0.5)
 dead_zone_width = 0.5
 dead_zone_height = 0.5
 draw_limits = true
@@ -157,3 +252,105 @@ position = Vector2(477, -537)
 
 [node name="platform23" parent="platforms" unique_id=1988088916 instance=ExtResource("8_ltygr")]
 position = Vector2(970, -922)
+
+[node name="room_1" parent="." unique_id=424883610 instance=ExtResource("9_7157o")]
+position = Vector2(3427, -1011)
+
+[node name="escalier_room" parent="." unique_id=274503240 instance=ExtResource("12_7ls7j")]
+position = Vector2(7294, -1801)
+
+[node name="transition_rooms" parent="." unique_id=645547803 instance=ExtResource("13_h1car")]
+position = Vector2(13264, -2438)
+
+[node name="portal_room" parent="." unique_id=875074383 instance=ExtResource("14_lqwi2")]
+position = Vector2(9188, -2266)
+
+[node name="blackwhite_room" parent="." unique_id=1082967431 instance=ExtResource("15_1rkoo")]
+position = Vector2(17381, -2428.89)
+
+[node name="platforms2" type="Node2D" parent="." unique_id=1963545505]
+
+[node name="platform" parent="platforms2" unique_id=1644386289 instance=ExtResource("8_ltygr")]
+position = Vector2(18277, -2612)
+
+[node name="pt_blueprint" parent="platforms2" unique_id=920875960 instance=ExtResource("16_nfd4m")]
+position = Vector2(18386, -2674)
+
+[node name="platform2" parent="platforms2" unique_id=397715015 instance=ExtResource("8_ltygr")]
+position = Vector2(18222, -2535)
+
+[node name="platform3" parent="platforms2" unique_id=526224925 instance=ExtResource("8_ltygr")]
+position = Vector2(18135, -2475)
+
+[node name="pt_blueprint2" parent="platforms2" unique_id=650518680 instance=ExtResource("16_nfd4m")]
+position = Vector2(18254, -2783)
+
+[node name="pt_blueprint3" parent="platforms2" unique_id=1280928187 instance=ExtResource("16_nfd4m")]
+position = Vector2(18194, -2832)
+
+[node name="pt_blueprint4" parent="platforms2" unique_id=886579625 instance=ExtResource("16_nfd4m")]
+position = Vector2(18191, -2880)
+
+[node name="pt_blueprint5" parent="platforms2" unique_id=1065264241 instance=ExtResource("16_nfd4m")]
+position = Vector2(18192, -2931)
+
+[node name="pt_blueprint6" parent="platforms2" unique_id=1071831860 instance=ExtResource("16_nfd4m")]
+position = Vector2(18194, -2986)
+
+[node name="pt_blueprint7" parent="platforms2" unique_id=1089894620 instance=ExtResource("16_nfd4m")]
+position = Vector2(18380, -2927)
+
+[node name="pt_blueprint8" parent="platforms2" unique_id=54064588 instance=ExtResource("16_nfd4m")]
+position = Vector2(18380, -2964)
+
+[node name="pt_blueprint9" parent="platforms2" unique_id=1969644773 instance=ExtResource("16_nfd4m")]
+position = Vector2(18381, -3009)
+
+[node name="pt_blueprint10" parent="platforms2" unique_id=1825448677 instance=ExtResource("16_nfd4m")]
+position = Vector2(18381, -3062)
+
+[node name="pt_blueprint11" parent="platforms2" unique_id=1700648612 instance=ExtResource("16_nfd4m")]
+position = Vector2(18190, -3110)
+
+[node name="pt_blueprint12" parent="platforms2" unique_id=1216309740 instance=ExtResource("16_nfd4m")]
+position = Vector2(18191, -3143)
+
+[node name="pt_blueprint13" parent="platforms2" unique_id=878729647 instance=ExtResource("16_nfd4m")]
+position = Vector2(18136, -3167)
+
+[node name="pt_blueprint14" parent="platforms2" unique_id=306091697 instance=ExtResource("16_nfd4m")]
+position = Vector2(18054, -3167)
+
+[node name="fractale" parent="." unique_id=764819064 instance=ExtResource("17_p2ed6")]
+position = Vector2(18054, -3211)
+
+[node name="Label" type="Label" parent="." unique_id=1586135999]
+offset_left = 12316.0
+offset_top = -2538.0
+offset_right = 14266.0
+offset_bottom = -2439.0
+theme_override_colors/font_color = Color(0.47397572, 0.47397572, 0.47397572, 1)
+theme_override_fonts/font = SubResource("FontVariation_p2ed6")
+theme_override_font_sizes/font_size = 72
+text = "Alors qu'il s'attelait à retrouver les pi_ces du fractal..."
+
+[node name="platformssecret" type="Node2D" parent="." unique_id=1767933462]
+position = Vector2(0, -93)
+
+[node name="pt_blueprint" parent="platformssecret" unique_id=1641984760 instance=ExtResource("16_nfd4m")]
+position = Vector2(3684, -429)
+
+[node name="pt_blueprint2" parent="platformssecret" unique_id=277426979 instance=ExtResource("16_nfd4m")]
+position = Vector2(3796, -296)
+
+[node name="pt_blueprint3" parent="platformssecret" unique_id=919298859 instance=ExtResource("16_nfd4m")]
+position = Vector2(3955, -342)
+
+[node name="pt_blueprint4" parent="platformssecret" unique_id=475347106 instance=ExtResource("16_nfd4m")]
+position = Vector2(4172, -346)
+
+[node name="pt_blueprint5" parent="platformssecret" unique_id=603663916 instance=ExtResource("16_nfd4m")]
+position = Vector2(4235, -195)
+
+[node name="fractale2" parent="." unique_id=653933748 instance=ExtResource("17_p2ed6")]
+position = Vector2(4237, -328)
