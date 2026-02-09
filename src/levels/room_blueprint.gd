@@ -25,3 +25,9 @@ func _process(delta: float) -> void:
 		zoomcam.priority = 10
 	else :
 		zoomcam.priority = 0
+		
+	if player.global_position.y > 5000:
+		player.respawn()
+		
+	if player.global_position.y > 2000 and player.global_position.x > 13734:
+		player.respawn()

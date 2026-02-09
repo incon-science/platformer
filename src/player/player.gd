@@ -360,6 +360,7 @@ func logic_gameplay():
 	else :
 			Engine.time_scale = 1
 	portal_logic()
+	respawn_logic()
 	
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":
@@ -408,5 +409,16 @@ func sound_animation() -> void:
 			land_sound.play()
 			saut_en_cours_for_sound = false
 			ground_particle.restart()
+			
+var last_floor_pos : Vector2
+func respawn_logic():
+	if is_on_floor_only():
+		if velocity.x >0 :
+			last_floor_pos = position - Vector2(25,0)
+		if velocity.x <0 :
+			last_floor_pos = position + Vector2(25,0)
+func respawn():
+	position = last_floor_pos
+	velocity = Vector2(0,0)
 			
 			

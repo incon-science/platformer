@@ -73,11 +73,11 @@ texture = ExtResource("1_p0cym")
 
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
-position = Vector2(-461, 55)
+position = Vector2(7612, 1564)
 
 [node name="cam" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-461, -105)
+position = Vector2(7612, 1404)
 script = ExtResource("4_mu531")
 priority = 1
 follow_mode = 2
@@ -94,7 +94,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-461, -105)
+position = Vector2(7612, 1404)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -111,7 +111,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(-461, -105)
+position = Vector2(7612, 1404)
 process_callback = 0
 limit_left = -2712
 editor_draw_limits = true
@@ -415,6 +415,68 @@ points = PackedVector2Array(-2053, -214, -2057, -7235)
 width = 5.0
 default_color = Color(0, 0, 0, 1)
 
+[node name="platform_underground" type="Node2D" parent="Structure" unique_id=1826615231]
+
+[node name="pt_blueprint" parent="Structure/platform_underground" unique_id=1203063279 instance=ExtResource("16_nfd4m")]
+position = Vector2(-968, 2486)
+
+[node name="pt_blueprint2" parent="Structure/platform_underground" unique_id=608528096 instance=ExtResource("16_nfd4m")]
+position = Vector2(-1193, 2599)
+
+[node name="platform" parent="Structure/platform_underground" unique_id=1116483157 instance=ExtResource("8_ltygr")]
+position = Vector2(-1452, 2554)
+
+[node name="platform2" parent="Structure/platform_underground" unique_id=1761266756 instance=ExtResource("8_ltygr")]
+position = Vector2(-1518, 2531)
+
+[node name="pt_blueprint3" parent="Structure/platform_underground" unique_id=354040863 instance=ExtResource("16_nfd4m")]
+position = Vector2(-1373, 2790)
+
+[node name="pt_blueprint4" parent="Structure/platform_underground" unique_id=1086547332 instance=ExtResource("16_nfd4m")]
+position = Vector2(-1772, 2554)
+
+[node name="pt_blueprint5" parent="Structure/platform_underground" unique_id=1089891713 instance=ExtResource("16_nfd4m")]
+position = Vector2(-1450, 2930)
+
+[node name="pt_blueprint6" parent="Structure/platform_underground" unique_id=1540935280 instance=ExtResource("16_nfd4m")]
+position = Vector2(-1070, 3110)
+
+[node name="pt_blueprint7" parent="Structure/platform_underground" unique_id=219249638 instance=ExtResource("16_nfd4m")]
+position = Vector2(-1284, 3001)
+
+[node name="platform3" parent="Structure/platform_underground" unique_id=857511284 instance=ExtResource("8_ltygr")]
+position = Vector2(-831, 3190)
+
+[node name="platform4" parent="Structure/platform_underground" unique_id=1476017797 instance=ExtResource("8_ltygr")]
+position = Vector2(-759, 3190)
+
+[node name="pt_blueprint8" parent="Structure/platform_underground" unique_id=1876792585 instance=ExtResource("16_nfd4m")]
+position = Vector2(-494, 3127)
+
+[node name="pt_blueprint9" parent="Structure/platform_underground" unique_id=299865266 instance=ExtResource("16_nfd4m")]
+position = Vector2(-326, 3293)
+
+[node name="platform5" parent="Structure/platform_underground" unique_id=88819099 instance=ExtResource("8_ltygr")]
+position = Vector2(-69, 3353)
+
+[node name="platform6" parent="Structure/platform_underground" unique_id=747608574 instance=ExtResource("8_ltygr")]
+position = Vector2(217, 3430)
+
+[node name="pt_blueprint10" parent="Structure/platform_underground" unique_id=667443453 instance=ExtResource("16_nfd4m")]
+position = Vector2(411, 3350)
+
+[node name="pt_blueprint11" parent="Structure/platform_underground" unique_id=2076235306 instance=ExtResource("16_nfd4m")]
+position = Vector2(382, 3290)
+
+[node name="pt_blueprint12" parent="Structure/platform_underground" unique_id=1595079403 instance=ExtResource("16_nfd4m")]
+position = Vector2(453, 3258)
+
+[node name="pt_blueprint13" parent="Structure/platform_underground" unique_id=1545454937 instance=ExtResource("16_nfd4m")]
+position = Vector2(533, 3258)
+
+[node name="pt_blueprint14" parent="Structure/platform_underground" unique_id=913637869 instance=ExtResource("16_nfd4m")]
+position = Vector2(613, 3258)
+
 [node name="portals" type="Node2D" parent="." unique_id=1879768166]
 
 [node name="portal" parent="portals" unique_id=871669185 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
@@ -429,8 +491,7 @@ rotation = 1.5707964
 portal_target = NodePath("../portal")
 
 [node name="portalHAUT" parent="portals" unique_id=1311602281 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
-position = Vector2(-668.99994, 2389.0002)
-rotation = -3.1398473
+position = Vector2(633, 3172.9998)
 portal_target = NodePath("../portalHAUT2")
 
 [node name="portalHAUT2" parent="portals" unique_id=1307065446 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
