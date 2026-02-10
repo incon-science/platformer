@@ -2,6 +2,7 @@ extends Node2D
 @onready var ground: Sprite2D = $ground
 @onready var zoomcam: PhantomCamera2D = $zoomcam
 @onready var player: Player = %Player
+@onready var camoffesetbottom: PhantomCamera2D = $camoffesetbottom
 
 func duplicate_room1(offset_x):
 	var r = ground.duplicate()
@@ -25,9 +26,12 @@ func _process(delta: float) -> void:
 		zoomcam.priority = 10
 	else :
 		zoomcam.priority = 0
+	if player.global_position.x < -800 and player.global_position.y > 2350 :
+		camoffesetbottom.priority = 10
+	else :
+		camoffesetbottom.priority = 0
 		
 	if player.global_position.y > 5000:
 		player.respawn()
-		
 	if player.global_position.y > 2000 and player.global_position.x > 13734:
 		player.respawn()

@@ -73,11 +73,11 @@ _data = {
 &"disapear": SubResource("Animation_ofbnq")
 }
 
-[sub_resource type="Gradient" id="Gradient_ownor"]
+[sub_resource type="Gradient" id="Gradient_46e40"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_k6s3g"]
-gradient = SubResource("Gradient_ownor")
+gradient = SubResource("Gradient_46e40")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.7647059, 0.23529412)
@@ -149,6 +149,7 @@ _data = {
 size = Vector2(32, 28)
 
 [node name="fractale" type="RigidBody2D" unique_id=764819064]
+freeze = true
 script = ExtResource("1_i6y4e")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1305410271]
@@ -179,6 +180,7 @@ shape = SubResource("RectangleShape2D_k6s3g")
 
 [node name="touchedsong" type="AudioStreamPlayer2D" parent="." unique_id=299576661]
 stream = ExtResource("4_46e40")
+volume_db = 4.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="finished" from="touchedsong" to="." method="_on_touchedsong_finished"]

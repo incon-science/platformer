@@ -25,7 +25,7 @@ shader_parameter/shadow_color = Color(0.078, 0.137, 0.227, 0.25)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_arm"]
 shader = ExtResource("4_gowua")
 shader_parameter/light_color = Color(0, 0, 0, 1)
-shader_parameter/dark_color = Color(0.06, 0.06, 0.06, 1)
+shader_parameter/dark_color = Color(0, 0, 0, 1)
 shader_parameter/shade_ratio = 0.3
 
 [node name="Arm" type="Node2D" unique_id=1104907447 node_paths=PackedStringArray("base_node", "shadow_node", "eye_container")]

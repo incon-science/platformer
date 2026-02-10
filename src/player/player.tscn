@@ -30,6 +30,38 @@ size = Vector3(16, 16, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnmj6"]
 size = Vector2(32, 62)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iif5"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axsi3"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgxyk"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iufa"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3ern"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhlnr"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(160, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvvlk"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(192, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7anmh"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(224, 256, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2smqc"]
 atlas = ExtResource("12_jcdrv")
 region = Rect2(0, 0, 32, 32)
@@ -164,6 +196,35 @@ region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j2873"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iif5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axsi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgxyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iufa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3ern")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhlnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvvlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7anmh")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2smqc")
@@ -520,8 +581,10 @@ one_shot = true
 position = Vector2(0, -36)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_j2873")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
+frame = 7
+frame_progress = 1.0
 
 [node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=703265265]
 stream = SubResource("AudioStreamRandomizer_dpt0q")

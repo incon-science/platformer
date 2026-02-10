@@ -20,9 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://dhmslis0y0ejr" path="res://src/levels/blackwhite_room.tscn" id="15_1rkoo"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="16_nfd4m"]
 [ext_resource type="PackedScene" uid="uid://dr4h3pc0jii81" path="res://src/elements/fractale.tscn" id="17_p2ed6"]
-[ext_resource type="Texture2D" uid="uid://b5ysjxsq5dsto" path="res://sprites/rooms/DOOR.png" id="18_tnyhu"]
 [ext_resource type="PackedScene" uid="uid://cpvhasyan240q" path="res://src/elements/cadavre_exquis.tscn" id="19_76snk"]
 [ext_resource type="PackedScene" uid="uid://b05muqmrcfpjp" path="res://src/levels/bouche_degout.tscn" id="19_hwdj1"]
+[ext_resource type="PackedScene" uid="uid://du22qbnon6nkp" path="res://src/levels/door.tscn" id="20_c3xut"]
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="21_n78m8"]
 [ext_resource type="AudioStream" uid="uid://bm0hl1jvxub7r" path="res://sounds/musics/Portal Soundtrack  Self Esteem Fund.mp3" id="23_f1fom"]
 
@@ -34,9 +34,6 @@ size = Vector2(6836, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7157o"]
 size = Vector2(1307.3567, 21.999954)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1fom"]
-size = Vector2(466.64352, 12863)
 
 [sub_resource type="Gradient" id="Gradient_76snk"]
 offsets = PackedFloat32Array(0, 0.98214287, 1)
@@ -77,11 +74,11 @@ texture = ExtResource("1_p0cym")
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-644, -20)
+position = Vector2(-604, 66)
 
 [node name="cam" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-644, -180)
+position = Vector2(-604, -94)
 script = ExtResource("4_mu531")
 priority = 1
 follow_mode = 2
@@ -96,9 +93,24 @@ draw_limits = true
 limit_left = -2712
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
+[node name="camoffesetbottom" type="Node2D" parent="." unique_id=1643240695 node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(-604, 66)
+script = ExtResource("4_mu531")
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_7157o")
+follow_damping = true
+follow_damping_value = Vector2(0.5, 0.5)
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+limit_left = -2712
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-644, -180)
+position = Vector2(-604, -94)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -115,7 +127,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(-644, -180)
+position = Vector2(-604, -94)
 process_callback = 0
 limit_left = -2712
 editor_draw_limits = true
@@ -176,10 +188,6 @@ position = Vector2(12591.713, -10.095978)
 [node name="pt_blueprint6" parent="Structure/sol collision & balcon & door" unique_id=640792385 instance=ExtResource("16_nfd4m")]
 position = Vector2(12529.713, -42.095978)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Structure/sol collision & balcon & door" unique_id=252062872]
-position = Vector2(-2480.609, -6205.596)
-shape = SubResource("RectangleShape2D_f1fom")
-
 [node name="platforms" type="Node2D" parent="Structure" unique_id=1655471774]
 
 [node name="platform" parent="Structure/platforms" unique_id=1968047125 instance=ExtResource("8_ltygr")]
@@ -217,9 +225,6 @@ position = Vector2(478, -496)
 
 [node name="platform23" parent="Structure/platforms" unique_id=1988088916 instance=ExtResource("8_ltygr")]
 position = Vector2(882, -923)
-
-[node name="platform2" parent="Structure/platforms" unique_id=590818303 instance=ExtResource("8_ltygr")]
-position = Vector2(-1082, 2693)
 
 [node name="pt_blueprint" parent="Structure/platforms" unique_id=171967398 instance=ExtResource("16_nfd4m")]
 position = Vector2(323, -569)
@@ -312,13 +317,16 @@ position = Vector2(3743, -276)
 position = Vector2(3902, -322)
 
 [node name="pt_blueprint4" parent="Structure/platformssecret" unique_id=475347106 instance=ExtResource("16_nfd4m")]
-position = Vector2(4119, -326)
+position = Vector2(4089, -314)
 
 [node name="pt_blueprint5" parent="Structure/platformssecret" unique_id=603663916 instance=ExtResource("16_nfd4m")]
-position = Vector2(4182, -175)
+position = Vector2(4203, -160)
 
 [node name="pt_blueprint6" parent="Structure/platformssecret" unique_id=1447511870 instance=ExtResource("16_nfd4m")]
-position = Vector2(4052, -66)
+position = Vector2(4024, -66)
+
+[node name="pt_blueprint7" parent="Structure/platformssecret" unique_id=1744143703 instance=ExtResource("16_nfd4m")]
+position = Vector2(3937, -66)
 
 [node name="bouche degout" parent="Structure" unique_id=666465979 instance=ExtResource("19_hwdj1")]
 position = Vector2(3436.0002, 840)
@@ -413,19 +421,6 @@ position = Vector2(12755, -713)
 [node name="basik_room2" parent="Structure" unique_id=1997840322 instance=ExtResource("2_ypife")]
 position = Vector2(15318, -429)
 
-[node name="door" type="Node2D" parent="Structure" unique_id=144549061]
-
-[node name="DOOR" type="Sprite2D" parent="Structure/door" unique_id=788111329]
-position = Vector2(-808, -77.00001)
-scale = Vector2(0.274, 0.274)
-texture = ExtResource("18_tnyhu")
-
-[node name="Line2D" type="Line2D" parent="Structure/door" unique_id=1056411248]
-position = Vector2(0, 5)
-points = PackedVector2Array(-2053, -214, -2057, -7235)
-width = 5.0
-default_color = Color(0, 0, 0, 1)
-
 [node name="platform_underground" type="Node2D" parent="Structure" unique_id=1826615231]
 
 [node name="pt_blueprint" parent="Structure/platform_underground" unique_id=1203063279 instance=ExtResource("16_nfd4m")]
@@ -488,6 +483,9 @@ position = Vector2(533, 3258)
 [node name="pt_blueprint14" parent="Structure/platform_underground" unique_id=913637869 instance=ExtResource("16_nfd4m")]
 position = Vector2(613, 3258)
 
+[node name="door" parent="Structure" unique_id=1047860162 instance=ExtResource("20_c3xut")]
+position = Vector2(-2247, 0)
+
 [node name="portals" type="Node2D" parent="." unique_id=1879768166]
 
 [node name="portal" parent="portals" unique_id=871669185 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
@@ -518,6 +516,9 @@ position = Vector2(47, -697)
 [node name="RigidBody2D3" parent="cadavres" unique_id=546271316 instance=ExtResource("19_76snk")]
 position = Vector2(10, -1081)
 
+[node name="RigidBody2D4" parent="cadavres" unique_id=1964315531 instance=ExtResource("19_76snk")]
+position = Vector2(-58, -1532)
+
 [node name="tas_de_cadavre" parent="cadavres" unique_id=1593653933 instance=ExtResource("7_j2cwt")]
 position = Vector2(-1, 134)
 
@@ -527,7 +528,7 @@ position = Vector2(-1, 134)
 position = Vector2(8112, -2092)
 
 [node name="fractale2" parent="fractals" unique_id=653933748 instance=ExtResource("17_p2ed6")]
-position = Vector2(4047, -194)
+position = Vector2(3922, -195)
 
 [node name="fractale3" parent="fractals" unique_id=754536176 instance=ExtResource("17_p2ed6")]
 position = Vector2(12018, -2740)
@@ -538,12 +539,12 @@ offset_left = 3248.0
 offset_top = 1735.0
 offset_right = 5147.0
 offset_bottom = 1834.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 72
 text = "Tandis qu'il s'attelait à regrouper les pi_ces du fractal..."
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=395379884]
 stream = ExtResource("23_f1fom")
-volume_db = -14.0
+volume_db = -8.0
 autoplay = true
 parameters/looping = true
