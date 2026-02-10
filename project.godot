@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="find_me"
 config/description="A false story"
-run/main_scene="uid://dy80i5m5jbd5"
+run/main_scene="uid://blsp58ckpcx46"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="uid://ch8u3rf8xate6"
