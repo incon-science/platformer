@@ -260,6 +260,7 @@ func can_dash() -> bool:
 func try_dash() -> void:
 	if Input.is_action_just_pressed("dash") and can_dash():
 		state_machine.activate_state_by_name.call_deferred("DashState")
+		dash_sound.play()
 
 func try_corner_correction(delta: float) -> void:
 	var v_motion: Vector2 = Vector2(0.0, velocity.y * delta)

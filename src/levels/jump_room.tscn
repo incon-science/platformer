@@ -61,3 +61,6 @@ position = Vector2(-227, 297)
 
 [node name="pt_blueprint7" parent="." unique_id=1547887356 instance=ExtResource("3_jq7w8")]
 position = Vector2(-225, 253)
+
+[node name="pt_blueprint8" parent="." unique_id=217381760 instance=ExtResource("3_jq7w8")]
+position = Vector2(-225, 203)

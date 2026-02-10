@@ -130,4 +130,4 @@ shape = SubResource("RectangleShape2D_j4hc7")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=566781700]
 texture = SubResource("GradientTexture2D_5b1og")
-texture_scale = 0.48
+texture_scale = 0.38

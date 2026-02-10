@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://c07ghb70rt8ft"]
 
 [ext_resource type="Texture2D" uid="uid://bqk6rdvd68f2m" path="res://sprites/rooms/escalier.png" id="1_xoqhc"]
-[ext_resource type="PackedScene" uid="uid://c2jk0o1fmnmuq" path="res://src/vivants/mouse.tscn" id="6_x4p2d"]
-[ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="7_lr8qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xoqhc"]
 size = Vector2(1101, 200)
@@ -18,9 +16,6 @@ size = Vector2(1252, 400)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=801998414]
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_xoqhc")
-
-[node name="mouse" parent="." unique_id=278523563 instance=ExtResource("6_x4p2d")]
-position = Vector2(196, 528)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1824018828]
 position = Vector2(-214, -174)
@@ -43,7 +38,3 @@ shape = SubResource("RectangleShape2D_lr8qc")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=105785471]
 position = Vector2(629, 920)
 shape = SubResource("RectangleShape2D_lr8qc")
-
-[node name="ball" parent="." unique_id=2080036255 instance=ExtResource("7_lr8qc")]
-position = Vector2(229, 520)
-starting_vel = Vector2(-50, 0)

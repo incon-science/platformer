@@ -132,11 +132,11 @@ random_pitch = 1.1988629
 streams_count = 1
 stream_0/stream = ExtResource("5_p7rqh")
 
-[sub_resource type="Gradient" id="Gradient_ogf4b"]
+[sub_resource type="Gradient" id="Gradient_p7rqh"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_p7rqh"]
-gradient = SubResource("Gradient_ogf4b")
+gradient = SubResource("Gradient_p7rqh")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
@@ -147,14 +147,14 @@ offsets = PackedFloat32Array(0, 0.3, 0.7, 0.9)
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
 metadata/_snap_enabled = true
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_scxpf"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_28ilu"]
 gradient = SubResource("Gradient_28ilu")
 
 [sub_resource type="Curve" id="Curve_t0qxu"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1590909, 1), 0.0, 0.0, 0, 0, Vector2(0.8484848, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_aspbp"]
+[sub_resource type="CurveTexture" id="CurveTexture_t0qxu"]
 curve = SubResource("Curve_t0qxu")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vjlqy"]
@@ -167,8 +167,8 @@ initial_velocity_max = 8.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.01
 scale_max = 0.099999994
-scale_curve = SubResource("CurveTexture_aspbp")
-color_ramp = SubResource("GradientTexture1D_scxpf")
+scale_curve = SubResource("CurveTexture_t0qxu")
+color_ramp = SubResource("GradientTexture1D_28ilu")
 
 [node name="portal" type="Area2D" unique_id=871669185]
 script = ExtResource("1_x8jcb")

@@ -536,6 +536,7 @@ volume_db = -4.0
 
 [node name="dash_sound" type="AudioStreamPlayer" parent="." unique_id=107878534]
 stream = SubResource("AudioStreamRandomizer_e7e1q")
+volume_db = -4.0
 
 [node name="slide_sound" type="AudioStreamPlayer" parent="." unique_id=1193293659]
 stream = SubResource("AudioStreamRandomizer_xmpm3")
