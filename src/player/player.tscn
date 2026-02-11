@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://d00j5gw538kn2" path="res://src/player/states/wall_jump_state.gd" id="10_ylhto"]
 [ext_resource type="Script" uid="uid://crbn04ab1d1vk" path="res://src/player/states/dash_state.gd" id="11_ylhto"]
 [ext_resource type="Texture2D" uid="uid://clfrcc3vsenmn" path="res://sprites/AnimationSheet_Character.png" id="12_jcdrv"]
+[ext_resource type="Texture2D" uid="uid://cieusxl0j0qn0" path="res://sprites/slide2.png" id="13_5shm8"]
 [ext_resource type="AudioStream" uid="uid://d3ppmku2r4mc" path="res://sounds/hero_jump.wav" id="13_hja65"]
 [ext_resource type="AudioStream" uid="uid://bdy3mdrl28qmq" path="res://sounds/hero_land_soft.wav" id="14_5shm8"]
 [ext_resource type="AudioStream" uid="uid://cqr02pa8h5tob" path="res://sounds/hero_wall_jump.wav" id="15_5efpn"]
@@ -145,6 +146,10 @@ region = Rect2(192, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2873"]
 atlas = ExtResource("12_jcdrv")
 region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frddd"]
+atlas = ExtResource("13_5shm8")
+region = Rect2(160, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhq4p"]
 atlas = ExtResource("12_jcdrv")
@@ -312,6 +317,14 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frddd")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -581,10 +594,8 @@ one_shot = true
 position = Vector2(0, -36)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_j2873")
-animation = &"attack"
+animation = &"slide"
 autoplay = "idle"
-frame = 7
-frame_progress = 1.0
 
 [node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=703265265]
 stream = SubResource("AudioStreamRandomizer_dpt0q")

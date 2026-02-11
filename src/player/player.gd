@@ -400,8 +400,12 @@ func sound_animation() -> void:
 		
 	if is_on_wall_only():
 		if !slide_sound.playing : slide_sound.play()
+		
+		#try_play_new_anim("slide")
+		sprite.rotation=get_last_wall_dir()*0.15
 	else :
 		slide_sound.stop()
+		#sprite.rotation=0
 		
 	if velocity.y != 0.0 :
 		saut_en_cours_for_sound = true
