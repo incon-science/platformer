@@ -102,9 +102,7 @@ var _on_wall: bool = false: # This variable mustn't be edited manually
 func _physics_process(_delta: float) -> void:
 	_on_wall = is_on_wall()
 	
-	logic_gameplay()
-	sprite_animation()
-	sound_animation()
+	logic_spe()
 
 func get_facing_dir() -> float:
 	return -1.0 if flip_h else 1.0
@@ -359,13 +357,17 @@ func portal_logic():
 	else :
 		if !inside_portal : save_velocity.y = -jump_velocity
 			
-func logic_gameplay():
+func logic_spe():
 	if Input.is_action_pressed("timeslow"):
 			Engine.time_scale = 0.1
 	else :
 			Engine.time_scale = 1
 	portal_logic()
 	respawn_logic()
+	
+	
+	sprite_animation()
+	sound_animation()
 	
 	if velocity.x > 0 and cam.follow_offset.x == -25 and is_on_floor_only(): 
 		cam.follow_offset.x = 25
