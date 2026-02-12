@@ -3,6 +3,8 @@ extends Node2D
 @onready var zoomcam: PhantomCamera2D = $zoomcam
 @onready var player: Player = %Player
 @onready var camoffesetbottom: PhantomCamera2D = $camoffesetbottom
+@onready var cam: PhantomCamera2D = $cam
+
 
 func duplicate_room1(offset_x):
 	var r = ground.duplicate()
@@ -22,6 +24,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+			
+		
+
+	
 	if player.global_position.x > 3123 and player.global_position.y >1593 and player.global_position.x < 5260 and player.global_position.y <1956:
 		zoomcam.priority = 10
 	else :

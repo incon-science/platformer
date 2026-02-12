@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://d00j5gw538kn2" path="res://src/player/states/wall_jump_state.gd" id="10_ylhto"]
 [ext_resource type="Script" uid="uid://crbn04ab1d1vk" path="res://src/player/states/dash_state.gd" id="11_ylhto"]
 [ext_resource type="Texture2D" uid="uid://clfrcc3vsenmn" path="res://sprites/AnimationSheet_Character.png" id="12_jcdrv"]
-[ext_resource type="Texture2D" uid="uid://cieusxl0j0qn0" path="res://sprites/slide2.png" id="13_5shm8"]
 [ext_resource type="AudioStream" uid="uid://d3ppmku2r4mc" path="res://sounds/hero_jump.wav" id="13_hja65"]
 [ext_resource type="AudioStream" uid="uid://bdy3mdrl28qmq" path="res://sounds/hero_land_soft.wav" id="14_5shm8"]
 [ext_resource type="AudioStream" uid="uid://cqr02pa8h5tob" path="res://sounds/hero_wall_jump.wav" id="15_5efpn"]
@@ -21,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bk1u2t0pf6uu3" path="res://sounds/hero_run_footsteps_stone.wav" id="18_a4vah"]
 [ext_resource type="PackedScene" uid="uid://bf78142na1p7k" path="res://src/particles/jump_particle.tscn" id="19_vwi60"]
 [ext_resource type="PackedScene" uid="uid://kur8cpiyrv8b" path="res://src/particles/ground_particle.tscn" id="20_o04tx"]
+[ext_resource type="PackedScene" uid="uid://wok5htmqtlc8" path="res://src/particles/slide_particle.tscn" id="21_hja65"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qnmj6"]
 size = Vector3(48, 64, 1)
@@ -115,6 +115,30 @@ region = Rect2(64, 160, 32, 32)
 atlas = ExtResource("12_jcdrv")
 region = Rect2(96, 160, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmpm3"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evlgt"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsylq"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utg71"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0c71"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpqwn"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(160, 128, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5shm8"]
 atlas = ExtResource("12_jcdrv")
 region = Rect2(0, 96, 32, 32)
@@ -148,8 +172,12 @@ atlas = ExtResource("12_jcdrv")
 region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frddd"]
-atlas = ExtResource("13_5shm8")
-region = Rect2(160, 160, 32, 32)
+atlas = ExtResource("12_jcdrv")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpy2u"]
+atlas = ExtResource("12_jcdrv")
+region = Rect2(224, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhq4p"]
 atlas = ExtResource("12_jcdrv")
@@ -158,30 +186,6 @@ region = Rect2(64, 192, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kpcs5"]
 atlas = ExtResource("12_jcdrv")
 region = Rect2(32, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xmpm3"]
-atlas = ExtResource("12_jcdrv")
-region = Rect2(0, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_evlgt"]
-atlas = ExtResource("12_jcdrv")
-region = Rect2(32, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gsylq"]
-atlas = ExtResource("12_jcdrv")
-region = Rect2(64, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_utg71"]
-atlas = ExtResource("12_jcdrv")
-region = Rect2(64, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f0c71"]
-atlas = ExtResource("12_jcdrv")
-region = Rect2(32, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fpqwn"]
-atlas = ExtResource("12_jcdrv")
-region = Rect2(0, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oyld2"]
 atlas = ExtResource("12_jcdrv")
@@ -291,6 +295,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xmpm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evlgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsylq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utg71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0c71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpqwn")
+}],
+"loop": true,
+"name": &"pray",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5shm8")
 }, {
 "duration": 1.0,
@@ -316,11 +343,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_frddd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpy2u")
 }],
 "loop": true,
 "name": &"slide",
@@ -335,34 +365,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"teleport",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xmpm3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_evlgt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gsylq")
-}],
-"loop": true,
-"name": &"teleport_in",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_utg71")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f0c71")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fpqwn")
-}],
-"loop": true,
-"name": &"teleport_out",
 "speed": 5.0
 }, {
 "frames": [{
@@ -440,7 +442,7 @@ z_index = 1
 collision_layer = 3
 floor_snap_length = 2.0
 script = ExtResource("1_4anbu")
-max_speed = 450.0
+max_speed = 389.0
 max_h_velocity_ratio = 3.0
 running_acc_time = 0.188
 running_dec_time = 0.171
@@ -590,11 +592,15 @@ process_callback = 0
 wait_time = 0.1
 one_shot = true
 
+[node name="slide_particle" parent="." unique_id=993295293 instance=ExtResource("21_hja65")]
+position = Vector2(-13, -12)
+emitting = false
+
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=969411766]
 position = Vector2(0, -36)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_j2873")
-animation = &"slide"
+animation = &"run"
 autoplay = "idle"
 
 [node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=703265265]

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chfqb1iho3vax" path="res://src/levels/jump_room.tscn" id="3_7ls7j"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_mu531"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_j2cwt"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="6_k548o"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="6_ltygr"]
 [ext_resource type="PackedScene" uid="uid://dayo7lbiwbhw3" path="res://src/elements/tas_de_cadavre.tscn" id="7_j2cwt"]
 [ext_resource type="PackedScene" uid="uid://do35bbyy0qllr" path="res://src/platforms/platform.tscn" id="8_ltygr"]
@@ -28,6 +29,12 @@
 
 [sub_resource type="Resource" id="Resource_7157o"]
 script = ExtResource("5_j2cwt")
+
+[sub_resource type="Resource" id="Resource_514du"]
+script = ExtResource("6_k548o")
+randomize_noise_seed = 1
+positional_noise = false
+metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76snk"]
 size = Vector2(6836, 53)
@@ -74,28 +81,30 @@ texture = ExtResource("1_p0cym")
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-604, 66)
+position = Vector2(4045, -248)
 
 [node name="cam" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
 top_level = true
-position = Vector2(-604, -94)
+position = Vector2(4070, -408)
 script = ExtResource("4_mu531")
 priority = 1
 follow_mode = 2
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_7157o")
-follow_offset = Vector2(0, -160)
+follow_offset = Vector2(25, -160)
 follow_damping = true
 follow_damping_value = Vector2(0.3, 0.3)
 dead_zone_width = 0.5
 dead_zone_height = 0.5
 draw_limits = true
 limit_left = -2712
+noise = SubResource("Resource_514du")
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="camoffesetbottom" type="Node2D" parent="." unique_id=1643240695 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-604, 66)
+position = Vector2(4045, -248)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -110,7 +119,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-604, -94)
+position = Vector2(4045, -408)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -127,7 +136,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(-604, -94)
+position = Vector2(4070, -408)
 process_callback = 0
 limit_left = -2712
 editor_draw_limits = true

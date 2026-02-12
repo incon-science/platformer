@@ -345,6 +345,10 @@ func apply_stretch() -> void:
 @onready var run_sound: AudioStreamPlayer = $run_sound
 @onready var jump_particle: CPUParticles2D = $jump_particle
 @onready var ground_particle: CPUParticles2D = $ground_particle
+@onready var slide_particle: CPUParticles2D = $slide_particle
+
+@onready var cam: PhantomCamera2D = %cam
+
 
 var inside_portal : bool = false
 var inside_nojump_portal : bool = false
@@ -363,6 +367,11 @@ func logic_gameplay():
 	portal_logic()
 	respawn_logic()
 	
+	if velocity.x > 0 and cam.follow_offset.x == -25 and is_on_floor_only(): 
+		cam.follow_offset.x = 25
+	if velocity.x < 0 and cam.follow_offset.x == 25 and is_on_floor_only(): 
+		cam.follow_offset.x = -25
+	
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":
 		sprite.rotation=rotation_
@@ -370,11 +379,22 @@ func try_play_new_anim(anim,rotation_=0.0) -> void:
 
 var en_train_de_tomber = false
 func sprite_animation() -> void:
+	if is_on_wall_only():
+		#try_play_new_anim("slide")
+		#sprite.rotation=get_last_wall_dir()*0.15
+		slide_particle.emitting = true
+		if get_facing_dir() > 0 :
+			slide_particle.position.x = 13
+		if get_facing_dir() < 0 :
+			slide_particle.position.x = -13
+	else :
+		slide_particle.emitting = false
+		
 	if is_on_floor() :
 		if velocity.x > -40 and velocity.x < 40 :
 			try_play_new_anim("idle")
 		else :
-			if velocity.x > -100 and velocity.x < 100 :
+			if velocity.x > -150 and velocity.x < 150 :
 				try_play_new_anim("walk")
 			else:
 				try_play_new_anim("run")
@@ -389,6 +409,7 @@ func sprite_animation() -> void:
 		
 	if inside_portal:
 		try_play_new_anim("teleport")
+		
 			
 var saut_en_cours_for_sound = false
 func sound_animation() -> void:
@@ -400,12 +421,8 @@ func sound_animation() -> void:
 		
 	if is_on_wall_only():
 		if !slide_sound.playing : slide_sound.play()
-		
-		#try_play_new_anim("slide")
-		sprite.rotation=get_last_wall_dir()*0.15
 	else :
 		slide_sound.stop()
-		#sprite.rotation=0
 		
 	if velocity.y != 0.0 :
 		saut_en_cours_for_sound = true

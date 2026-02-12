@@ -15,7 +15,7 @@ size = Vector2(123, 348.37494)
 size = Vector2(611.75256, 346.37494)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjupx"]
-size = Vector2(611.3737, 412.68747)
+size = Vector2(611.3737, 7.3437195)
 
 [node name="room_1" type="Node2D" unique_id=424883610]
 metadata/_edit_horizontal_guides_ = [66.0]
@@ -45,7 +45,7 @@ position = Vector2(813.3763, 239.18747)
 shape = SubResource("RectangleShape2D_6cks4")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=459936617]
-position = Vector2(-551.74744, 273.37494)
+position = Vector2(-551.74744, 70.703064)
 shape = SubResource("RectangleShape2D_cjupx")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1733049233]
