@@ -643,5 +643,8 @@ texture_scale = 17.35
 [node name="spritetrail" type="Node" parent="." unique_id=556906390]
 script = ExtResource("22_5shm8")
 
+[node name="shakecamtimer" type="Timer" parent="." unique_id=1457225656]
+one_shot = true
+
 [connection signal="wall_entered" from="." to="." method="_on_wall_entered"]
 [connection signal="wall_exited" from="." to="." method="_on_wall_exited"]

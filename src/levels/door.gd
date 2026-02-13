@@ -28,4 +28,5 @@ func _process(delta: float) -> void:
 		if player.global_position.x < global_position.x + 400 and Global.nb_fractal ==3 :
 			collision_shape_2d.set_deferred("disabled", true)
 			animation_player.play("opendoor")
+			player.shakecamtimer.start()
 			opened= true

@@ -31,6 +31,7 @@ func _on_body_entered(body: Node2D) -> void:
 			body.inside_portal = true
 			
 			sound.play()
+			body.shakecamtimer.start()
 			
 			body.hide()
 			await get_tree().create_timer(0.02).timeout

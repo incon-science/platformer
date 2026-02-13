@@ -24,7 +24,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		touchedsong.play()
 		animation_player.play("disapear")
 		collision_polygon_2d.set_deferred("disabled", true)
-		cam.noise.positional_noise= true
+		
+		body.shakecamtimer.start()
 		
 
 
@@ -32,4 +33,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_touchedsong_finished() -> void:
 	queue_free()
 	Global.nb_fractal +=1
-	cam.noise.positional_noise= false

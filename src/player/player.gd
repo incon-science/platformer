@@ -346,6 +346,7 @@ func apply_stretch() -> void:
 @onready var slide_particle: CPUParticles2D = $slide_particle
 
 @onready var cam: PhantomCamera2D = %cam
+@onready var shakecamtimer: Timer = $shakecamtimer
 
 
 var inside_portal : bool = false
@@ -374,7 +375,7 @@ func logic_spe():
 	if velocity.x < 0 and cam.follow_offset.x == 25 and is_on_floor_only(): 
 		cam.follow_offset.x = -25
 		
-	if inside_portal or state_machine.active_state is DashState:
+	if state_machine.active_state is DashState or !shakecamtimer.is_stopped():
 		cam.noise.positional_noise= true
 	else :
 		cam.noise.positional_noise= false
@@ -447,7 +448,10 @@ func respawn_logic():
 		if velocity.x <0 :
 			last_floor_pos = position + Vector2(25,0)
 func respawn():
+	cam.follow_damping = false
 	position = last_floor_pos
 	velocity = Vector2(0,0)
+	await get_tree().create_timer(1).timeout
+	cam.follow_damping = true
 			
 			

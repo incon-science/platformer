@@ -27,7 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="21_n78m8"]
 [ext_resource type="AudioStream" uid="uid://bm0hl1jvxub7r" path="res://sounds/musics/Portal Soundtrack  Self Esteem Fund.mp3" id="23_f1fom"]
 [ext_resource type="PackedScene" uid="uid://u6orxxjk4kgt" path="res://src/elements/block.tscn" id="27_514du"]
-[ext_resource type="Texture2D" uid="uid://ptro2irm7vk1" path="res://sprites/Mossy Tileset/Mossy - Decorations&Hazards.png" id="28_gw2wf"]
+[ext_resource type="Texture2D" uid="uid://6tdmpciwbn1b" path="res://sprites/Mossy Tileset/Mossy - Hanging Plants.png" id="28_gw2wf"]
+[ext_resource type="Texture2D" uid="uid://ptro2irm7vk1" path="res://sprites/Mossy Tileset/Mossy - Decorations&Hazards.png" id="29_vb8r4"]
 
 [sub_resource type="Resource" id="Resource_7157o"]
 script = ExtResource("5_j2cwt")
@@ -53,12 +54,63 @@ colors = PackedColorArray(0, 0, 0, 1, 0.26190478, 0.26190478, 0.26190478, 1, 1, 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n78m8"]
 gradient = SubResource("Gradient_76snk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vb8r4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gw2wf"]
 texture = ExtResource("28_gw2wf")
-texture_region_size = Vector2i(512, 512)
+texture_region_size = Vector2i(64, 64)
+1:21/size_in_atlas = Vector2i(8, 23)
+1:21/0 = 0
+11:21/size_in_atlas = Vector2i(8, 23)
+11:21/0 = 0
+20:1/size_in_atlas = Vector2i(6, 14)
+20:1/0 = 0
+0:1/size_in_atlas = Vector2i(8, 20)
+0:1/0 = 0
+26:1/size_in_atlas = Vector2i(6, 16)
+26:1/0 = 0
+8:0/size_in_atlas = Vector2i(6, 18)
+8:0/0 = 0
+19:36/size_in_atlas = Vector2i(13, 10)
+19:36/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_7rpky"]
-sources/0 = SubResource("TileSetAtlasSource_vb8r4")
+[sub_resource type="TileSet" id="TileSet_vb8r4"]
+sources/0 = SubResource("TileSetAtlasSource_gw2wf")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rpky"]
+texture = ExtResource("29_vb8r4")
+texture_region_size = Vector2i(64, 64)
+33:40/size_in_atlas = Vector2i(7, 23)
+33:40/0 = 0
+41:40/size_in_atlas = Vector2i(7, 23)
+41:40/0 = 0
+48:40/size_in_atlas = Vector2i(8, 23)
+48:40/0 = 0
+58:39/size_in_atlas = Vector2i(5, 25)
+58:39/0 = 0
+0:47/size_in_atlas = Vector2i(8, 8)
+0:47/0 = 0
+9:48/size_in_atlas = Vector2i(6, 6)
+9:48/0 = 0
+9:39/size_in_atlas = Vector2i(6, 8)
+9:39/0 = 0
+0:40/size_in_atlas = Vector2i(7, 6)
+0:40/0 = 0
+17:39/size_in_atlas = Vector2i(5, 8)
+17:39/0 = 0
+24:56/size_in_atlas = Vector2i(7, 8)
+24:56/0 = 0
+25:48/size_in_atlas = Vector2i(7, 7)
+25:48/0 = 0
+8:55/size_in_atlas = Vector2i(9, 8)
+8:55/0 = 0
+2:56/size_in_atlas = Vector2i(4, 7)
+2:56/0 = 0
+18:56/size_in_atlas = Vector2i(4, 8)
+18:56/0 = 0
+24:42/size_in_atlas = Vector2i(8, 4)
+24:42/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_k4edk"]
+sources/0 = SubResource("TileSetAtlasSource_7rpky")
 
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
@@ -92,12 +144,12 @@ texture = ExtResource("1_p0cym")
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-628, 8)
+position = Vector2(87, -137)
 
 [node name="cam" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(-603, -152)
+position = Vector2(112, -297)
 script = ExtResource("4_mu531")
 priority = 1
 follow_mode = 2
@@ -115,7 +167,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="camoffesetbottom" type="Node2D" parent="." unique_id=1643240695 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-628, 8)
+position = Vector2(87, -137)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -130,7 +182,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-628, -152)
+position = Vector2(87, -297)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -147,7 +199,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(-603, -152)
+position = Vector2(112, -297)
 process_callback = 0
 limit_left = -2712
 editor_draw_limits = true
@@ -544,13 +596,14 @@ position = Vector2(12018, -2740)
 
 [node name="Label" type="Label" parent="." unique_id=1839012950]
 z_index = 4
-offset_left = 3248.0
+offset_left = 3052.0
 offset_top = 1735.0
-offset_right = 5147.0
+offset_right = 5331.0
 offset_bottom = 1834.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 72
-text = "Tandis qu'il s'attelait à regrouper les pi_ces du fractal..."
+text = "Les pi_ces du fractal ouvriront la Voie..."
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=395379884]
 stream = ExtResource("23_f1fom")
@@ -597,5 +650,14 @@ position = Vector2(8373, -359)
 [node name="block13" parent="." unique_id=2126556825 instance=ExtResource("27_514du")]
 position = Vector2(8480, -227)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1664359079]
-tile_set = SubResource("TileSet_7rpky")
+[node name="TileMap" type="TileMap" parent="." unique_id=408943724]
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_vb8r4")
+format = 2
+layer_0/tile_data = PackedInt32Array(-9436875, 65536, 21, -9043671, 917504, 2, -9895613, 917504, 2, -9436896, 1310720, 1, -8847131, 1310720, 1, -6094448, 1310720, 1, -15334668, 720896, 21, -12843820, 1703936, 1, -13827320, 0, 1, -15858833, 720896, 21, -9633269, 1703936, 1, -10485438, 1310720, 1, -6094406, 1310720, 1, -10092011, 1310720, 1, -9502210, 1310720, 1, -13893010, 720896, 21, -6749471, 1245184, 36, -6749470, 1245184, 36, -9304807, 1245184, 36, 131436, 1245184, 36, -5372321, 1310720, 1, -5241237, 1310720, 1, -5372302, 524288, 0, -4586206, 1245184, 36)
+
+[node name="TileMap2" type="TileMap" parent="." unique_id=304192629]
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_k4edk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-15071679, 3801088, 39, -3472833, 2162688, 40, -3473103, 3801088, 39, -1834704, 3801088, 39, -1703355, 2162688, 40, -5766406, 2162688, 40, -1572090, 2162688, 40, -1834245, 2686976, 40, -1441500, 3145728, 40, -1244613, 3801088, 39, 524576, 524288, 55, 983611, 524288, 55, 721480, 524288, 55, 393976, 524288, 55, 262927, 131072, 56, 786817, 0, 40, 196992, 1114112, 39, -5831372, 2162688, 40, -1702594, 2162688, 40, -719562, 3801088, 39, 394544, 524288, 55, 394572, 524288, 55, 525624, 1179648, 56, 591138, 1572864, 42, 525630, 1572864, 42, 460105, 1638400, 48, 329047, 0, 47)
