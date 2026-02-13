@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://du22qbnon6nkp" path="res://src/levels/door.tscn" id="20_c3xut"]
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="21_n78m8"]
 [ext_resource type="AudioStream" uid="uid://bm0hl1jvxub7r" path="res://sounds/musics/Portal Soundtrack  Self Esteem Fund.mp3" id="23_f1fom"]
+[ext_resource type="PackedScene" uid="uid://u6orxxjk4kgt" path="res://src/elements/block.tscn" id="27_514du"]
 
 [sub_resource type="Resource" id="Resource_7157o"]
 script = ExtResource("5_j2cwt")
@@ -499,17 +500,6 @@ position = Vector2(-2247, 0)
 
 [node name="portals" type="Node2D" parent="." unique_id=1879768166]
 
-[node name="portal" parent="portals" unique_id=871669185 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
-position = Vector2(5282, 117)
-rotation = 1.5707964
-portal_target = NodePath("../portal2")
-portal_reverse_color = true
-
-[node name="portal2" parent="portals" unique_id=935852652 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
-position = Vector2(7962, 116)
-rotation = 1.5707964
-portal_target = NodePath("../portal")
-
 [node name="portalHAUT" parent="portals" unique_id=1311602281 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
 position = Vector2(633, 3172.9998)
 portal_target = NodePath("../portalHAUT2")
@@ -559,3 +549,42 @@ stream = ExtResource("23_f1fom")
 volume_db = -8.0
 autoplay = true
 parameters/looping = true
+
+[node name="block" parent="." unique_id=1102480490 instance=ExtResource("27_514du")]
+position = Vector2(2921, -84)
+
+[node name="block2" parent="." unique_id=1756351268 instance=ExtResource("27_514du")]
+position = Vector2(2976, -167)
+
+[node name="block3" parent="." unique_id=1779895896 instance=ExtResource("27_514du")]
+position = Vector2(8339, -1053)
+
+[node name="block4" parent="." unique_id=178825057 instance=ExtResource("27_514du")]
+position = Vector2(8260, -918)
+
+[node name="block5" parent="." unique_id=1697555499 instance=ExtResource("27_514du")]
+position = Vector2(8404, -836)
+
+[node name="block6" parent="." unique_id=112619746 instance=ExtResource("27_514du")]
+position = Vector2(8342, -692)
+
+[node name="block7" parent="." unique_id=539376635 instance=ExtResource("27_514du")]
+position = Vector2(8226, -218)
+
+[node name="block8" parent="." unique_id=286924269 instance=ExtResource("27_514du")]
+position = Vector2(8012, -450)
+
+[node name="block9" parent="." unique_id=1380347961 instance=ExtResource("27_514du")]
+position = Vector2(8222, -516)
+
+[node name="block10" parent="." unique_id=1285275557 instance=ExtResource("27_514du")]
+position = Vector2(8420, -491)
+
+[node name="block11" parent="." unique_id=407538101 instance=ExtResource("27_514du")]
+position = Vector2(8166, -416)
+
+[node name="block12" parent="." unique_id=1058632959 instance=ExtResource("27_514du")]
+position = Vector2(8373, -359)
+
+[node name="block13" parent="." unique_id=2126556825 instance=ExtResource("27_514du")]
+position = Vector2(8480, -227)

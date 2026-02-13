@@ -37,6 +37,7 @@ func _on_body_entered(body: Node2D) -> void:
 			
 			await get_tree().create_timer(0.1).timeout
 			body.inside_portal = false
+			
 	
 
 func _on_no_jump_body_entered(body: Node2D) -> void:
