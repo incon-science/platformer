@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="21_n78m8"]
 [ext_resource type="AudioStream" uid="uid://bm0hl1jvxub7r" path="res://sounds/musics/Portal Soundtrack  Self Esteem Fund.mp3" id="23_f1fom"]
 [ext_resource type="PackedScene" uid="uid://u6orxxjk4kgt" path="res://src/elements/block.tscn" id="27_514du"]
+[ext_resource type="Texture2D" uid="uid://ptro2irm7vk1" path="res://sprites/Mossy Tileset/Mossy - Decorations&Hazards.png" id="28_gw2wf"]
 
 [sub_resource type="Resource" id="Resource_7157o"]
 script = ExtResource("5_j2cwt")
@@ -51,6 +52,13 @@ colors = PackedColorArray(0, 0, 0, 1, 0.26190478, 0.26190478, 0.26190478, 1, 1, 
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n78m8"]
 gradient = SubResource("Gradient_76snk")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vb8r4"]
+texture = ExtResource("28_gw2wf")
+texture_region_size = Vector2i(512, 512)
+
+[sub_resource type="TileSet" id="TileSet_7rpky"]
+sources/0 = SubResource("TileSetAtlasSource_vb8r4")
 
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
@@ -588,3 +596,6 @@ position = Vector2(8373, -359)
 
 [node name="block13" parent="." unique_id=2126556825 instance=ExtResource("27_514du")]
 position = Vector2(8480, -227)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1664359079]
+tile_set = SubResource("TileSet_7rpky")

@@ -13,9 +13,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player.state_machine.active_state is not DashState:
-		cam.noise.positional_noise= false
 		return
-	cam.noise.positional_noise= true
 	#if (get_tree().get_frame()%1)==0:
 	var newSprite : AnimatedSprite2D = sprite.duplicate()
 	newSprite.stop()

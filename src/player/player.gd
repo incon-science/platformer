@@ -373,6 +373,11 @@ func logic_spe():
 		cam.follow_offset.x = 25
 	if velocity.x < 0 and cam.follow_offset.x == 25 and is_on_floor_only(): 
 		cam.follow_offset.x = -25
+		
+	if inside_portal or state_machine.active_state is DashState:
+		cam.noise.positional_noise= true
+	else :
+		cam.noise.positional_noise= false
 	
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":

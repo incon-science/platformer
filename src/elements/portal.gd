@@ -7,6 +7,7 @@ class_name Portal
 @onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var sound: AudioStreamPlayer2D = $sound
 
+
 func _ready() -> void:
 	if portal_reverse_color :
 		point_light_2d.color = Color("d477ffff")
