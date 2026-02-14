@@ -144,12 +144,12 @@ texture = ExtResource("1_p0cym")
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(87, -137)
+position = Vector2(-250, -1135)
 
 [node name="cam" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(112, -297)
+position = Vector2(-225, -1295)
 script = ExtResource("4_mu531")
 priority = 1
 follow_mode = 2
@@ -167,7 +167,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="camoffesetbottom" type="Node2D" parent="." unique_id=1643240695 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(87, -137)
+position = Vector2(-250, -1135)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -182,7 +182,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(87, -297)
+position = Vector2(-250, -1295)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -199,7 +199,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(112, -297)
+position = Vector2(-225, -1295)
 process_callback = 0
 limit_left = -2712
 editor_draw_limits = true
@@ -611,53 +611,171 @@ volume_db = -8.0
 autoplay = true
 parameters/looping = true
 
-[node name="block" parent="." unique_id=1102480490 instance=ExtResource("27_514du")]
-position = Vector2(2921, -84)
-
-[node name="block2" parent="." unique_id=1756351268 instance=ExtResource("27_514du")]
-position = Vector2(2976, -167)
-
-[node name="block3" parent="." unique_id=1779895896 instance=ExtResource("27_514du")]
-position = Vector2(8339, -1053)
-
-[node name="block4" parent="." unique_id=178825057 instance=ExtResource("27_514du")]
-position = Vector2(8260, -918)
-
-[node name="block5" parent="." unique_id=1697555499 instance=ExtResource("27_514du")]
-position = Vector2(8404, -836)
-
-[node name="block6" parent="." unique_id=112619746 instance=ExtResource("27_514du")]
-position = Vector2(8342, -692)
-
-[node name="block7" parent="." unique_id=539376635 instance=ExtResource("27_514du")]
-position = Vector2(8226, -218)
-
-[node name="block8" parent="." unique_id=286924269 instance=ExtResource("27_514du")]
-position = Vector2(8012, -450)
-
-[node name="block9" parent="." unique_id=1380347961 instance=ExtResource("27_514du")]
-position = Vector2(8222, -516)
-
-[node name="block10" parent="." unique_id=1285275557 instance=ExtResource("27_514du")]
-position = Vector2(8420, -491)
-
-[node name="block11" parent="." unique_id=407538101 instance=ExtResource("27_514du")]
-position = Vector2(8166, -416)
-
-[node name="block12" parent="." unique_id=1058632959 instance=ExtResource("27_514du")]
-position = Vector2(8373, -359)
-
-[node name="block13" parent="." unique_id=2126556825 instance=ExtResource("27_514du")]
-position = Vector2(8480, -227)
-
 [node name="TileMap" type="TileMap" parent="." unique_id=408943724]
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_vb8r4")
 format = 2
-layer_0/tile_data = PackedInt32Array(-9436875, 65536, 21, -9043671, 917504, 2, -9895613, 917504, 2, -9436896, 1310720, 1, -8847131, 1310720, 1, -6094448, 1310720, 1, -15334668, 720896, 21, -12843820, 1703936, 1, -13827320, 0, 1, -15858833, 720896, 21, -9633269, 1703936, 1, -10485438, 1310720, 1, -6094406, 1310720, 1, -10092011, 1310720, 1, -9502210, 1310720, 1, -13893010, 720896, 21, -6749471, 1245184, 36, -6749470, 1245184, 36, -9304807, 1245184, 36, 131436, 1245184, 36, -5372321, 1310720, 1, -5241237, 1310720, 1, -5372302, 524288, 0, -4586206, 1245184, 36)
+layer_0/tile_data = PackedInt32Array(131436, 1245184, 36, -5372321, 1310720, 1, -5241237, 1310720, 1, -5372302, 524288, 0)
 
 [node name="TileMap2" type="TileMap" parent="." unique_id=304192629]
 scale = Vector2(0.5, 0.5)
 tile_set = SubResource("TileSet_k4edk")
 format = 2
-layer_0/tile_data = PackedInt32Array(-15071679, 3801088, 39, -3472833, 2162688, 40, -3473103, 3801088, 39, -1834704, 3801088, 39, -1703355, 2162688, 40, -5766406, 2162688, 40, -1572090, 2162688, 40, -1834245, 2686976, 40, -1441500, 3145728, 40, -1244613, 3801088, 39, 524576, 524288, 55, 983611, 524288, 55, 721480, 524288, 55, 393976, 524288, 55, 262927, 131072, 56, 786817, 0, 40, 196992, 1114112, 39, -5831372, 2162688, 40, -1702594, 2162688, 40, -719562, 3801088, 39, 394544, 524288, 55, 394572, 524288, 55, 525624, 1179648, 56, 591138, 1572864, 42, 525630, 1572864, 42, 460105, 1638400, 48, 329047, 0, 47)
+layer_0/tile_data = PackedInt32Array(-15071679, 3801088, 39, 786817, 0, 40, 196992, 1114112, 39, 590594, 1572864, 42, 590558, 1572864, 42, -64520, 589824, 39, 263498, 0, 47, 263521, 1572864, 56, 591176, 1572864, 42, 3933635, 1572864, 42)
+
+[node name="gravas" type="Node2D" parent="." unique_id=2043255634]
+
+[node name="block" parent="gravas" unique_id=1102480490 instance=ExtResource("27_514du")]
+position = Vector2(2921, -84)
+
+[node name="block2" parent="gravas" unique_id=1756351268 instance=ExtResource("27_514du")]
+position = Vector2(2976, -167)
+
+[node name="block3" parent="gravas" unique_id=1779895896 instance=ExtResource("27_514du")]
+position = Vector2(8339, -1053)
+
+[node name="block4" parent="gravas" unique_id=178825057 instance=ExtResource("27_514du")]
+position = Vector2(8260, -918)
+
+[node name="block5" parent="gravas" unique_id=1697555499 instance=ExtResource("27_514du")]
+position = Vector2(8404, -836)
+
+[node name="block6" parent="gravas" unique_id=112619746 instance=ExtResource("27_514du")]
+position = Vector2(8342, -692)
+
+[node name="block7" parent="gravas" unique_id=539376635 instance=ExtResource("27_514du")]
+position = Vector2(8226, -218)
+
+[node name="block8" parent="gravas" unique_id=286924269 instance=ExtResource("27_514du")]
+position = Vector2(8012, -450)
+
+[node name="block9" parent="gravas" unique_id=1380347961 instance=ExtResource("27_514du")]
+position = Vector2(8222, -516)
+
+[node name="block10" parent="gravas" unique_id=1285275557 instance=ExtResource("27_514du")]
+position = Vector2(8420, -491)
+
+[node name="block11" parent="gravas" unique_id=407538101 instance=ExtResource("27_514du")]
+position = Vector2(8166, -416)
+
+[node name="block12" parent="gravas" unique_id=1058632959 instance=ExtResource("27_514du")]
+position = Vector2(8373, -359)
+
+[node name="block13" parent="gravas" unique_id=2126556825 instance=ExtResource("27_514du")]
+position = Vector2(8480, -227)
+
+[node name="front_decoration" type="Node2D" parent="." unique_id=1689454322]
+z_index = 10
+
+[node name="ColorRect" type="ColorRect" parent="front_decoration" unique_id=1259339998]
+offset_left = 2116.0
+offset_top = -1305.0
+offset_right = 2991.0
+offset_bottom = -941.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="front_decoration" unique_id=571114535]
+offset_left = 3994.0
+offset_top = -1308.0
+offset_right = 4777.0
+offset_bottom = -945.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="front_decoration" unique_id=863032133]
+offset_left = 6041.0
+offset_top = -1991.0
+offset_right = 6058.0
+offset_bottom = -1063.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="front_decoration" unique_id=1383255294]
+offset_left = 5717.0
+offset_top = -1574.0
+offset_right = 6758.0
+offset_bottom = -1334.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="TileMap3" type="TileMap" parent="front_decoration" unique_id=1505199269]
+z_index = 20
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_vb8r4")
+format = 2
+layer_0/tile_data = PackedInt32Array(131436, 1245184, 36, -5372321, 1310720, 1, -5241237, 1310720, 1, -5372302, 524288, 0, -13958411, 65536, 21, -13957843, 65536, 21, -12843819, 1703936, 1, -5308008, 0, 1, -6618854, 1245184, 36, -6094392, 1310720, 1, -11533786, 720896, 21, -12058048, 720896, 21, -11468237, 65536, 21, -12582382, 65536, 21, -14548399, 65536, 21, -12516815, 65536, 21, -13958608, 65536, 21, -14155199, 65536, 21, -15531492, 65536, 21, -14941658, 65536, 21, -14220760, 65536, 21, -13172186, 65536, 21)
+
+[node name="ColorRect5" type="ColorRect" parent="front_decoration" unique_id=1897427525]
+offset_left = 9864.0
+offset_top = -1754.0
+offset_right = 10561.0
+offset_bottom = -1330.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="front_decoration" unique_id=1006103133]
+offset_left = 4447.0
+offset_top = -2029.0
+offset_right = 6055.0
+offset_bottom = -1783.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="TileMap2" type="TileMap" parent="front_decoration" unique_id=1746459407]
+z_index = 20
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_k4edk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-15071679, 3801088, 39, 786817, 0, 40, 196992, 1114112, 39, -9370323, 1572864, 56, -11664036, 3801088, 39, -17627809, 3801088, 39, -9108137, 0, 40, 393961, 1572864, 56, 721623, 1572864, 42, 787193, 1572864, 42, 328688, 1572864, 56, 656364, 1572864, 42, -7142663, 2686976, 40, -6749453, 1572864, 56, 656393, 1572864, 42, -14089935, 2686976, 40, -6618575, 1572864, 56, -6487488, 1572864, 56, -6553303, 1572864, 56)
+
+[node name="TileMap4" type="TileMap" parent="front_decoration" unique_id=849088548]
+z_index = 20
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_k4edk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2883284, 3801088, 39, -1965781, 3801088, 39, 590118, 0, 40, 393518, 1572864, 56, -1834256, 3801088, 39, -5634727, 3801088, 39, -1505958, 2686976, 40, 656722, 1572864, 56, -11796189, 1572864, 56)
+
+[node name="ColorRect7" type="ColorRect" parent="front_decoration" unique_id=282279463]
+offset_left = -924.0
+offset_top = 1470.0
+offset_right = 109.0
+offset_bottom = 2493.0
+color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="front_decoration" unique_id=1235468322]
+offset_left = 1083.0
+offset_top = 1553.0
+offset_right = 2981.0
+offset_bottom = 1880.0
+color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="front_decoration" unique_id=1153438752]
+offset_left = 5398.0
+offset_top = 1221.0
+offset_right = 7352.0
+offset_bottom = 1827.0
+color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="front_decoration" unique_id=554747900]
+offset_left = 8226.0
+offset_top = 769.0
+offset_right = 9891.0
+offset_bottom = 1365.0
+color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[node name="ColorRect11" type="ColorRect" parent="front_decoration" unique_id=1084205623]
+offset_left = 10864.0
+offset_top = 457.0
+offset_right = 11244.0
+offset_bottom = 717.0
+color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="front_decoration" unique_id=1153662065]
+offset_left = 10559.0
+offset_top = -2034.0
+offset_right = 10988.0
+offset_bottom = -1064.0
+color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+
+[node name="Line2D" type="Line2D" parent="front_decoration" unique_id=1225446153]
+points = PackedVector2Array(-921, 2506, -919, 1327)
+default_color = Color(0, 0, 0, 1)
+
+[node name="Line2D2" type="Line2D" parent="front_decoration" unique_id=120737859]
+points = PackedVector2Array(11244, 724, 11249, 269)
+default_color = Color(0, 0, 0, 1)

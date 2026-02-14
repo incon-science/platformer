@@ -448,10 +448,10 @@ func respawn_logic():
 		if velocity.x <0 :
 			last_floor_pos = position + Vector2(25,0)
 func respawn():
-	cam.follow_damping = false
+	hide()
 	position = last_floor_pos
 	velocity = Vector2(0,0)
-	await get_tree().create_timer(1).timeout
-	cam.follow_damping = true
+	await get_tree().create_timer(0.5).timeout
+	show()
 			
 			
