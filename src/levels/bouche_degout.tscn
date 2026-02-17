@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://b05muqmrcfpjp"]
 
 [ext_resource type="Texture2D" uid="uid://ds23ynuqkc3" path="res://sprites/rooms/TUNNEL.png" id="1_kvi24"]
+[ext_resource type="Texture2D" uid="uid://bycbkri5p15f4" path="res://sprites/rooms/frontun.png" id="2_m74nn"]
 
 [node name="bouche degout" type="Node2D" unique_id=666465979]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=810955225]
 texture = ExtResource("1_kvi24")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=697038786]
+z_index = 20
+texture = ExtResource("2_m74nn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=953189899]
 

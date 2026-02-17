@@ -346,6 +346,7 @@ func apply_stretch() -> void:
 @onready var slide_particle: CPUParticles2D = $slide_particle
 
 @onready var cam: PhantomCamera2D = %cam
+@onready var camoffesetbottom: PhantomCamera2D = %camoffesetbottom
 @onready var shakecamtimer: Timer = $shakecamtimer
 
 
@@ -370,10 +371,15 @@ func logic_spe():
 	sprite_animation()
 	sound_animation()
 	
-	if velocity.x > 0 and cam.follow_offset.x == -25 and is_on_floor_only(): 
-		cam.follow_offset.x = 25
-	if velocity.x < 0 and cam.follow_offset.x == 25 and is_on_floor_only(): 
-		cam.follow_offset.x = -25
+	if velocity.x > 0 and cam.follow_offset.x == -50 and is_on_floor_only(): 
+		cam.follow_offset.x = 50
+	if velocity.x < 0 and cam.follow_offset.x == 50 and is_on_floor_only(): 
+		cam.follow_offset.x = -50
+	
+	if velocity.x > 0 and camoffesetbottom.follow_offset.x == -50 and is_on_floor_only(): 
+		camoffesetbottom.follow_offset.x = 50
+	if velocity.x < 0 and camoffesetbottom.follow_offset.x == 50 and is_on_floor_only(): 
+		camoffesetbottom.follow_offset.x = -50
 		
 	if state_machine.active_state is DashState or !shakecamtimer.is_stopped():
 		cam.noise.positional_noise= true

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bxio43wa4broq" path="res://sprites/rooms/DOOR2.png" id="4_4ubyx"]
 [ext_resource type="Texture2D" uid="uid://p168gvgs8syb" path="res://sprites/rooms/DOOR3.png" id="5_atgjj"]
 [ext_resource type="AudioStream" uid="uid://dj2464xcr6wkj" path="res://sounds/freesound_community-si_bemol_tone_2016-82338.mp3" id="6_atgjj"]
+[ext_resource type="PackedScene" uid="uid://kur8cpiyrv8b" path="res://src/particles/ground_particle.tscn" id="7_fuxk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk5nf"]
 size = Vector2(466.64352, 12342.096)
@@ -135,6 +136,14 @@ texture = ExtResource("5_atgjj")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="sprite/Sprite2D3" unique_id=1572705471]
 libraries/ = SubResource("AnimationLibrary_fuxk6")
 autoplay = &"new_animation"
+
+[node name="particle" parent="sprite" unique_id=1672415593 instance=ExtResource("7_fuxk6")]
+position = Vector2(-6870.7085, 1430.657)
+rotation = -0.41887903
+scale = Vector2(3.6496353, 3.6496353)
+amount = 300
+lifetime = 2.0
+emission_rect_extents = Vector2(700, 1)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=918785063]
 position = Vector2(2249.274, 7)

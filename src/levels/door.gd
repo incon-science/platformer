@@ -11,6 +11,7 @@ extends Node2D
 @onready var sprite_2d_3: Sprite2D = $sprite/Sprite2D3
 
 @onready var touchedsong: AudioStreamPlayer2D = $touchedsong
+@onready var particle: CPUParticles2D = $sprite/particle
 
 var opened = false
 
@@ -32,9 +33,13 @@ func _process(delta: float) -> void:
 		if player.global_position.x < global_position.x + 400 and Global.nb_fractal ==3 :
 			opened= true
 			
+			
+			
 			collision_shape_2d.set_deferred("disabled", true)
 			
 			animation_player.play("opendoor")
+			particle.restart()
+			
 			
 			player.shakecamtimer.start()
 			touchedsong.play()
@@ -46,3 +51,9 @@ func _process(delta: float) -> void:
 					
 			player.shakecamtimer.start()
 			touchedsong.play()
+			
+			await get_tree().create_timer(1.1).timeout
+			sprite_2d.visible = false
+			sprite_2d_2.visible = false
+			sprite_2d_3.visible = false
+			Global.nb_fractal = 0
