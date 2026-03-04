@@ -11,7 +11,7 @@ size = Vector2(857, 55)
 size = Vector2(383, 410)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdbuc"]
-size = Vector2(1878, 270)
+size = Vector2(1785, 11)
 
 [node name="jump_room" type="Node2D" unique_id=864433486]
 
@@ -32,7 +32,8 @@ position = Vector2(671, 498)
 shape = SubResource("RectangleShape2D_v2qre")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=481804644]
-position = Vector2(104, 771)
+z_index = 100
+position = Vector2(-345.5, 641.5)
 shape = SubResource("RectangleShape2D_gdbuc")
 
 [node name="Temps" parent="." unique_id=1268341129 instance=ExtResource("6_jjfcg")]

@@ -358,7 +358,7 @@ func portal_logic():
 		save_velocity = velocity
 	else :
 		if !inside_portal : save_velocity.y = -jump_velocity
-			
+		
 func logic_spe():
 	if Input.is_action_pressed("timeslow"):
 			Engine.time_scale = 0.1
@@ -367,8 +367,8 @@ func logic_spe():
 	portal_logic()
 	respawn_logic()
 	
-	
 	sprite_animation()
+	
 	sound_animation()
 	
 	if velocity.x > 0 and cam.follow_offset.x == -50 and is_on_floor_only(): 

@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 			opened= true
 			
 			
-			
 			collision_shape_2d.set_deferred("disabled", true)
 			
 			animation_player.play("opendoor")
@@ -45,10 +44,12 @@ func _process(delta: float) -> void:
 			touchedsong.play()
 			await get_tree().create_timer(1.1).timeout
 			
+			
 			player.shakecamtimer.start()
 			touchedsong.play()
 			await get_tree().create_timer(1.1).timeout
-					
+			
+			
 			player.shakecamtimer.start()
 			touchedsong.play()
 			

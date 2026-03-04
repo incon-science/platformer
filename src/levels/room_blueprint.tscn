@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://dy80i5m5jbd5"]
+[gd_scene format=4 uid="uid://dy80i5m5jbd5"]
 
 [ext_resource type="Script" uid="uid://cfsrsjdfacr0o" path="res://src/levels/room_blueprint.gd" id="1_76snk"]
 [ext_resource type="Texture2D" uid="uid://6sperlai5t1p" path="res://sprites/rooms/ground.png" id="1_p0cym"]
+[ext_resource type="Shader" uid="uid://cylkj8wo88c1h" path="res://shaders/burn.gdshader" id="2_7rpky"]
 [ext_resource type="Texture2D" uid="uid://cbca72wf68jj6" path="res://sprites/rooms/balcon.png" id="2_ltygr"]
 [ext_resource type="PackedScene" uid="uid://d0idjcg45flp4" path="res://src/levels/basik_room.tscn" id="2_ypife"]
 [ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="3_4j1ba"]
@@ -14,21 +15,77 @@
 [ext_resource type="PackedScene" uid="uid://do35bbyy0qllr" path="res://src/platforms/platform.tscn" id="8_ltygr"]
 [ext_resource type="PackedScene" uid="uid://bl14lcvp4g2nh" path="res://src/levels/room_1.tscn" id="9_7157o"]
 [ext_resource type="PackedScene" uid="uid://c07ghb70rt8ft" path="res://src/levels/escalier_room.tscn" id="12_7ls7j"]
-[ext_resource type="PackedScene" uid="uid://c2jk0o1fmnmuq" path="res://src/vivants/mouse.tscn" id="13_c3xut"]
 [ext_resource type="PackedScene" uid="uid://dhihe4rrnqw3d" path="res://src/levels/transition_rooms.tscn" id="13_h1car"]
 [ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="14_k548o"]
 [ext_resource type="PackedScene" uid="uid://cekaf18v66rc3" path="res://src/levels/portal_room.tscn" id="14_lqwi2"]
 [ext_resource type="PackedScene" uid="uid://dhmslis0y0ejr" path="res://src/levels/blackwhite_room.tscn" id="15_1rkoo"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="16_nfd4m"]
 [ext_resource type="PackedScene" uid="uid://dr4h3pc0jii81" path="res://src/elements/fractale.tscn" id="17_p2ed6"]
-[ext_resource type="PackedScene" uid="uid://cpvhasyan240q" path="res://src/elements/cadavre_exquis.tscn" id="19_76snk"]
 [ext_resource type="PackedScene" uid="uid://b05muqmrcfpjp" path="res://src/levels/bouche_degout.tscn" id="19_hwdj1"]
 [ext_resource type="PackedScene" uid="uid://du22qbnon6nkp" path="res://src/levels/door.tscn" id="20_c3xut"]
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="21_n78m8"]
 [ext_resource type="AudioStream" uid="uid://bm0hl1jvxub7r" path="res://sounds/musics/Portal Soundtrack  Self Esteem Fund.mp3" id="23_f1fom"]
 [ext_resource type="PackedScene" uid="uid://u6orxxjk4kgt" path="res://src/elements/block.tscn" id="27_514du"]
-[ext_resource type="Texture2D" uid="uid://6tdmpciwbn1b" path="res://sprites/Mossy Tileset/Mossy - Hanging Plants.png" id="28_gw2wf"]
+[ext_resource type="Shader" uid="uid://dbpcmnusybmk2" path="res://shaders/wind.gdshader" id="28_vb8r4"]
+[ext_resource type="Texture2D" uid="uid://bm6t2257e58y0" path="res://sprites/Mossy Tileset/Mossy - Hanging PlantsREVERSE.png" id="29_7rpky"]
 [ext_resource type="Texture2D" uid="uid://ptro2irm7vk1" path="res://sprites/Mossy Tileset/Mossy - Decorations&Hazards.png" id="29_vb8r4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7rpky"]
+frequency = 0.0457
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4edk"]
+width = 2048
+noise = SubResource("FastNoiseLite_7rpky")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hw218"]
+shader = ExtResource("2_7rpky")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_k4edk")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03999999910592
+shader_parameter/burn_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_vb8r4"]
+colors = PackedColorArray(0.3553136, 0.35531354, 0.35531357, 1, 0.5689727, 0.56897277, 0.5689727, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7rpky"]
+gradient = SubResource("Gradient_vb8r4")
+
+[sub_resource type="Animation" id="Animation_7rpky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_k4edk"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.8190000389025]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hw218"]
+_data = {
+&"RESET": SubResource("Animation_7rpky"),
+&"new_animation": SubResource("Animation_k4edk")
+}
 
 [sub_resource type="Resource" id="Resource_7157o"]
 script = ExtResource("5_j2cwt")
@@ -55,66 +112,107 @@ colors = PackedColorArray(0, 0, 0, 1, 0.26190478, 0.26190478, 0.26190478, 1, 1, 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n78m8"]
 gradient = SubResource("Gradient_76snk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gw2wf"]
-texture = ExtResource("28_gw2wf")
-texture_region_size = Vector2i(64, 64)
-1:21/size_in_atlas = Vector2i(8, 23)
-1:21/0 = 0
-11:21/size_in_atlas = Vector2i(8, 23)
-11:21/0 = 0
-20:1/size_in_atlas = Vector2i(6, 14)
-20:1/0 = 0
-0:1/size_in_atlas = Vector2i(8, 20)
-0:1/0 = 0
-26:1/size_in_atlas = Vector2i(6, 16)
-26:1/0 = 0
-8:0/size_in_atlas = Vector2i(6, 18)
-8:0/0 = 0
-19:36/size_in_atlas = Vector2i(13, 10)
-19:36/0 = 0
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_514du"]
+texture = ExtResource("29_vb8r4")
+texture_region_size = Vector2i(256, 256)
+12:10/size_in_atlas = Vector2i(2, 6)
+12:10/0 = 0
+14:10/size_in_atlas = Vector2i(2, 6)
+14:10/0 = 0
+10:10/size_in_atlas = Vector2i(2, 6)
+10:10/0 = 0
+8:10/size_in_atlas = Vector2i(2, 6)
+8:10/0 = 0
+6:10/0 = 0
+6:11/0 = 0
+7:10/0 = 0
+7:11/0 = 0
+6:12/0 = 0
+6:13/0 = 0
+7:12/0 = 0
+7:13/0 = 0
+6:14/0 = 0
+6:15/0 = 0
+7:14/0 = 0
+7:15/0 = 0
+0:8/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_vb8r4"]
-sources/0 = SubResource("TileSetAtlasSource_gw2wf")
+[sub_resource type="TileSet" id="TileSet_gw2wf"]
+sources/0 = SubResource("TileSetAtlasSource_514du")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4edk"]
+shader = ExtResource("28_vb8r4")
+shader_parameter/wind_start_threshold = 0.1
+shader_parameter/wind_end_threshold = 2.0
+shader_parameter/wind_end_threshold_2 = 0.1
+shader_parameter/wind_strength = 0.2
+shader_parameter/wind_speed = 1.0
+shader_parameter/scale = 2.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hw218"]
+texture = ExtResource("29_7rpky")
+texture_region_size = Vector2i(128, 128)
+11:1/size_in_atlas = Vector2i(5, 11)
+11:1/0 = 0
+7:1/size_in_atlas = Vector2i(4, 11)
+7:1/0 = 0
+9:14/size_in_atlas = Vector2i(3, 9)
+9:14/0 = 0
+6:14/size_in_atlas = Vector2i(3, 9)
+6:14/0 = 0
+3:15/size_in_atlas = Vector2i(3, 8)
+3:15/0 = 0
+0:14/size_in_atlas = Vector2i(3, 9)
+0:14/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lqu8a"]
+sources/0 = SubResource("TileSetAtlasSource_hw218")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vb8r4"]
+shader = ExtResource("28_vb8r4")
+shader_parameter/wind_start_threshold = 0.1
+shader_parameter/wind_end_threshold = 2.0
+shader_parameter/wind_end_threshold_2 = 0.1
+shader_parameter/wind_strength = 0.2
+shader_parameter/wind_speed = 1.0
+shader_parameter/scale = 2.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rpky"]
 texture = ExtResource("29_vb8r4")
-texture_region_size = Vector2i(64, 64)
-33:40/size_in_atlas = Vector2i(7, 23)
-33:40/0 = 0
-41:40/size_in_atlas = Vector2i(7, 23)
-41:40/0 = 0
-48:40/size_in_atlas = Vector2i(8, 23)
-48:40/0 = 0
-58:39/size_in_atlas = Vector2i(5, 25)
-58:39/0 = 0
-0:47/size_in_atlas = Vector2i(8, 8)
-0:47/0 = 0
-9:48/size_in_atlas = Vector2i(6, 6)
-9:48/0 = 0
-9:39/size_in_atlas = Vector2i(6, 8)
-9:39/0 = 0
-0:40/size_in_atlas = Vector2i(7, 6)
-0:40/0 = 0
-17:39/size_in_atlas = Vector2i(5, 8)
-17:39/0 = 0
-24:56/size_in_atlas = Vector2i(7, 8)
-24:56/0 = 0
-25:48/size_in_atlas = Vector2i(7, 7)
-25:48/0 = 0
-8:55/size_in_atlas = Vector2i(9, 8)
-8:55/0 = 0
-2:56/size_in_atlas = Vector2i(4, 7)
-2:56/0 = 0
-18:56/size_in_atlas = Vector2i(4, 8)
-18:56/0 = 0
-24:42/size_in_atlas = Vector2i(8, 4)
-24:42/0 = 0
+texture_region_size = Vector2i(128, 128)
+0:16/size_in_atlas = Vector2i(2, 2)
+0:16/0 = 0
+12:21/size_in_atlas = Vector2i(4, 2)
+12:21/0 = 0
+12:23/size_in_atlas = Vector2i(4, 5)
+12:23/0 = 0
+12:28/size_in_atlas = Vector2i(4, 4)
+12:28/0 = 0
+1:28/size_in_atlas = Vector2i(2, 4)
+1:28/0 = 0
+4:27/size_in_atlas = Vector2i(4, 5)
+4:27/0 = 0
+9:28/size_in_atlas = Vector2i(2, 4)
+9:28/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_k4edk"]
 sources/0 = SubResource("TileSetAtlasSource_7rpky")
 
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=898654053]
+material = SubResource("ShaderMaterial_hw218")
+offset_left = -3724.0
+offset_top = -4206.0
+offset_right = 17236.0
+offset_bottom = 35.0
+texture = SubResource("GradientTexture1D_7rpky")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect" unique_id=1781422004]
+libraries/ = SubResource("AnimationLibrary_hw218")
+autoplay = &"new_animation"
+speed_scale = 0.1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1364036370]
 color = Color(0.40832946, 0.40832946, 0.40832946, 1)
@@ -145,12 +243,12 @@ texture = ExtResource("1_p0cym")
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-271, -949)
+position = Vector2(13, -371)
 
 [node name="cam" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(-221, -1109)
+position = Vector2(63, -531)
 script = ExtResource("4_mu531")
 priority = 1
 follow_mode = 2
@@ -169,7 +267,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="camoffesetbottom" type="Node2D" parent="." unique_id=1643240695 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(-221, -949)
+position = Vector2(63, -371)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -185,7 +283,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-271, -1109)
+position = Vector2(13, -531)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -202,7 +300,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(-221, -1109)
+position = Vector2(63, -531)
 process_callback = 0
 limit_left = -2712
 editor_draw_limits = true
@@ -292,9 +390,6 @@ position = Vector2(447, -759)
 [node name="platform20" parent="Structure/platforms" unique_id=510338595 instance=ExtResource("8_ltygr")]
 position = Vector2(1285, -400)
 
-[node name="platform21" parent="Structure/platforms" unique_id=960945282 instance=ExtResource("8_ltygr")]
-position = Vector2(653, -858)
-
 [node name="platform22" parent="Structure/platforms" unique_id=1492328672 instance=ExtResource("8_ltygr")]
 position = Vector2(478, -496)
 
@@ -312,9 +407,6 @@ position = Vector2(10407, 1296)
 
 [node name="escalier_room2" parent="Structure" unique_id=1021733173 instance=ExtResource("12_7ls7j")]
 position = Vector2(629, 2409)
-
-[node name="mouse" parent="Structure/escalier_room2" unique_id=278523563 instance=ExtResource("13_c3xut")]
-position = Vector2(196, 528)
 
 [node name="ball" parent="Structure/escalier_room2" unique_id=2080036255 instance=ExtResource("14_k548o")]
 position = Vector2(229, 520)
@@ -573,6 +665,9 @@ position = Vector2(617, 3669)
 [node name="door" parent="Structure" unique_id=1047860162 instance=ExtResource("20_c3xut")]
 position = Vector2(-2247, 0)
 
+[node name="pt_blueprint" parent="Structure" unique_id=104659938 instance=ExtResource("16_nfd4m")]
+position = Vector2(655, -855)
+
 [node name="portals" type="Node2D" parent="." unique_id=1879768166]
 
 [node name="portalHAUT" parent="portals" unique_id=1311602281 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
@@ -585,15 +680,6 @@ rotation = 3.9269907
 portal_target = NodePath("../portalHAUT")
 
 [node name="cadavres" type="Node2D" parent="." unique_id=430257683]
-
-[node name="RigidBody2D2" parent="cadavres" unique_id=1526666836 instance=ExtResource("19_76snk")]
-position = Vector2(47, -697)
-
-[node name="RigidBody2D3" parent="cadavres" unique_id=546271316 instance=ExtResource("19_76snk")]
-position = Vector2(10, -1081)
-
-[node name="RigidBody2D4" parent="cadavres" unique_id=1964315531 instance=ExtResource("19_76snk")]
-position = Vector2(-58, -1532)
 
 [node name="tas_de_cadavre" parent="cadavres" unique_id=1593653933 instance=ExtResource("7_j2cwt")]
 position = Vector2(-1, 134)
@@ -614,18 +700,6 @@ stream = ExtResource("23_f1fom")
 volume_db = -8.0
 autoplay = true
 parameters/looping = true
-
-[node name="TileMap" type="TileMap" parent="." unique_id=408943724]
-scale = Vector2(0.5, 0.5)
-tile_set = SubResource("TileSet_vb8r4")
-format = 2
-layer_0/tile_data = PackedInt32Array(-5372321, 1310720, 1, -5241237, 1310720, 1, -5372302, 524288, 0)
-
-[node name="TileMap2" type="TileMap" parent="." unique_id=304192629]
-scale = Vector2(0.5, 0.5)
-tile_set = SubResource("TileSet_k4edk")
-format = 2
-layer_0/tile_data = PackedInt32Array(-15071679, 3801088, 39, 590594, 1572864, 42, 590558, 1572864, 42, 263521, 1572864, 56, 591176, 1572864, 42, 6948310, 1572864, 56)
 
 [node name="gravas" type="Node2D" parent="." unique_id=2043255634]
 
@@ -699,13 +773,6 @@ offset_right = 6758.0
 offset_bottom = -1334.0
 color = Color(0.49803922, 0.49803922, 0.49803922, 1)
 
-[node name="TileMap3" type="TileMap" parent="front_decoration" unique_id=1505199269]
-z_index = 20
-scale = Vector2(0.5, 0.5)
-tile_set = SubResource("TileSet_vb8r4")
-format = 2
-layer_0/tile_data = PackedInt32Array(-5372321, 1310720, 1, -5241237, 1310720, 1, -5372302, 524288, 0, -13958411, 65536, 21, -13957843, 65536, 21, -12843819, 1703936, 1, -5308008, 0, 1, -6618854, 1245184, 36, -6094392, 1310720, 1, -11533786, 720896, 21, -12058048, 720896, 21, -11468237, 65536, 21, -12582382, 65536, 21, -14548399, 65536, 21, -12516815, 65536, 21, -13958608, 65536, 21, -14155199, 65536, 21, -15531492, 65536, 21, -14941658, 65536, 21, -14220760, 65536, 21, -13172186, 65536, 21)
-
 [node name="ColorRect5" type="ColorRect" parent="front_decoration" unique_id=1897427525]
 offset_left = 9864.0
 offset_top = -1754.0
@@ -719,20 +786,6 @@ offset_top = -2029.0
 offset_right = 6055.0
 offset_bottom = -1783.0
 color = Color(0.49803922, 0.49803922, 0.49803922, 1)
-
-[node name="TileMap2" type="TileMap" parent="front_decoration" unique_id=1746459407]
-z_index = 20
-scale = Vector2(0.5, 0.5)
-tile_set = SubResource("TileSet_k4edk")
-format = 2
-layer_0/tile_data = PackedInt32Array(-15071679, 3801088, 39, -9370323, 1572864, 56, -11664036, 3801088, 39, -17627809, 3801088, 39, -9108137, 0, 40, 393961, 1572864, 56, 721623, 1572864, 42, 787193, 1572864, 42, -7142663, 2686976, 40, -6749453, 1572864, 56, -14089935, 2686976, 40, -6618575, 1572864, 56, -6487488, 1572864, 56, -6553303, 1572864, 56, -8978130, 3801088, 39, 1015, 0, 47)
-
-[node name="TileMap4" type="TileMap" parent="front_decoration" unique_id=849088548]
-z_index = 20
-scale = Vector2(0.5, 0.5)
-tile_set = SubResource("TileSet_k4edk")
-format = 2
-layer_0/tile_data = PackedInt32Array(-2883284, 3801088, 39, -1965781, 3801088, 39, -1834256, 3801088, 39, -5634727, 3801088, 39, -1505958, 2686976, 40, 656722, 1572864, 56, -11796189, 1572864, 56, 327971, 1572864, 56, 7407055, 1572864, 42, 852996, 1572864, 42)
 
 [node name="ColorRect7" type="ColorRect" parent="front_decoration" unique_id=282279463]
 offset_left = -920.0
@@ -795,3 +848,42 @@ default_color = Color(0, 0, 0, 1)
 position = Vector2(1553, 0)
 points = PackedVector2Array(1879, 341, 2837, 344)
 default_color = Color(0, 0, 0, 1)
+
+[node name="reality is fake" type="RichTextLabel" parent="." unique_id=1696564533]
+offset_left = 3736.0
+offset_top = 1792.0
+offset_right = 4653.0
+offset_bottom = 2708.0
+theme_override_font_sizes/normal_font_size = 26
+text = "La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité Enjoy the Void "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1013986313]
+offset_left = 1277.0
+offset_top = -504.0
+offset_right = 1497.0
+offset_bottom = -364.0
+theme_override_colors/default_color = Color(1.6197081, 1.6197081, 1.6197081, 1)
+theme_override_font_sizes/normal_font_size = 18
+text = "Les pi_ces du fractal ouvriront la Voie"
+horizontal_alignment = 1
+
+[node name="tronc_tiles" type="TileMapLayer" parent="." unique_id=512305397]
+z_index = 15
+scale = Vector2(0.75, 0.75)
+tile_map_data = PackedByteArray("AAAfBFn/AAAIAAoAAACMA+P/AAAKAAoAAACQA4//AAAOAAoAAADHAOL/AAAOAAoAAADKAI3/AAAOAAoAAACTAzf/AAAOAAoAAAD3Adf/AAAKAAoAAADuAS0AAAAOAAoAAAA=")
+tile_set = SubResource("TileSet_gw2wf")
+
+[node name="feuillagesuspendu_tiles" type="TileMapLayer" parent="." unique_id=1184582560]
+z_index = 15
+material = SubResource("ShaderMaterial_k4edk")
+rotation = 3.1415927
+scale = Vector2(0.75, 0.75)
+tile_map_data = PackedByteArray("AACA/n4AAAALAAEAAACE/m4AAAALAAEAAABy/n4AAAAHAAEAAAAG/o0AAAAHAAEAAAC3+zIAAAADAA8AAACy+zIAAAADAA8AAADB+yoAAAAJAA4AAADI/jEAAAAJAA4AAADl/jIAAAADAA8AAAA=")
+tile_set = SubResource("TileSet_lqu8a")
+
+[node name="herbes_tiles" type="TileMapLayer" parent="." unique_id=72242032]
+z_index = 15
+material = SubResource("ShaderMaterial_vb8r4")
+scale = Vector2(0.75, 0.75)
+tile_map_data = PackedByteArray("AADCAAIAAAAMABwAAACDAwIAAAAMABwAAAB0AbX/AAAMABwAAADYA0UAAAAMABUAAAA=")
+tile_set = SubResource("TileSet_k4edk")

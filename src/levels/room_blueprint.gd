@@ -32,10 +32,12 @@ func _process(delta: float) -> void:
 		zoomcam.priority = 10
 	else :
 		zoomcam.priority = 0
-	if player.global_position.y > 2913 :
+		
+	if player.global_position.y > 2913 or (player.global_position.x > 11200 and player.global_position.x < 13040):
 		camoffesetbottom.priority = 10
 	else :
 		camoffesetbottom.priority = 0
+		
 		
 	if player.global_position.y > 5000:
 		player.respawn()
