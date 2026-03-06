@@ -12,12 +12,17 @@ extends Node2D
 
 @onready var touchedsong: AudioStreamPlayer2D = $touchedsong
 @onready var particle: CPUParticles2D = $sprite/particle
+@onready var cam: PhantomCamera2D = %cam
+
+@onready var enter_the_void: Node2D = %enter_the_void
+
 
 var opened = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	enter_the_void.process_mode = Node.PROCESS_MODE_DISABLED
+	enter_the_void.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,6 +38,11 @@ func _process(delta: float) -> void:
 		if player.global_position.x < global_position.x + 400 and Global.nb_fractal ==3 :
 			opened= true
 			
+			
+			enter_the_void.process_mode = Node.PROCESS_MODE_INHERIT
+			enter_the_void.visible = true
+			
+			cam.limit_left = -10000000
 			
 			collision_shape_2d.set_deferred("disabled", true)
 			

@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="voice of the void"
+config/name="Voice of the Void"
 config/description="A false story"
 run/main_scene="uid://dy80i5m5jbd5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
@@ -25,8 +25,8 @@ config/windows_native_icon="res://icons/icon.ico"
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
-DebugMenu="*uid://cggqb75a8w8r"
 Global="*uid://dvc4rc2c5h0fd"
+DebugMenu="*uid://cggqb75a8w8r"
 
 [display]
 
@@ -109,4 +109,5 @@ common/physics_interpolation=true
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true
 environment/defaults/default_clear_color=Color(0.49747336, 0.49747378, 0.49747366, 1)

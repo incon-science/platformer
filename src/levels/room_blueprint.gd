@@ -5,6 +5,8 @@ extends Node2D
 @onready var camoffesetbottom: PhantomCamera2D = $camoffesetbottom
 @onready var cam: PhantomCamera2D = $cam
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 
 func duplicate_room1(offset_x):
 	var r = ground.duplicate()
@@ -15,7 +17,7 @@ func duplicate_room1(offset_x):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var len = 0.274 * 13902
-	for i in range(5):
+	for i in range(6):
 		duplicate_room1(i*len)
 		
 	ground.hide()
@@ -24,22 +26,26 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-			
-		
-
-	
-	if player.global_position.x > 3123 and player.global_position.y >1651 and player.global_position.y <2500 and player.global_position.x < 5260:
-		zoomcam.priority = 10
-	else :
-		zoomcam.priority = 0
-		
-	if player.global_position.y > 2913 or (player.global_position.x > 11200 and player.global_position.x < 13040):
-		camoffesetbottom.priority = 10
-	else :
-		camoffesetbottom.priority = 0
-		
+	if !audio_stream_player.playing:
+		audio_stream_player.play()
 		
 	if player.global_position.y > 5000:
 		player.respawn()
 	if player.global_position.y > 2000 and player.global_position.x > 13734:
 		player.respawn()
+
+
+func _on_zoom_zone_body_entered(body: Node2D) -> void:
+	if body is Player : zoomcam.priority = 10
+
+
+func _on_zoom_zone_body_exited(body: Node2D) -> void:
+	if body is Player : zoomcam.priority = 0
+
+
+func _on_no_bottom_offset_zone_body_entered(body: Node2D) -> void:
+	if body is Player : camoffesetbottom.priority = 10
+
+
+func _on_no_bottom_offset_zone_body_exited(body: Node2D) -> void:
+	if body is Player : camoffesetbottom.priority = 0

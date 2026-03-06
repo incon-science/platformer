@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhmslis0y0ejr"]
 
-[ext_resource type="PackedScene" uid="uid://3t2f2pn81x60" path="res://src/old_projet/univers.tscn" id="1_l88fe"]
+[ext_resource type="PackedScene" uid="uid://3t2f2pn81x60" path="res://src/elements/univers.tscn" id="1_l88fe"]
 [ext_resource type="Texture2D" uid="uid://bsairk87mham4" path="res://sprites/rooms/blackwhite.png" id="1_u4oek"]
 [ext_resource type="Texture2D" uid="uid://wabd2besh7bm" path="res://sprites/rooms/blackwhite2.png" id="2_uyhl4"]
 [ext_resource type="PackedScene" uid="uid://do35bbyy0qllr" path="res://src/platforms/platform.tscn" id="9_v5qbg"]

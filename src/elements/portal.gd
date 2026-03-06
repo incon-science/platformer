@@ -28,6 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 			body.velocity = vecteur_rotated
 			
 			
+			
 			body.inside_portal = true
 			
 			sound.play()

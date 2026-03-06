@@ -423,8 +423,9 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_hja65")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.8, 0.2)
+fill_to = Vector2(0.85, 0.15)
 metadata/_snap_enabled = true
+metadata/_snap_count = 20
 
 [node name="Player" type="CharacterBody2D" unique_id=2070335124]
 z_index = 1
@@ -620,10 +621,12 @@ stream = SubResource("AudioStreamRandomizer_h0enb")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=479851347]
 position = Vector2(0, -32)
+color = Color(1.4369954, 1.4369954, 1.4369954, 1)
 texture = SubResource("GradientTexture2D_hja65")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1117608192]
 position = Vector2(0, -41)
+color = Color(1.6852883, 1.6852883, 1.6852883, 1)
 texture = SubResource("GradientTexture2D_5shm8")
 texture_scale = 17.35
 

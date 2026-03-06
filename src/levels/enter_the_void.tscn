@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cq4qwvtte3v52"]
+
+[ext_resource type="PackedScene" uid="uid://j3gcywxflkf1" path="res://src/tentacle/scenes/arm.tscn" id="1_wt3sn"]
+
+[node name="enter_the_void" type="Node2D" unique_id=1190942583]
+
+[node name="Arm4" parent="." unique_id=1104907447 instance=ExtResource("1_wt3sn")]
+position = Vector2(-158, -174)
+scale = Vector2(4, 4)
+
+[node name="Arm3" parent="." unique_id=1521190261 instance=ExtResource("1_wt3sn")]
+position = Vector2(-117, 249)
+scale = Vector2(4, 4)
+
+[node name="Arm2" parent="." unique_id=793364108 instance=ExtResource("1_wt3sn")]
+position = Vector2(-73, -309)
+scale = Vector2(4, 4)
+
+[node name="Arm" parent="." unique_id=657714588 instance=ExtResource("1_wt3sn")]
+scale = Vector2(4, 4)
+
+[node name="Arm6" parent="." unique_id=210224621 instance=ExtResource("1_wt3sn")]
+position = Vector2(-50, -81)
+scale = Vector2(4, 4)
+
+[node name="Arm5" parent="." unique_id=608716097 instance=ExtResource("1_wt3sn")]
+position = Vector2(-21, 329)
+scale = Vector2(4, 4)
