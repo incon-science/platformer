@@ -19,7 +19,6 @@ func _ready() -> void:
 	var len = 0.274 * 13902
 	for i in range(6):
 		duplicate_room1(i*len)
-		
 	ground.hide()
 	ground.process_mode = Node.PROCESS_MODE_DISABLED
 

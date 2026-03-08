@@ -218,7 +218,7 @@ func wall_jump() -> void:
 	velocity.x = wall_jump_h_velocity * wall_jump_dir
 	apply_stretch()
 	
-	state_machine.activate_state_by_name.call_deferred("WallJumpState")
+	state_machine.activate_state_by_name("WallJumpState")
 		
 	try_play_new_anim("jumpup",0.33*wall_jump_dir)
 	walljump_sound.play()
@@ -257,7 +257,7 @@ func can_dash() -> bool:
 
 func try_dash() -> void:
 	if Input.is_action_just_pressed("dash") and can_dash():
-		state_machine.activate_state_by_name.call_deferred("DashState")
+		state_machine.activate_state_by_name("DashState")
 		dash_sound.play()
 
 func try_corner_correction(delta: float) -> void:
@@ -405,13 +405,10 @@ func sprite_animation() -> void:
 		slide_particle.emitting = false
 		
 	if is_on_floor() :
-		if velocity.x > -40 and velocity.x < 40 :
+		if velocity.x < -150 or velocity.x > 150 :
+			try_play_new_anim("run")
+		else:
 			try_play_new_anim("idle")
-		else :
-			if velocity.x > -150 and velocity.x < 150 :
-				try_play_new_anim("walk")
-			else:
-				try_play_new_anim("run")
 	
 	if velocity.y > 0.0:
 		try_play_new_anim("jumpdown")

@@ -285,12 +285,12 @@ texture = ExtResource("1_p0cym")
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(-1, -539)
+position = Vector2(0, -611)
 
 [node name="cam" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(49, -699)
+position = Vector2(50, -771)
 script = ExtResource("4_mu531")
 priority = 1
 follow_mode = 2
@@ -309,7 +309,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="camoffesetbottom" type="Node2D" parent="." unique_id=1643240695 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(49, -539)
+position = Vector2(50, -611)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -325,7 +325,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(-1, -699)
+position = Vector2(0, -771)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -342,7 +342,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(49, -699)
+position = Vector2(50, -771)
 process_callback = 0
 limit_left = -2712
 editor_draw_limits = true
@@ -720,7 +720,7 @@ position = Vector2(818, -885)
 
 [node name="enter_the_void" parent="Structure" unique_id=1190942583 instance=ExtResource("22_7rpky")]
 unique_name_in_owner = true
-position = Vector2(-4630, -1110)
+position = Vector2(-4639, -1110)
 
 [node name="portals" type="Node2D" parent="." unique_id=1879768166]
 
@@ -732,6 +732,7 @@ portal_target = NodePath("../portalHAUT2")
 position = Vector2(12440, -2804)
 rotation = 3.9269907
 portal_target = NodePath("../portalHAUT")
+portal_reverse_color = true
 
 [node name="cadavres" type="Node2D" parent="." unique_id=430257683]
 
@@ -906,20 +907,21 @@ default_color = Color(0, 0, 0, 1)
 [node name="reality is fake" type="RichTextLabel" parent="." unique_id=1696564533]
 offset_left = 3736.0
 offset_top = 1792.0
-offset_right = 4653.0
+offset_right = 4626.0
 offset_bottom = 2708.0
 theme_override_font_sizes/normal_font_size = 26
 text = "La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin "
+horizontal_alignment = 3
 
 [node name="ouvriront" type="RichTextLabel" parent="." unique_id=1013986313]
-offset_left = 1277.0
-offset_top = -504.0
-offset_right = 1497.0
-offset_bottom = -364.0
+offset_left = 1134.0
+offset_top = -978.0
+offset_right = 1719.0
+offset_bottom = -838.0
 theme_override_colors/default_color = Color(1.6197081, 1.6197081, 1.6197081, 1)
 theme_override_font_sizes/normal_font_size = 18
 text = "Les pièces du fractal ouvriront la Voie"
-horizontal_alignment = 1
+horizontal_alignment = 3
 
 [node name="tronc_tiles" type="TileMapLayer" parent="." unique_id=512305397]
 z_index = 15
