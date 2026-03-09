@@ -347,6 +347,8 @@ func apply_stretch() -> void:
 
 @onready var cam: PhantomCamera2D = %cam
 @onready var camoffesetbottom: PhantomCamera2D = %camoffesetbottom
+@onready var zoomcam: PhantomCamera2D = %zoomcam
+
 @onready var shakecamtimer: Timer = $shakecamtimer
 
 
@@ -383,8 +385,12 @@ func logic_spe():
 		
 	if state_machine.active_state is DashState or !shakecamtimer.is_stopped():
 		cam.noise.positional_noise= true
+		camoffesetbottom.noise.positional_noise= true
+		zoomcam.noise.positional_noise= true
 	else :
 		cam.noise.positional_noise= false
+		camoffesetbottom.noise.positional_noise= false
+		zoomcam.noise.positional_noise= false
 	
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":

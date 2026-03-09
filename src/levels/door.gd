@@ -17,7 +17,7 @@ extends Node2D
 @onready var enter_the_void: Node2D = %enter_the_void
 
 
-var opened = false
+var door_opened:bool=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,9 +34,9 @@ func _process(delta: float) -> void:
 	if Global.nb_fractal == 3:
 		sprite_2d_3.visible = true
 	
-	if !opened:
+	if !door_opened:
 		if player.global_position.x < global_position.x + 400 and Global.nb_fractal ==3 :
-			opened= true
+			door_opened= true
 			
 			
 			enter_the_void.process_mode = Node.PROCESS_MODE_INHERIT
