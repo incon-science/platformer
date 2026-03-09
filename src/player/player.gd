@@ -346,7 +346,9 @@ func apply_stretch() -> void:
 @onready var slide_particle: CPUParticles2D = $slide_particle
 
 @onready var cam: PhantomCamera2D = %cam
+@onready var cam_2: PhantomCamera2D = %cam2
 @onready var camoffesetbottom: PhantomCamera2D = %camoffesetbottom
+@onready var camoffesetbottom_2: PhantomCamera2D = %camoffesetbottom2
 @onready var zoomcam: PhantomCamera2D = %zoomcam
 
 @onready var shakecamtimer: Timer = $shakecamtimer
@@ -373,15 +375,23 @@ func logic_spe():
 	
 	sound_animation()
 	
-	if velocity.x > 0 and cam.follow_offset.x == -50 and is_on_floor_only(): 
-		cam.follow_offset.x = 50
-	if velocity.x < 0 and cam.follow_offset.x == 50 and is_on_floor_only(): 
-		cam.follow_offset.x = -50
+	camera_logic()
 	
-	if velocity.x > 0 and camoffesetbottom.follow_offset.x == -50 and is_on_floor_only(): 
-		camoffesetbottom.follow_offset.x = 50
-	if velocity.x < 0 and camoffesetbottom.follow_offset.x == 50 and is_on_floor_only(): 
-		camoffesetbottom.follow_offset.x = -50
+func camera_logic()->void:
+	if velocity.x > 0 and is_on_floor_only(): 
+		cam.priority = 1
+		cam_2.priority = 0
+	if velocity.x < 0 and is_on_floor_only(): 
+		cam.priority = 0
+		cam_2.priority = 1
+	
+	if camoffesetbottom.priority == 10 or camoffesetbottom_2.priority == 10:
+		if velocity.x > 0 and is_on_floor_only(): 
+			camoffesetbottom.priority = 10
+			camoffesetbottom_2.priority = 0
+		if velocity.x < 0 and is_on_floor_only(): 
+			camoffesetbottom.priority = 0
+			camoffesetbottom_2.priority = 10
 		
 	if state_machine.active_state is DashState or !shakecamtimer.is_stopped():
 		cam.noise.positional_noise= true
@@ -391,7 +401,7 @@ func logic_spe():
 		cam.noise.positional_noise= false
 		camoffesetbottom.noise.positional_noise= false
 		zoomcam.noise.positional_noise= false
-	
+		
 func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":
 		sprite.rotation=rotation_

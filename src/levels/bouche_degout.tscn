@@ -6,9 +6,11 @@
 [node name="bouche degout" type="Node2D" unique_id=666465979]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=810955225]
+modulate = Color(0.47843137, 0.47843137, 0.47843137, 1)
 texture = ExtResource("1_kvi24")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=697038786]
+modulate = Color(0.47788018, 0.47788012, 0.47788012, 1)
 z_index = 20
 texture = ExtResource("2_m74nn")
 

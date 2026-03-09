@@ -1,6 +1,7 @@
 extends Node
 
-var nb_fractal = 0
+var nb_fractal:int = 0
+var door_opened:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _process(delta: float) -> void:
 		get_tree().reload_current_scene()
 		#get_tree().change_scene_to_file("res://src/levels/room_blueprint.tscn")
 		nb_fractal = 0
+		door_opened = false
 		
 		
 		

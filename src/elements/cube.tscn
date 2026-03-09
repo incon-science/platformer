@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://3d4xp58s7wbm"]
+
+[ext_resource type="Texture2D" uid="uid://xx0xpvn425w6" path="res://sprites/rooms2/cube.png" id="1_be4ci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sljeo"]
+size = Vector2(141, 126)
+
+[node name="cube" type="Node2D" unique_id=1811157897]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1089746098]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_be4ci")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=522188647]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=879880464]
+position = Vector2(-10.5, -14)
+shape = SubResource("RectangleShape2D_sljeo")
