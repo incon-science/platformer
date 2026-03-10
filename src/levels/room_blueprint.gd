@@ -1,5 +1,6 @@
 extends Node2D
-@onready var ground: Sprite2D = $ground
+@onready var ground: Sprite2D = $lvl1/ground
+
 @onready var zoomcam: PhantomCamera2D = $zoomcam
 @onready var player: Player = %Player
 @onready var camoffesetbottom: PhantomCamera2D = $camoffesetbottom
@@ -9,6 +10,12 @@ extends Node2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
+
+var game_can_begin : bool = false
+
+@onready var lvl_1: Node2D = $lvl1
+@onready var lvl_2: Node2D = $lvl2
+var lvl_2_loaded:bool = false
 
 func duplicate_room1(offset_x):
 	var r = ground.duplicate()
@@ -28,13 +35,26 @@ func _ready() -> void:
 	canvas_modulate.hide()
 	player.hide()
 	player.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	lvl_2.hide()
+	lvl_2.process_mode = Node.PROCESS_MODE_DISABLED
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	if !lvl_2_loaded and player.position.x < -4763:
+		lvl_2_loaded = true
+		
+		lvl_2.show()
+		lvl_2.process_mode = Node.PROCESS_MODE_INHERIT
+		
+		lvl_1.hide()
+		lvl_1.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	if player.is_on_floor():
+		game_can_begin = true
 	
-	if !audio_stream_player.playing:
+	if !audio_stream_player.playing and game_can_begin:
 		audio_stream_player.play()
 		
 	if player.global_position.y > 5000:

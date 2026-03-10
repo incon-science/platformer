@@ -24,13 +24,13 @@
 [ext_resource type="PackedScene" uid="uid://b05muqmrcfpjp" path="res://src/levels/bouche_degout.tscn" id="19_hwdj1"]
 [ext_resource type="PackedScene" uid="uid://du22qbnon6nkp" path="res://src/levels/door.tscn" id="20_c3xut"]
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="21_n78m8"]
-[ext_resource type="PackedScene" uid="uid://cq4qwvtte3v52" path="res://src/levels/enter_the_void.tscn" id="22_7rpky"]
 [ext_resource type="AudioStream" uid="uid://bm0hl1jvxub7r" path="res://sounds/musics/Portal Soundtrack  Self Esteem Fund.mp3" id="23_f1fom"]
 [ext_resource type="PackedScene" uid="uid://u6orxxjk4kgt" path="res://src/elements/block.tscn" id="27_514du"]
 [ext_resource type="Shader" uid="uid://dbpcmnusybmk2" path="res://shaders/wind.gdshader" id="28_vb8r4"]
 [ext_resource type="Texture2D" uid="uid://bm6t2257e58y0" path="res://sprites/Mossy Tileset/Mossy - Hanging PlantsREVERSE.png" id="29_7rpky"]
 [ext_resource type="Texture2D" uid="uid://ptro2irm7vk1" path="res://sprites/Mossy Tileset/Mossy - Decorations&Hazards.png" id="29_vb8r4"]
-[ext_resource type="PackedScene" uid="uid://3d4xp58s7wbm" path="res://src/elements/cube.tscn" id="31_k4edk"]
+[ext_resource type="PackedScene" uid="uid://cw3lva8ggoihd" path="res://src/levels/room_piece.tscn" id="30_hw218"]
+[ext_resource type="PackedScene" uid="uid://j3gcywxflkf1" path="res://src/tentacle/scenes/arm.tscn" id="31_k4edk"]
 [ext_resource type="PackedScene" uid="uid://panlfw5wbxdr" path="res://src/cinematic/cinematic.tscn" id="32_hw218"]
 
 [sub_resource type="Environment" id="Environment_vb8r4"]
@@ -63,21 +63,6 @@ frequency = 0.8
 randomize_noise_seed = 1
 positional_noise = false
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb8r4"]
-size = Vector2(1584.5, 498)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rpky"]
-size = Vector2(1200, 1114.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4edk"]
-size = Vector2(3039, 874)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw218"]
-size = Vector2(2116, 1380)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqu8a"]
-size = Vector2(584, 1512)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7rpky"]
 frequency = 0.0457
@@ -135,14 +120,6 @@ _data = {
 &"RESET": SubResource("Animation_7rpky"),
 &"new_animation": SubResource("Animation_k4edk")
 }
-
-[sub_resource type="Gradient" id="Gradient_7rpky"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_k4edk"]
-gradient = SubResource("Gradient_7rpky")
-width = 256
-fill_from = Vector2(0.16591929, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76snk"]
 size = Vector2(6836, 53)
@@ -243,6 +220,21 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_k4edk"]
 sources/0 = SubResource("TileSetAtlasSource_7rpky")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb8r4"]
+size = Vector2(1584.5, 498)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rpky"]
+size = Vector2(1200, 1114.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4edk"]
+size = Vector2(3039, 874)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw218"]
+size = Vector2(2116, 1380)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqu8a"]
+size = Vector2(584, 1512)
+
 [sub_resource type="Gradient" id="Gradient_hw218"]
 colors = PackedColorArray(0.37791926, 0.37791872, 0.37791875, 1, 0.99215686, 0.99215686, 0.99215686, 1)
 
@@ -252,13 +244,23 @@ height = 512
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="Gradient" id="Gradient_7rpky"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k4edk"]
+gradient = SubResource("Gradient_7rpky")
+width = 1024
+fill_from = Vector2(0.16591929, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u0r"]
+size = Vector2(46553, 864)
+
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=395379884]
 stream = ExtResource("23_f1fom")
 volume_db = -8.0
-autoplay = true
 parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1187769887]
@@ -266,11 +268,6 @@ environment = SubResource("Environment_vb8r4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1364036370]
 color = Color(0.40832946, 0.40832946, 0.40832946, 1)
-
-[node name="ground" type="Sprite2D" parent="." unique_id=417271694]
-position = Vector2(-5391, -82.90402)
-scale = Vector2(0.274, 0.274)
-texture = ExtResource("1_p0cym")
 
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
@@ -378,35 +375,17 @@ process_physics_priority = 300
 script = ExtResource("6_ltygr")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="cam_zones" type="Node2D" parent="." unique_id=1964456640]
-
-[node name="zoom_zone" type="Area2D" parent="cam_zones" unique_id=1513782614]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cam_zones/zoom_zone" unique_id=1295720815]
-position = Vector2(4183.75, 2010)
-shape = SubResource("RectangleShape2D_vb8r4")
-
-[node name="no_bottom_offset_zone" type="Area2D" parent="cam_zones" unique_id=961164136]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cam_zones/no_bottom_offset_zone" unique_id=1101873776]
-position = Vector2(-1516, 2973.25)
-shape = SubResource("RectangleShape2D_7rpky")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="cam_zones/no_bottom_offset_zone" unique_id=122346216]
-position = Vector2(-452.5, 3643)
-shape = SubResource("RectangleShape2D_k4edk")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="cam_zones/no_bottom_offset_zone" unique_id=78418315]
-position = Vector2(12019, -1220)
-shape = SubResource("RectangleShape2D_hw218")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="cam_zones/no_bottom_offset_zone" unique_id=2140334494]
-position = Vector2(12789, 1)
-shape = SubResource("RectangleShape2D_lqu8a")
-
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
-[node name="burningBG" type="TextureRect" parent="lvl1" unique_id=898654053]
+[node name="ground" type="Sprite2D" parent="lvl1" unique_id=417271694]
+position = Vector2(-5391, -82.90402)
+scale = Vector2(0.274, 0.274)
+texture = ExtResource("1_p0cym")
+
+[node name="Parallax2D" type="Parallax2D" parent="lvl1" unique_id=549017948]
+scroll_scale = Vector2(0.9, 1)
+
+[node name="burningBG" type="TextureRect" parent="lvl1/Parallax2D" unique_id=898654053]
 material = SubResource("ShaderMaterial_hw218")
 offset_left = -3724.0
 offset_top = -4206.0
@@ -414,7 +393,7 @@ offset_right = 17236.0
 offset_bottom = 35.0
 texture = SubResource("GradientTexture1D_7rpky")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="lvl1/burningBG" unique_id=1781422004]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="lvl1/Parallax2D/burningBG" unique_id=1781422004]
 libraries/ = SubResource("AnimationLibrary_hw218")
 autoplay = &"new_animation"
 speed_scale = 0.1
@@ -437,20 +416,6 @@ offset_right = 14469.592
 offset_bottom = 342.0
 color = Color(0.35531357, 0.35531357, 0.3553135, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="lvl1/colors_bg" unique_id=681615891]
-offset_left = -17012.0
-offset_top = -4144.0
-offset_right = -3695.0
-offset_bottom = 5024.0
-color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="lvl1/colors_bg" unique_id=1817629347]
-offset_left = -3726.0
-offset_top = -2428.0
-offset_right = -2710.0
-offset_bottom = 2022.0
-texture = SubResource("GradientTexture2D_k4edk")
-
 [node name="Structure" type="Node2D" parent="lvl1" unique_id=837771015]
 
 [node name="first_large_platform" type="Sprite2D" parent="lvl1/Structure" unique_id=1245590761]
@@ -466,17 +431,12 @@ position = Vector2(0.2869873, -82.90402)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=1135400909]
 z_index = 1
-position = Vector2(-87.28699, 233.40402)
-shape = SubResource("RectangleShape2D_76snk")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=1537916201]
-z_index = 1
-position = Vector2(-6776.287, 233.40402)
+position = Vector2(-86.28699, 233.40402)
 shape = SubResource("RectangleShape2D_76snk")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=2020693134]
 z_index = 1
-position = Vector2(6844.713, 230.90402)
+position = Vector2(6842.713, 230.90402)
 shape = SubResource("RectangleShape2D_76snk")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=150459240]
@@ -539,7 +499,7 @@ position = Vector2(1285, -400)
 position = Vector2(478, -496)
 
 [node name="pt_blueprint" parent="lvl1/Structure/platforms" unique_id=171967398 instance=ExtResource("16_nfd4m")]
-position = Vector2(323, -569)
+position = Vector2(323, -598)
 
 [node name="pt_blueprint3" parent="lvl1/Structure/platforms" unique_id=145486927 instance=ExtResource("16_nfd4m")]
 position = Vector2(240, -569)
@@ -816,10 +776,6 @@ position = Vector2(-2247, 0)
 [node name="pt_blueprint" parent="lvl1/Structure" unique_id=104659938 instance=ExtResource("16_nfd4m")]
 position = Vector2(818, -885)
 
-[node name="enter_the_void" parent="lvl1/Structure" unique_id=1190942583 instance=ExtResource("22_7rpky")]
-unique_name_in_owner = true
-position = Vector2(-4639, -1110)
-
 [node name="portals" type="Node2D" parent="lvl1" unique_id=1879768166]
 
 [node name="portalHAUT" parent="lvl1/portals" unique_id=1311602281 node_paths=PackedStringArray("portal_target") instance=ExtResource("21_n78m8")]
@@ -1036,22 +992,36 @@ scale = Vector2(0.75, 0.75)
 tile_map_data = PackedByteArray("AADCAAIAAAAMABwAAACDAwIAAAAMABwAAAB0AbX/AAAMABwAAADYA0UAAAAMABUAAAA=")
 tile_set = SubResource("TileSet_k4edk")
 
-[node name="Label" type="Label" parent="lvl1" unique_id=79639115]
-offset_left = -5289.0
-offset_top = 45.0
-offset_right = -4795.0
-offset_bottom = 144.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 72
-text = "Enjoy the Void"
+[node name="cam_zones" type="Node2D" parent="lvl1" unique_id=1964456640]
 
-[node name="ball" parent="lvl1" unique_id=429654710 instance=ExtResource("14_k548o")]
-position = Vector2(-4764, 106)
+[node name="zoom_zone" type="Area2D" parent="lvl1/cam_zones" unique_id=1513782614]
 
-[node name="lvl2" type="Node2D" parent="." unique_id=2135433123]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl1/cam_zones/zoom_zone" unique_id=1295720815]
+position = Vector2(4183.75, 2010)
+shape = SubResource("RectangleShape2D_vb8r4")
 
-[node name="cube" parent="lvl2" unique_id=1811157897 instance=ExtResource("31_k4edk")]
-position = Vector2(-7880, 75)
+[node name="no_bottom_offset_zone" type="Area2D" parent="lvl1/cam_zones" unique_id=961164136]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl1/cam_zones/no_bottom_offset_zone" unique_id=1101873776]
+position = Vector2(-1516, 2973.25)
+shape = SubResource("RectangleShape2D_7rpky")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="lvl1/cam_zones/no_bottom_offset_zone" unique_id=122346216]
+position = Vector2(-452.5, 3643)
+shape = SubResource("RectangleShape2D_k4edk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="lvl1/cam_zones/no_bottom_offset_zone" unique_id=78418315]
+position = Vector2(12019, -1220)
+shape = SubResource("RectangleShape2D_hw218")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="lvl1/cam_zones/no_bottom_offset_zone" unique_id=2140334494]
+position = Vector2(12789, 1)
+shape = SubResource("RectangleShape2D_lqu8a")
+
+[node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
+
+[node name="room_piece" parent="lvl2" unique_id=1832363316 instance=ExtResource("30_hw218")]
+position = Vector2(-3182, -993)
 
 [node name="intro" type="Node2D" parent="." unique_id=1520859281]
 
@@ -1072,8 +1042,72 @@ offset_right = 1663.0
 offset_bottom = -2060.0
 texture = SubResource("GradientTexture2D_lqu8a")
 
-[connection signal="body_entered" from="cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_entered"]
-[connection signal="body_exited" from="cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_exited"]
-[connection signal="body_entered" from="cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_entered"]
-[connection signal="body_exited" from="cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_exited"]
+[node name="void" type="Node2D" parent="." unique_id=1239576127]
+
+[node name="ColorRect3" type="ColorRect" parent="void" unique_id=1628904168]
+offset_left = -49989.0
+offset_top = -4244.0
+offset_right = -3695.0
+offset_bottom = 5024.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="void" unique_id=1721457541]
+offset_left = -3726.0
+offset_top = -2428.0
+offset_right = -2710.0
+offset_bottom = 2022.0
+texture = SubResource("GradientTexture2D_k4edk")
+
+[node name="Label" type="Label" parent="void" unique_id=79639115]
+offset_left = -5289.0
+offset_top = 45.0
+offset_right = -4795.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 72
+text = "Enjoy the Void"
+
+[node name="ball" parent="void" unique_id=429654710 instance=ExtResource("14_k548o")]
+position = Vector2(-4764, 106)
+
+[node name="Arm4" parent="void" unique_id=1104907447 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4694, -1301)
+scale = Vector2(4, 4)
+target = NodePath("../../Player")
+
+[node name="Arm3" parent="void" unique_id=432466288 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4653, -878)
+scale = Vector2(4, 4)
+target = NodePath("../../Player")
+
+[node name="Arm2" parent="void" unique_id=1279670222 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4609, -1436)
+scale = Vector2(4, 4)
+target = NodePath("../../Player")
+
+[node name="Arm" parent="void" unique_id=1842735877 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4536, -1127)
+scale = Vector2(4, 4)
+target = NodePath("../../Player")
+
+[node name="Arm6" parent="void" unique_id=249043 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4586, -1208)
+scale = Vector2(4, 4)
+target = NodePath("../../Player")
+
+[node name="Arm5" parent="void" unique_id=2025319050 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4557, -798)
+scale = Vector2(4, 4)
+target = NodePath("../../Player")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="void" unique_id=463877495]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="void/StaticBody2D" unique_id=902229196]
+position = Vector2(-26704.5, 556)
+shape = SubResource("RectangleShape2D_f3u0r")
+
+[connection signal="body_entered" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_entered"]
+[connection signal="body_exited" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_exited"]
+[connection signal="body_entered" from="lvl1/cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_entered"]
+[connection signal="body_exited" from="lvl1/cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_exited"]
 [connection signal="animation_finished" from="intro/cinematic" to="." method="_on_cinematic_animation_finished"]

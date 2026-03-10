@@ -406,6 +406,12 @@ func try_play_new_anim(anim,rotation_=0.0) -> void:
 	if sprite.animation != anim or anim=="jumpup":
 		sprite.rotation=rotation_
 		sprite.play(anim)
+		
+	if sprite.animation =="jumpdown":
+		sprite.material.set("shader_parameter/activated",true);
+	else:
+		sprite.material.set("shader_parameter/activated",false);
+		
 
 var en_train_de_tomber = false
 func sprite_animation() -> void:

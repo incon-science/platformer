@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://crbn04ab1d1vk" path="res://src/player/states/dash_state.gd" id="11_ylhto"]
 [ext_resource type="Texture2D" uid="uid://clfrcc3vsenmn" path="res://sprites/AnimationSheet_Character.png" id="12_jcdrv"]
 [ext_resource type="AudioStream" uid="uid://d3ppmku2r4mc" path="res://sounds/hero_jump.wav" id="13_hja65"]
+[ext_resource type="Shader" uid="uid://dbpcmnusybmk2" path="res://shaders/wind.gdshader" id="13_k60ra"]
 [ext_resource type="Texture2D" uid="uid://dmayxtc1kkd33" path="res://sprites/AnimationSheet_CharacterVECTOR.png" id="14_4uy46"]
 [ext_resource type="Script" uid="uid://de7am2l57juc4" path="res://src/player/sprite.gd" id="14_5efpn"]
 [ext_resource type="AudioStream" uid="uid://bdy3mdrl28qmq" path="res://sounds/hero_land_soft.wav" id="14_5shm8"]
@@ -33,6 +34,16 @@ size = Vector3(16, 16, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qnmj6"]
 size = Vector2(32, 62)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4vah"]
+shader = ExtResource("13_k60ra")
+shader_parameter/wind_start_threshold = 0.1
+shader_parameter/wind_end_threshold = 2.0
+shader_parameter/wind_end_threshold_2 = 0.1
+shader_parameter/wind_strength = 0.10000000475
+shader_parameter/wind_speed = 5.0
+shader_parameter/scale = 2.0
+shader_parameter/activated = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8iif5"]
 atlas = ExtResource("12_jcdrv")
@@ -587,11 +598,14 @@ position = Vector2(-13, -12)
 emitting = false
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=969411766]
+material = SubResource("ShaderMaterial_a4vah")
 position = Vector2(0, -36)
 scale = Vector2(0.55, 0.55)
 sprite_frames = SubResource("SpriteFrames_j2873")
-animation = &"teleport"
+animation = &"jumpdown"
 autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 script = ExtResource("14_5efpn")
 
 [node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=703265265]

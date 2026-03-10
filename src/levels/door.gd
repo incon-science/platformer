@@ -16,19 +16,14 @@ extends Node2D
 @onready var cam_2: PhantomCamera2D = %cam2
 
 
-@onready var enter_the_void: Node2D = %enter_the_void
 
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	enter_the_void.process_mode = Node.PROCESS_MODE_DISABLED
-	enter_the_void.visible = false
 	if Global.door_opened:
 		position.y = -400.0
-		enter_the_void.process_mode = Node.PROCESS_MODE_INHERIT
-		enter_the_void.visible = true
 		cam.limit_left = -10000000
 		cam_2.limit_left = -10000000
 		cam.limit_top = -10000000
@@ -49,8 +44,6 @@ func _process(delta: float) -> void:
 			Global.door_opened= true
 			
 			
-			enter_the_void.process_mode = Node.PROCESS_MODE_INHERIT
-			enter_the_void.visible = true
 			
 			cam.limit_left = -10000000
 			cam_2.limit_left = -10000000
