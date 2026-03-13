@@ -18,6 +18,12 @@ var game_can_begin : bool = false
 @onready var lvl_2: Node2D = $lvl2
 var lvl_2_loaded:bool = false
 
+@onready var tentacles: Node2D = $void/tentacles
+
+@onready var intro: Node2D = $intro
+
+
+
 func duplicate_room1(offset_x):
 	var r = ground.duplicate()
 	r.position.x = r.position.x + offset_x 
@@ -54,13 +60,16 @@ func _process(delta: float) -> void:
 		
 		lvl_1.hide()
 		lvl_1.process_mode = Node.PROCESS_MODE_DISABLED
-		
+		tentacles.hide()
+		tentacles.process_mode = Node.PROCESS_MODE_DISABLED
 	
 	if player.is_on_floor():
 		game_can_begin = true
 	
 	if !audio_stream_player.playing and game_can_begin:
 		audio_stream_player.play()
+		intro.hide()
+		intro.process_mode = Node.PROCESS_MODE_DISABLED
 		
 	if player.global_position.y > 5000:
 		player.respawn()

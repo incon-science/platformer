@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://dq34lg5k1ytnm" path="res://src/elements/vault.tscn" id="30_f3u0r"]
 [ext_resource type="PackedScene" uid="uid://c1ye8j32cc6js" path="res://src/levels/meta_room_piece.tscn" id="30_lqu8a"]
 [ext_resource type="PackedScene" uid="uid://j3gcywxflkf1" path="res://src/tentacle/scenes/arm.tscn" id="31_k4edk"]
-[ext_resource type="Texture2D" uid="uid://l1t4up0a8bv" path="res://sprites/rooms2/couloir.png" id="31_lqu8a"]
 [ext_resource type="PackedScene" uid="uid://panlfw5wbxdr" path="res://src/cinematic/cinematic.tscn" id="32_hw218"]
 
 [sub_resource type="Animation" id="Animation_lqu8a"]
@@ -276,11 +275,15 @@ size = Vector2(2116, 1380)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqu8a"]
 size = Vector2(584, 1512)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrlky"]
-size = Vector2(34403.5, 456)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01erx"]
-size = Vector2(2977, 4215)
+size = Vector2(5040, 4218)
+
+[sub_resource type="Gradient" id="Gradient_lqu8a"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f3u0r"]
+gradient = SubResource("Gradient_lqu8a")
+width = 1024
 
 [sub_resource type="Gradient" id="Gradient_hw218"]
 colors = PackedColorArray(0.37791926, 0.37791872, 0.37791875, 1, 0.99215686, 0.99215686, 0.99215686, 1)
@@ -1103,7 +1106,7 @@ shape = SubResource("RectangleShape2D_lqu8a")
 position = Vector2(19335, 86)
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
-position = Vector2(-658, 0)
+position = Vector2(132, 0)
 
 [node name="ColorRect" type="ColorRect" parent="lvl2" unique_id=1319015657]
 offset_left = -4414.0
@@ -1118,7 +1121,7 @@ scroll_scale = Vector2(0.9, 1)
 material = SubResource("ShaderMaterial_hw218")
 offset_left = -4422.0
 offset_top = -1487.0
-offset_right = 1326.0
+offset_right = 3087.0
 offset_bottom = 502.0
 texture = SubResource("GradientTexture1D_7rpky")
 
@@ -1135,7 +1138,7 @@ scroll_offset = Vector2(0, 1989)
 material = SubResource("ShaderMaterial_hw218")
 offset_left = -4428.0
 offset_top = -1487.0
-offset_right = 1312.0
+offset_right = 3133.0
 offset_bottom = 502.0
 texture = SubResource("GradientTexture1D_7rpky")
 
@@ -1147,327 +1150,12 @@ speed_scale = 0.1
 [node name="meta_room_piece" parent="lvl2" unique_id=1053535631 instance=ExtResource("30_lqu8a")]
 position = Vector2(-2327, -993)
 
-[node name="couloir1" type="Node2D" parent="lvl2" unique_id=487706573]
-
-[node name="couloir" type="Node2D" parent="lvl2/couloir1" unique_id=1109133333]
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir1/couloir" unique_id=1558041759]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir1/couloir" unique_id=1577346571]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir1/couloir" unique_id=1577345587]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir7" type="Node2D" parent="lvl2/couloir1" unique_id=1429299207]
-position = Vector2(0, 2000)
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir1/couloir7" unique_id=700683047]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir1/couloir7" unique_id=1096972857]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir1/couloir7" unique_id=137728017]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir8" type="Node2D" parent="lvl2/couloir1" unique_id=698671543]
-position = Vector2(-675, 2000)
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir1/couloir8" unique_id=1886018378]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir1/couloir8" unique_id=381652139]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir1/couloir8" unique_id=1375717547]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir3" type="Node2D" parent="lvl2/couloir1" unique_id=1956383475]
-position = Vector2(-718, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir1/couloir3" unique_id=116299026]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir1/couloir3" unique_id=1762703217]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir1/couloir3" unique_id=17206162]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir2" type="Node2D" parent="lvl2/couloir1" unique_id=1802413038]
-position = Vector2(-6521, -986)
-rotation = -3.1415925
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir1/couloir2" unique_id=1251089825]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir1/couloir2" unique_id=689981353]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir1/couloir2" unique_id=657859646]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir4" type="Node2D" parent="lvl2/couloir1" unique_id=540434703]
-position = Vector2(-7353, -986)
-rotation = -3.1415925
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir1/couloir4" unique_id=751452983]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir1/couloir4" unique_id=1859549801]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir1/couloir4" unique_id=980125631]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir5" type="Node2D" parent="lvl2/couloir1" unique_id=1397438005]
-position = Vector2(-6521, 1014)
-rotation = -3.1415925
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir1/couloir5" unique_id=1175177444]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir1/couloir5" unique_id=953907941]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir1/couloir5" unique_id=998786963]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir6" type="Node2D" parent="lvl2/couloir1" unique_id=1911702611]
-position = Vector2(-7248, 1014)
-rotation = -3.1415925
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir1/couloir6" unique_id=694006651]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir1/couloir6" unique_id=1663561802]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir1/couloir6" unique_id=1241568209]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir2" type="Node2D" parent="lvl2" unique_id=1671970991]
-position = Vector2(4698, 2)
-
-[node name="couloir" type="Node2D" parent="lvl2/couloir2" unique_id=2073170476]
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir2/couloir" unique_id=1348335241]
-position = Vector2(-3094, 3)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir2/couloir" unique_id=530095038]
-position = Vector2(-3388, 3)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir2/couloir" unique_id=680489910]
-position = Vector2(-3658, 3)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir7" type="Node2D" parent="lvl2/couloir2" unique_id=1659914669]
-position = Vector2(0, 2000)
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir2/couloir7" unique_id=1716402924]
-position = Vector2(-3137, 4)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir2/couloir7" unique_id=1354152997]
-position = Vector2(-3431, 4)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir2/couloir7" unique_id=1803548560]
-position = Vector2(-3701, 4)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir8" type="Node2D" parent="lvl2/couloir2" unique_id=2020566804]
-position = Vector2(-675, 2000)
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir2/couloir8" unique_id=1892982491]
-position = Vector2(-3137, 4)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir2/couloir8" unique_id=1857995948]
-position = Vector2(-3431, 4)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir2/couloir8" unique_id=352387855]
-position = Vector2(-3701, 4)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir3" type="Node2D" parent="lvl2/couloir2" unique_id=1492082067]
-position = Vector2(-718, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir2/couloir3" unique_id=2076502991]
-position = Vector2(-3094, 3)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir2/couloir3" unique_id=1184605085]
-position = Vector2(-3388, 3)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir2/couloir3" unique_id=974658158]
-position = Vector2(-3658, 3)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir2" type="Node2D" parent="lvl2/couloir2" unique_id=2074488451]
-position = Vector2(-6521, -986)
-rotation = -3.1415925
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir2/couloir2" unique_id=1577273746]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir2/couloir2" unique_id=1229524632]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir2/couloir2" unique_id=2073773724]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir4" type="Node2D" parent="lvl2/couloir2" unique_id=1956338847]
-position = Vector2(-7353, -986)
-rotation = -3.1415925
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir2/couloir4" unique_id=2079631606]
-position = Vector2(-2978, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir2/couloir4" unique_id=1854875541]
-position = Vector2(-3272, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir2/couloir4" unique_id=1089626339]
-position = Vector2(-3542, 7.0000005)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir5" type="Node2D" parent="lvl2/couloir2" unique_id=1162841741]
-position = Vector2(-6521, 1014)
-rotation = -3.1415925
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir2/couloir5" unique_id=1888011223]
-position = Vector2(-2871, 6)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir2/couloir5" unique_id=806711429]
-position = Vector2(-3165, 6)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir2/couloir5" unique_id=615905229]
-position = Vector2(-3435, 6)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="couloir6" type="Node2D" parent="lvl2/couloir2" unique_id=56977104]
-position = Vector2(-7248, 1014)
-rotation = -3.1415925
-
-[node name="Sprite2D" type="Sprite2D" parent="lvl2/couloir2/couloir6" unique_id=63442674]
-position = Vector2(-2871, 6)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D2" type="Sprite2D" parent="lvl2/couloir2/couloir6" unique_id=1096555867]
-position = Vector2(-3165, 6)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="Sprite2D3" type="Sprite2D" parent="lvl2/couloir2/couloir6" unique_id=463336198]
-position = Vector2(-3435, 6)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("31_lqu8a")
-
-[node name="ColorRect" type="ColorRect" parent="lvl2/couloir2" unique_id=1832640174]
-offset_left = -4546.0
-offset_top = 447.0
-offset_right = -2471.0
-offset_bottom = 548.0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="lvl2" unique_id=63597128]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl2/StaticBody2D" unique_id=663940862]
-position = Vector2(-19883.25, -1339)
-shape = SubResource("RectangleShape2D_qrlky")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="lvl2/StaticBody2D" unique_id=1596755114]
-position = Vector2(-19884, -647)
-shape = SubResource("RectangleShape2D_qrlky")
-
 [node name="cam_zone" type="Node2D" parent="lvl2" unique_id=172978004]
 
 [node name="no_offset_zone_lvl2" type="Area2D" parent="lvl2/cam_zone" unique_id=1886041365]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl2/cam_zone/no_offset_zone_lvl2" unique_id=1077839574]
-position = Vector2(-1328.5, 512.5)
+position = Vector2(-1338, 514)
 shape = SubResource("RectangleShape2D_01erx")
 
 [node name="blocks" type="Node2D" parent="lvl2" unique_id=1205615149]
@@ -1511,6 +1199,20 @@ position = Vector2(-2761, -1151)
 
 [node name="block13" parent="lvl2/blocks" unique_id=534386619 instance=ExtResource("27_514du")]
 position = Vector2(-2767, -1279)
+
+[node name="TextureRect" type="TextureRect" parent="lvl2" unique_id=126828299]
+offset_left = 147.0
+offset_top = -1806.0
+offset_right = 1171.0
+offset_bottom = 3221.0
+texture = SubResource("GradientTexture2D_f3u0r")
+
+[node name="ColorRect2" type="ColorRect" parent="lvl2" unique_id=28361229]
+offset_left = 1171.0
+offset_top = -1911.0
+offset_right = 4407.0
+offset_bottom = 3273.0
+color = Color(0, 0, 0, 1)
 
 [node name="lvl3" type="Node2D" parent="." unique_id=1704687252]
 visible = false
@@ -1569,35 +1271,37 @@ text = "Enjoy the Void"
 [node name="ball" parent="void" unique_id=429654710 instance=ExtResource("14_k548o")]
 position = Vector2(-4764, 106)
 
-[node name="Arm4" parent="void" unique_id=1104907447 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+[node name="tentacles" type="Node2D" parent="void" unique_id=1961198955]
+
+[node name="Arm4" parent="void/tentacles" unique_id=1104907447 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
 position = Vector2(-4694, -1301)
 scale = Vector2(4, 4)
-target = NodePath("../../Player")
+target = NodePath("../../../Player")
 
-[node name="Arm3" parent="void" unique_id=432466288 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+[node name="Arm3" parent="void/tentacles" unique_id=432466288 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
 position = Vector2(-4653, -878)
 scale = Vector2(4, 4)
-target = NodePath("../../Player")
+target = NodePath("../../../Player")
 
-[node name="Arm2" parent="void" unique_id=1279670222 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+[node name="Arm2" parent="void/tentacles" unique_id=1279670222 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
 position = Vector2(-4609, -1436)
 scale = Vector2(4, 4)
-target = NodePath("../../Player")
+target = NodePath("../../../Player")
 
-[node name="Arm" parent="void" unique_id=1842735877 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+[node name="Arm" parent="void/tentacles" unique_id=1842735877 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
 position = Vector2(-4536, -1127)
 scale = Vector2(4, 4)
-target = NodePath("../../Player")
+target = NodePath("../../../Player")
 
-[node name="Arm6" parent="void" unique_id=249043 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+[node name="Arm6" parent="void/tentacles" unique_id=249043 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
 position = Vector2(-4586, -1208)
 scale = Vector2(4, 4)
-target = NodePath("../../Player")
+target = NodePath("../../../Player")
 
-[node name="Arm5" parent="void" unique_id=2025319050 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+[node name="Arm5" parent="void/tentacles" unique_id=2025319050 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
 position = Vector2(-4557, -798)
 scale = Vector2(4, 4)
-target = NodePath("../../Player")
+target = NodePath("../../../Player")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="void" unique_id=463877495]
 

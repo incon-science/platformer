@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_vf124"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_anba5"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="8_lory2"]
+[ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="9_anba5"]
+[ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="10_lory2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m2xyl"]
 shader = ExtResource("2_m2xyl")
@@ -40,7 +42,10 @@ positional_noise = false
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf124"]
-size = Vector2(912, 893.5)
+size = Vector2(2907, 3966.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lory2"]
+size = Vector2(686, 4342)
 
 [node name="meta_room_piece" type="Node2D" unique_id=1053535631]
 script = ExtResource("1_u6kd6")
@@ -49,6 +54,24 @@ script = ExtResource("1_u6kd6")
 
 [node name="room_piece2" parent="." unique_id=1232636727 instance=ExtResource("1_pvq73")]
 position = Vector2(0, 2000)
+
+[node name="room_piece3" parent="." unique_id=1191612697 instance=ExtResource("1_pvq73")]
+position = Vector2(1999, 0)
+
+[node name="room_piece4" parent="." unique_id=1518745893 instance=ExtResource("1_pvq73")]
+position = Vector2(1999, 2000)
+
+[node name="room_piece5" parent="." unique_id=1617287924 instance=ExtResource("1_pvq73")]
+position = Vector2(3998, 0)
+
+[node name="room_piece6" parent="." unique_id=115892344 instance=ExtResource("1_pvq73")]
+position = Vector2(3998, 2000)
+
+[node name="room_piece7" parent="." unique_id=183691990 instance=ExtResource("1_pvq73")]
+position = Vector2(-1999, 0)
+
+[node name="room_piece8" parent="." unique_id=1073936224 instance=ExtResource("1_pvq73")]
+position = Vector2(-1999, 2000)
 
 [node name="T1" type="Node2D" parent="." unique_id=62797182]
 
@@ -122,29 +145,6 @@ offset_top = 1096.2408
 offset_right = 1646.5629
 offset_bottom = 3732.2407
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1650430125]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1840351210]
-position = Vector2(2790, 722)
-polygon = PackedVector2Array(-325, 134, 275, 29, 270, 1552, -338, 1396, 170, 1396, 170, 134)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1823431567]
-position = Vector2(-1734.2881, 1.0001221)
-scale = Vector2(1.7256739, 0.9999999)
-polygon = PackedVector2Array(2476, 1116, 2607, 1116, 2607, 1880, 2440, 1880)
-
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=317864693]
-visible = false
-position = Vector2(2790, 722)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-325, 134, 275, 29, 270, 1552, -338, 1396, 170, 1396, 170, 134)
-
-[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1655538595]
-visible = false
-position = Vector2(50, 0)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(2426, 1117, 2719, 1117, 2719, 1501, 2719, 1884, 2428, 1884)
-
 [node name="buttons" type="Node2D" parent="." unique_id=1834316626]
 position = Vector2(5, 233)
 
@@ -187,6 +187,7 @@ offset_top = 904.0
 offset_right = 101.0
 offset_bottom = 1094.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
 text = "ARPANET"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -197,6 +198,7 @@ offset_top = 904.0
 offset_right = 2100.0
 offset_bottom = 1094.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
 text = "C LANGUAGE"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -207,7 +209,8 @@ offset_top = 1907.0
 offset_right = 2099.0
 offset_bottom = 2095.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "The Limits to Growth"
+theme_override_font_sizes/font_size = 24
+text = "NP-complétude"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -217,6 +220,7 @@ offset_top = 1908.0
 offset_right = 101.0
 offset_bottom = 2096.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
 text = "MKULTRA"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -227,7 +231,9 @@ offset_top = 2911.0
 offset_right = 1091.0
 offset_bottom = 3099.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "The Blue Marble"
+theme_override_font_sizes/font_size = 24
+text = "The Blue
+Marble"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -237,8 +243,9 @@ offset_top = -92.0
 offset_right = 1091.0
 offset_bottom = 96.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 14
-text = "NP-complétude"
+theme_override_font_sizes/font_size = 24
+text = "The Limits
+to Growth"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -259,8 +266,120 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="cam_zone" type="Area2D" parent="." unique_id=1850013775]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cam_zone" unique_id=2107227008]
-position = Vector2(-1, 1995)
+position = Vector2(996.5, 1497.875)
 shape = SubResource("RectangleShape2D_vf124")
+
+[node name="portal" parent="." unique_id=871669185 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+position = Vector2(993, 1339)
+rotation = 1.5707964
+portal_target = NodePath("../portal3")
+
+[node name="portal2" parent="." unique_id=1307896710 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+position = Vector2(2994, 1339)
+rotation = 1.5707964
+portal_target = NodePath("../portal4")
+portal_reverse_color = true
+
+[node name="portal3" parent="." unique_id=1211566120 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+position = Vector2(999, -348)
+rotation = -1.5707964
+portal_target = NodePath("../portal")
+portal_reverse_color = true
+
+[node name="portal4" parent="." unique_id=555710292 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+position = Vector2(2994, 1652)
+rotation = -1.5707964
+portal_target = NodePath("../portal2")
+
+[node name="portal5" parent="." unique_id=1104655613 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+position = Vector2(993, 3339)
+rotation = 1.5707964
+portal_target = NodePath("../portal6")
+
+[node name="portal6" parent="." unique_id=1135614717 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+position = Vector2(993, 1652)
+rotation = -1.5707964
+portal_target = NodePath("../portal5")
+portal_reverse_color = true
+
+[node name="middleremonte" type="Node2D" parent="." unique_id=1031593509]
+
+[node name="pt_blueprint" parent="middleremonte" unique_id=920875960 instance=ExtResource("10_lory2")]
+position = Vector2(2669, 2140)
+
+[node name="pt_blueprint2" parent="middleremonte" unique_id=1548349440 instance=ExtResource("10_lory2")]
+position = Vector2(2735, 2140)
+
+[node name="pt_blueprint3" parent="middleremonte" unique_id=2059311854 instance=ExtResource("10_lory2")]
+position = Vector2(2804, 2140)
+
+[node name="pt_blueprint4" parent="middleremonte" unique_id=2045706067 instance=ExtResource("10_lory2")]
+position = Vector2(2876, 2140)
+
+[node name="pt_blueprint6" parent="middleremonte" unique_id=1580994012 instance=ExtResource("10_lory2")]
+position = Vector2(2872, 2093)
+
+[node name="pt_blueprint7" parent="middleremonte" unique_id=166117163 instance=ExtResource("10_lory2")]
+position = Vector2(2872, 2055)
+
+[node name="pt_blueprint8" parent="middleremonte" unique_id=2067281363 instance=ExtResource("10_lory2")]
+position = Vector2(2872, 2012)
+
+[node name="pt_blueprint9" parent="middleremonte" unique_id=1932830611 instance=ExtResource("10_lory2")]
+position = Vector2(2872, 1967)
+
+[node name="pt_blueprint10" parent="middleremonte" unique_id=153150646 instance=ExtResource("10_lory2")]
+position = Vector2(2872, 1922)
+
+[node name="pt_blueprint11" parent="middleremonte" unique_id=157401321 instance=ExtResource("10_lory2")]
+position = Vector2(2872, 1877)
+
+[node name="pt_blueprint12" parent="middleremonte" unique_id=8440585 instance=ExtResource("10_lory2")]
+position = Vector2(2872, 1831)
+
+[node name="pt_blueprint13" parent="middleremonte" unique_id=880021957 instance=ExtResource("10_lory2")]
+position = Vector2(2945, 1831)
+
+[node name="pt_blueprint14" parent="middleremonte" unique_id=70017683 instance=ExtResource("10_lory2")]
+position = Vector2(3020, 1831)
+
+[node name="first_pont" type="Node2D" parent="." unique_id=597952611]
+
+[node name="pt_blueprint" parent="first_pont" unique_id=967365609 instance=ExtResource("10_lory2")]
+position = Vector2(-1338, 1139)
+
+[node name="pt_blueprint2" parent="first_pont" unique_id=2103249789 instance=ExtResource("10_lory2")]
+position = Vector2(-1260, 1139)
+
+[node name="pt_blueprint3" parent="first_pont" unique_id=1050537383 instance=ExtResource("10_lory2")]
+position = Vector2(-1181, 1139)
+
+[node name="pt_blueprint4" parent="first_pont" unique_id=924918837 instance=ExtResource("10_lory2")]
+position = Vector2(-1102, 1139)
+
+[node name="pt_blueprint5" parent="first_pont" unique_id=590368287 instance=ExtResource("10_lory2")]
+position = Vector2(-1022, 1139)
+
+[node name="pt_blueprint6" parent="first_pont" unique_id=67567587 instance=ExtResource("10_lory2")]
+position = Vector2(-944, 1139)
+
+[node name="pt_blueprint7" parent="first_pont" unique_id=1375770098 instance=ExtResource("10_lory2")]
+position = Vector2(-867, 1139)
+
+[node name="pt_blueprint8" parent="first_pont" unique_id=727807885 instance=ExtResource("10_lory2")]
+position = Vector2(-789, 1139)
+
+[node name="pt_blueprint9" parent="first_pont" unique_id=75151209 instance=ExtResource("10_lory2")]
+position = Vector2(-725, 1139)
+
+[node name="pt_blueprint10" parent="first_pont" unique_id=1973263679 instance=ExtResource("10_lory2")]
+position = Vector2(-645, 1139)
+
+[node name="OTHER COLL" type="StaticBody2D" parent="." unique_id=878275039]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OTHER COLL" unique_id=857123303]
+position = Vector2(3845, 1351)
+shape = SubResource("RectangleShape2D_lory2")
 
 [connection signal="body_entered" from="buttons/button" to="." method="_on_button_body_entered1"]
 [connection signal="body_entered" from="buttons/button2" to="." method="_on_button_2_body_entered3"]
