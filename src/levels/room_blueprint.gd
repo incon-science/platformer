@@ -8,6 +8,7 @@ extends Node2D
 
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_fadeout: AnimationPlayer = $AudioStreamPlayer/audio_fadeout
 
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
 
@@ -42,6 +43,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	if player.position.x < -3562:
+		audio_fadeout.play("fadoutsong")
+	
 	if !lvl_2_loaded and player.position.x < -4763:
 		lvl_2_loaded = true
 		
@@ -50,6 +54,7 @@ func _process(delta: float) -> void:
 		
 		lvl_1.hide()
 		lvl_1.process_mode = Node.PROCESS_MODE_DISABLED
+		
 	
 	if player.is_on_floor():
 		game_can_begin = true
@@ -85,3 +90,17 @@ func _on_cinematic_animation_finished() -> void:
 	canvas_modulate.show()
 	player.show()
 	player.process_mode = Node.PROCESS_MODE_INHERIT
+	
+
+
+
+
+
+func _on_no_offset_zone_lvl_2_body_entered(body: Node2D) -> void:
+	if body is Player : camoffesetbottom.priority = 10
+
+
+func _on_no_offset_zone_lvl_2_body_exited(body: Node2D) -> void:
+	if body is Player : 
+		camoffesetbottom.priority = 0
+		camoffesetbottom_2.priority = 0

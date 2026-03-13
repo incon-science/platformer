@@ -1,0 +1,270 @@
+[gd_scene format=3 uid="uid://c1ye8j32cc6js"]
+
+[ext_resource type="PackedScene" uid="uid://cw3lva8ggoihd" path="res://src/levels/room_piece.tscn" id="1_pvq73"]
+[ext_resource type="Script" uid="uid://bx05u75a6jdq8" path="res://src/levels/meta_room_piece.gd" id="1_u6kd6"]
+[ext_resource type="Shader" uid="uid://r5ttx5k57uqv" path="res://shaders/laser.gdshader" id="2_m2xyl"]
+[ext_resource type="PackedScene" uid="uid://ca0qqvc5pjlky" path="res://src/elements/button.tscn" id="3_pgh4i"]
+[ext_resource type="PackedScene" uid="uid://cuuupedh70x4h" path="res://src/elements/temps.tscn" id="4_g1hwu"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_vf124"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_anba5"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="8_lory2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m2xyl"]
+shader = ExtResource("2_m2xyl")
+shader_parameter/beams = 3
+shader_parameter/energy = 3.0
+shader_parameter/roughness = 3
+shader_parameter/frequency = 10
+shader_parameter/speed = 1.0
+shader_parameter/thickness = 0.0
+shader_parameter/outline_thickness = 0.0130000006175
+shader_parameter/beam_difference = 0.0
+shader_parameter/glow = 0.0
+shader_parameter/outline_glow = 0.326000015485
+shader_parameter/color = Color(0.91, 1, 1, 1)
+shader_parameter/outline_color = Color(18.892157, 18.892157, 18.892157, 1)
+shader_parameter/progress = 0.9600000456
+shader_parameter/y_offset = 0.0
+shader_parameter/fixed_edge_size = 0.5
+shader_parameter/noise_scale = Vector2(1, 1)
+
+[sub_resource type="Resource" id="Resource_88ojq"]
+script = ExtResource("7_anba5")
+
+[sub_resource type="Resource" id="Resource_nvtr1"]
+script = ExtResource("8_lory2")
+amplitude = 20.0
+frequency = 0.8
+randomize_noise_seed = 1
+positional_noise = false
+metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf124"]
+size = Vector2(912, 893.5)
+
+[node name="meta_room_piece" type="Node2D" unique_id=1053535631]
+script = ExtResource("1_u6kd6")
+
+[node name="room_piece" parent="." unique_id=1832363316 instance=ExtResource("1_pvq73")]
+
+[node name="room_piece2" parent="." unique_id=1232636727 instance=ExtResource("1_pvq73")]
+position = Vector2(0, 2000)
+
+[node name="T1" type="Node2D" parent="." unique_id=62797182]
+
+[node name="1" type="Node2D" parent="T1" unique_id=1775674601]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="T1/1" unique_id=473259651]
+material = SubResource("ShaderMaterial_m2xyl")
+offset_left = -24.0
+offset_top = 695.0
+offset_right = 2034.0
+offset_bottom = 3331.0
+
+[node name="2" type="Node2D" parent="T1" unique_id=814695952]
+visible = false
+position = Vector2(2057, -224.99997)
+rotation = 1.0995574
+
+[node name="ColorRect2" type="ColorRect" parent="T1/2" unique_id=1340089854]
+material = SubResource("ShaderMaterial_m2xyl")
+offset_left = -291.7638
+offset_top = -267.0
+offset_right = 1989.5573
+offset_bottom = 2369.0
+
+[node name="3" type="Node2D" parent="T1" unique_id=1443142301]
+visible = false
+position = Vector2(-809, 1199)
+rotation = -1.0995574
+
+[node name="ColorRect2" type="ColorRect" parent="T1/3" unique_id=1915289263]
+material = SubResource("ShaderMaterial_m2xyl")
+offset_left = -352.01175
+offset_top = -241.51341
+offset_right = 1901.346
+offset_bottom = 2394.4866
+
+[node name="T2" type="Node2D" parent="." unique_id=1223878335]
+
+[node name="1" type="Node2D" parent="T2" unique_id=1235090269]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="T2/1" unique_id=1948505944]
+material = SubResource("ShaderMaterial_m2xyl")
+offset_left = -13.0
+offset_top = -306.0
+offset_right = 2015.0
+offset_bottom = 2330.0
+
+[node name="2" type="Node2D" parent="T2" unique_id=1664038340]
+visible = false
+position = Vector2(2012.9999, -228)
+rotation = 1.0995574
+
+[node name="ColorRect2" type="ColorRect" parent="T2/2" unique_id=351221809]
+material = SubResource("ShaderMaterial_m2xyl")
+offset_left = 170.0113
+offset_top = 1051.8254
+offset_right = 2418.041
+offset_bottom = 3687.8254
+
+[node name="3" type="Node2D" parent="T2" unique_id=2080613567]
+visible = false
+position = Vector2(-884, 1365)
+rotation = -1.0995574
+
+[node name="ColorRect2" type="ColorRect" parent="T2/3" unique_id=1114031959]
+material = SubResource("ShaderMaterial_m2xyl")
+offset_left = -600.8004
+offset_top = 1096.2408
+offset_right = 1646.5629
+offset_bottom = 3732.2407
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1650430125]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1840351210]
+position = Vector2(2790, 722)
+polygon = PackedVector2Array(-325, 134, 275, 29, 270, 1552, -338, 1396, 170, 1396, 170, 134)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1823431567]
+position = Vector2(-1734.2881, 1.0001221)
+scale = Vector2(1.7256739, 0.9999999)
+polygon = PackedVector2Array(2476, 1116, 2607, 1116, 2607, 1880, 2440, 1880)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=317864693]
+visible = false
+position = Vector2(2790, 722)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-325, 134, 275, 29, 270, 1552, -338, 1396, 170, 1396, 170, 134)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1655538595]
+visible = false
+position = Vector2(50, 0)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(2426, 1117, 2719, 1117, 2719, 1501, 2719, 1884, 2428, 1884)
+
+[node name="buttons" type="Node2D" parent="." unique_id=1834316626]
+position = Vector2(5, 233)
+
+[node name="button" parent="buttons" unique_id=1913669619 instance=ExtResource("3_pgh4i")]
+position = Vector2(-6, 2068)
+
+[node name="button2" parent="buttons" unique_id=1816048380 instance=ExtResource("3_pgh4i")]
+position = Vector2(-6, 1061)
+
+[node name="buttons2" type="Node2D" parent="." unique_id=1334336263]
+position = Vector2(2007, 233)
+
+[node name="button" parent="buttons2" unique_id=250079183 instance=ExtResource("3_pgh4i")]
+position = Vector2(-6, 2068)
+
+[node name="button2" parent="buttons2" unique_id=834129342 instance=ExtResource("3_pgh4i")]
+position = Vector2(-6, 1061)
+
+[node name="Temps" parent="." unique_id=1268341129 instance=ExtResource("4_g1hwu")]
+offset_left = 899.0
+offset_top = 1907.0
+offset_right = 1089.0
+offset_bottom = 2094.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps2" parent="." unique_id=594453489 instance=ExtResource("4_g1hwu")]
+offset_left = 899.0
+offset_top = 902.0
+offset_right = 1089.0
+offset_bottom = 1089.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1488057597]
+offset_left = -92.0
+offset_top = 904.0
+offset_right = 101.0
+offset_bottom = 1094.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ARPANET"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1131751897]
+offset_left = 1906.0
+offset_top = 904.0
+offset_right = 2100.0
+offset_bottom = 1094.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "C LANGUAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=1562545298]
+offset_left = 1907.0
+offset_top = 1907.0
+offset_right = 2099.0
+offset_bottom = 2095.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "The Limits to Growth"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="." unique_id=14044465]
+offset_left = -90.0
+offset_top = 1908.0
+offset_right = 101.0
+offset_bottom = 2096.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MKULTRA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="." unique_id=1138131485]
+offset_left = 900.0
+offset_top = 2911.0
+offset_right = 1091.0
+offset_bottom = 3099.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "The Blue Marble"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="." unique_id=1668600054]
+offset_left = 900.0
+offset_top = -92.0
+offset_right = 1091.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "NP-complétude"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="zoomcamfixnbig" type="Node2D" parent="." unique_id=1100236921]
+unique_name_in_owner = true
+position = Vector2(995, 1502)
+script = ExtResource("6_vf124")
+zoom = Vector2(0.2, 0.2)
+tween_resource = SubResource("Resource_88ojq")
+follow_offset = Vector2(0, -160)
+follow_damping = true
+dead_zone_width = 0.5
+dead_zone_height = 0.5
+draw_limits = true
+noise = SubResource("Resource_nvtr1")
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="cam_zone" type="Area2D" parent="." unique_id=1850013775]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cam_zone" unique_id=2107227008]
+position = Vector2(-1, 1995)
+shape = SubResource("RectangleShape2D_vf124")
+
+[connection signal="body_entered" from="buttons/button" to="." method="_on_button_body_entered1"]
+[connection signal="body_entered" from="buttons/button2" to="." method="_on_button_2_body_entered3"]
+[connection signal="body_entered" from="buttons2/button" to="." method="_on_button_body_entered2"]
+[connection signal="body_entered" from="buttons2/button2" to="." method="_on_button_2_body_entered4"]
+[connection signal="body_entered" from="cam_zone" to="." method="_on_cam_zone_body_entered"]
+[connection signal="body_exited" from="cam_zone" to="." method="_on_cam_zone_body_exited"]

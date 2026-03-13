@@ -5,7 +5,7 @@ uniform float wind_start_threshold : hint_range(0,1) = 0.1;
 uniform float wind_end_threshold : hint_range(0,10) = 2;
 uniform float wind_end_threshold_2 : hint_range(0,2) = .1;
 uniform float wind_strength : hint_range(0,1.5) = .2;
-uniform float wind_speed  : hint_range(.2,5) = 1;
+uniform float wind_speed  : hint_range(.2,50) = 1;
 uniform float scale = 2.0;
 
 uniform bool activated = true;

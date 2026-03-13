@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dq34lg5k1ytnm"]
+
+[ext_resource type="Texture2D" uid="uid://brnas164b2kej" path="res://sprites/vault.png" id="1_keqtq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4va0"]
+size = Vector2(76, 67)
+
+[node name="vault" type="Node2D" unique_id=1633533475]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=146995218]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=978700125]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_keqtq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1975083073]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_q4va0")

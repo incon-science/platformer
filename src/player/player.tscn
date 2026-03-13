@@ -41,7 +41,7 @@ shader_parameter/wind_start_threshold = 0.1
 shader_parameter/wind_end_threshold = 2.0
 shader_parameter/wind_end_threshold_2 = 0.1
 shader_parameter/wind_strength = 0.10000000475
-shader_parameter/wind_speed = 5.0
+shader_parameter/wind_speed = 5.00000023098023
 shader_parameter/scale = 2.0
 shader_parameter/activated = false
 
