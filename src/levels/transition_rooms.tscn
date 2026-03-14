@@ -9,6 +9,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy0ak"]
 size = Vector2(6521, 53)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s88y"]
+size = Vector2(126, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qo4e"]
+size = Vector2(827.5625, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_je0tm"]
+size = Vector2(20, 659)
+
 [node name="transition_rooms" type="Node2D" unique_id=645547803]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440240781]
@@ -36,6 +45,18 @@ position = Vector2(-3, -696)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1599127]
 position = Vector2(155.5, 715.5)
 shape = SubResource("RectangleShape2D_gy0ak")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=138145986]
+position = Vector2(642, 1397.5)
+shape = SubResource("RectangleShape2D_3s88y")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1552825598]
+position = Vector2(74.78125, 1397.5)
+shape = SubResource("RectangleShape2D_1qo4e")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1790170650]
+position = Vector2(709, 1071)
+shape = SubResource("RectangleShape2D_je0tm")
 
 [node name="platform" parent="." unique_id=1968047125 instance=ExtResource("4_uxlox")]
 z_index = 4
@@ -139,3 +160,7 @@ position = Vector2(531, -703)
 rotation = -1.5707964
 portal_target = NodePath("../portal")
 portal_reverse_color = true
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1628953267]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-3820, 3797, -729, 725, 729, 726, 4181, 4142)

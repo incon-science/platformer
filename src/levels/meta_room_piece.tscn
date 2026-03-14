@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="8_lory2"]
 [ext_resource type="PackedScene" uid="uid://bhno22n7k5cmv" path="res://src/elements/portal.tscn" id="9_anba5"]
 [ext_resource type="PackedScene" uid="uid://c0g2bfslm40qt" path="res://src/platforms/pt_blueprint.tscn" id="10_lory2"]
+[ext_resource type="PackedScene" uid="uid://mtmitx3k0avp" path="res://src/platforms/3_platformblueprint.tscn" id="11_88ojq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m2xyl"]
 shader = ExtResource("2_m2xyl")
@@ -45,7 +46,13 @@ metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 size = Vector2(2907, 3966.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lory2"]
-size = Vector2(686, 4342)
+size = Vector2(1090.5, 3021)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88ojq"]
+size = Vector2(1910, 1998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvtr1"]
+size = Vector2(609.5, 501)
 
 [node name="meta_room_piece" type="Node2D" unique_id=1053535631]
 script = ExtResource("1_u6kd6")
@@ -64,8 +71,110 @@ position = Vector2(1999, 2000)
 [node name="room_piece5" parent="." unique_id=1617287924 instance=ExtResource("1_pvq73")]
 position = Vector2(3998, 0)
 
+[node name="CollisionShape2D" parent="room_piece5/StaticBody2D" parent_id_path=PackedInt32Array(1617287924, 99470810) index="0" unique_id=1064762727]
+position = Vector2(-1916, -1173)
+
+[node name="CollisionShape2D2" parent="room_piece5/StaticBody2D" parent_id_path=PackedInt32Array(1617287924, 99470810) index="1" unique_id=1982690336]
+position = Vector2(-2019, -1204)
+
+[node name="CollisionShape2D4" parent="room_piece5/StaticBody2D" parent_id_path=PackedInt32Array(1617287924, 99470810) index="3" unique_id=326285369]
+position = Vector2(-2633, -1213)
+
+[node name="CollisionShape2D" parent="room_piece5/StaticBody2D2" parent_id_path=PackedInt32Array(1617287924, 122980264) index="0" unique_id=2124233037]
+position = Vector2(-3145, -1289)
+
+[node name="CollisionShape2D2" parent="room_piece5/StaticBody2D2" parent_id_path=PackedInt32Array(1617287924, 122980264) index="1" unique_id=1928957852]
+position = Vector2(-2979, -1112)
+
+[node name="CollisionShape2D3" parent="room_piece5/StaticBody2D2" parent_id_path=PackedInt32Array(1617287924, 122980264) index="2" unique_id=391400632]
+position = Vector2(-3319, -1096)
+
+[node name="CollisionShape2D4" parent="room_piece5/StaticBody2D2" parent_id_path=PackedInt32Array(1617287924, 122980264) index="3" unique_id=212326418]
+position = Vector2(-3043, -1151)
+
+[node name="CollisionShape2D" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="0" unique_id=1197765520]
+position = Vector2(-3518, -2164)
+
+[node name="CollisionShape2D2" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="1" unique_id=375595637]
+position = Vector2(-3450, -1766)
+
+[node name="CollisionShape2D3" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="2" unique_id=1817043982]
+position = Vector2(-3307, -2008)
+
+[node name="CollisionShape2D4" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="3" unique_id=1219258179]
+position = Vector2(-3611, -1971)
+
+[node name="CollisionShape2D5" parent="room_piece5/StaticBody2D3" parent_id_path=PackedInt32Array(1617287924, 982750117) index="4" unique_id=1739735572]
+position = Vector2(-3041, -1797)
+
+[node name="CollisionShape2D" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="0" unique_id=659296284]
+position = Vector2(-2804, -1744)
+
+[node name="CollisionShape2D2" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="1" unique_id=492083954]
+position = Vector2(-2204, -1744)
+
+[node name="CollisionShape2D4" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="3" unique_id=424293370]
+position = Vector2(-2150, -1940)
+
+[node name="CollisionShape2D6" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="4" unique_id=2065128189]
+position = Vector2(-2507, -1769)
+
+[node name="CollisionPolygon2D" parent="room_piece5/StaticBody2D4" parent_id_path=PackedInt32Array(1617287924, 1266986150) index="5" unique_id=1751771298]
+position = Vector2(-3278, -777)
+
 [node name="room_piece6" parent="." unique_id=115892344 instance=ExtResource("1_pvq73")]
 position = Vector2(3998, 2000)
+
+[node name="CollisionShape2D" parent="room_piece6/StaticBody2D" parent_id_path=PackedInt32Array(115892344, 99470810) index="0" unique_id=1064762727]
+position = Vector2(-2460, -2861)
+
+[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D" parent_id_path=PackedInt32Array(115892344, 99470810) index="1" unique_id=1982690336]
+position = Vector2(-3357, -2841)
+
+[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D" parent_id_path=PackedInt32Array(115892344, 99470810) index="3" unique_id=326285369]
+position = Vector2(-2456, -2833)
+
+[node name="CollisionShape2D" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="0" unique_id=2124233037]
+position = Vector2(-3396, -2782)
+
+[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="1" unique_id=1928957852]
+position = Vector2(-3793, -2769)
+
+[node name="CollisionShape2D3" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="2" unique_id=391400632]
+position = Vector2(-3888, -2784)
+
+[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D2" parent_id_path=PackedInt32Array(115892344, 122980264) index="3" unique_id=212326418]
+position = Vector2(-3862, -2766)
+
+[node name="CollisionShape2D" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="0" unique_id=1197765520]
+position = Vector2(-3322, -4115)
+
+[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="1" unique_id=375595637]
+position = Vector2(-3469, -3870)
+
+[node name="CollisionShape2D3" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="2" unique_id=1817043982]
+position = Vector2(-3233, -4283)
+
+[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="3" unique_id=1219258179]
+position = Vector2(-3367, -4001)
+
+[node name="CollisionShape2D5" parent="room_piece6/StaticBody2D3" parent_id_path=PackedInt32Array(115892344, 982750117) index="4" unique_id=1739735572]
+position = Vector2(-3977, -3785)
+
+[node name="CollisionShape2D" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="0" unique_id=659296284]
+position = Vector2(-2472, -3931)
+
+[node name="CollisionShape2D2" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="1" unique_id=492083954]
+position = Vector2(-2423, -3876)
+
+[node name="CollisionShape2D4" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="3" unique_id=424293370]
+position = Vector2(-2541, -3738)
+
+[node name="CollisionShape2D6" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="4" unique_id=2065128189]
+position = Vector2(-2512, -3962)
+
+[node name="CollisionPolygon2D" parent="room_piece6/StaticBody2D4" parent_id_path=PackedInt32Array(115892344, 1266986150) index="5" unique_id=1751771298]
+position = Vector2(-3074, -2523)
 
 [node name="room_piece7" parent="." unique_id=183691990 instance=ExtResource("1_pvq73")]
 position = Vector2(-1999, 0)
@@ -163,7 +272,9 @@ position = Vector2(-6, 2068)
 [node name="button2" parent="buttons2" unique_id=834129342 instance=ExtResource("3_pgh4i")]
 position = Vector2(-6, 1061)
 
-[node name="Temps" parent="." unique_id=1268341129 instance=ExtResource("4_g1hwu")]
+[node name="txt" type="Node2D" parent="." unique_id=1188014602]
+
+[node name="Temps" parent="txt" unique_id=1268341129 instance=ExtResource("4_g1hwu")]
 offset_left = 899.0
 offset_top = 1907.0
 offset_right = 1089.0
@@ -172,7 +283,7 @@ theme_override_font_sizes/font_size = 27
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Temps2" parent="." unique_id=594453489 instance=ExtResource("4_g1hwu")]
+[node name="Temps2" parent="txt" unique_id=594453489 instance=ExtResource("4_g1hwu")]
 offset_left = 899.0
 offset_top = 902.0
 offset_right = 1089.0
@@ -181,7 +292,124 @@ theme_override_font_sizes/font_size = 27
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="." unique_id=1488057597]
+[node name="Temps3" parent="txt" unique_id=1589613196 instance=ExtResource("4_g1hwu")]
+offset_left = -87.0
+offset_top = -93.0
+offset_right = 103.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps4" parent="txt" unique_id=1639275269 instance=ExtResource("4_g1hwu")]
+offset_left = -1093.0
+offset_top = -93.0
+offset_right = -903.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps5" parent="txt" unique_id=1411367598 instance=ExtResource("4_g1hwu")]
+offset_left = 1914.0
+offset_top = -98.0
+offset_right = 2104.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps6" parent="txt" unique_id=1315211401 instance=ExtResource("4_g1hwu")]
+offset_left = 2905.0
+offset_top = -98.0
+offset_right = 3095.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps7" parent="txt" unique_id=844105307 instance=ExtResource("4_g1hwu")]
+offset_left = 3911.0
+offset_top = -98.0
+offset_right = 4101.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps8" parent="txt" unique_id=2055464576 instance=ExtResource("4_g1hwu")]
+offset_left = 2900.0
+offset_top = 913.0
+offset_right = 3090.0
+offset_bottom = 1100.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps9" parent="txt" unique_id=2040929341 instance=ExtResource("4_g1hwu")]
+offset_left = -1093.0
+offset_top = 913.0
+offset_right = -903.0
+offset_bottom = 1100.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps10" parent="txt" unique_id=1699143015 instance=ExtResource("4_g1hwu")]
+offset_left = -1093.0
+offset_top = 1904.0
+offset_right = -903.0
+offset_bottom = 2091.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps11" parent="txt" unique_id=1656018194 instance=ExtResource("4_g1hwu")]
+offset_left = 2905.0
+offset_top = 1904.0
+offset_right = 3095.0
+offset_bottom = 2091.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps12" parent="txt" unique_id=1082569543 instance=ExtResource("4_g1hwu")]
+offset_left = 2905.0
+offset_top = 2900.0
+offset_right = 3095.0
+offset_bottom = 3087.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps13" parent="txt" unique_id=260911134 instance=ExtResource("4_g1hwu")]
+offset_left = 1914.0
+offset_top = 2900.0
+offset_right = 2104.0
+offset_bottom = 3087.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps14" parent="txt" unique_id=1349077211 instance=ExtResource("4_g1hwu")]
+offset_left = -83.0
+offset_top = 2900.0
+offset_right = 107.0
+offset_bottom = 3087.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Temps15" parent="txt" unique_id=1670560918 instance=ExtResource("4_g1hwu")]
+offset_left = -1104.0
+offset_top = 2900.0
+offset_right = -914.0
+offset_bottom = 3087.0
+theme_override_font_sizes/font_size = 27
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="txt" unique_id=1488057597]
 offset_left = -92.0
 offset_top = 904.0
 offset_right = 101.0
@@ -192,7 +420,7 @@ text = "ARPANET"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=1131751897]
+[node name="Label2" type="Label" parent="txt" unique_id=1131751897]
 offset_left = 1906.0
 offset_top = 904.0
 offset_right = 2100.0
@@ -203,7 +431,7 @@ text = "C LANGUAGE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="." unique_id=1562545298]
+[node name="Label3" type="Label" parent="txt" unique_id=1562545298]
 offset_left = 1907.0
 offset_top = 1907.0
 offset_right = 2099.0
@@ -214,7 +442,7 @@ text = "NP-complétude"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="." unique_id=14044465]
+[node name="Label4" type="Label" parent="txt" unique_id=14044465]
 offset_left = -90.0
 offset_top = 1908.0
 offset_right = 101.0
@@ -225,7 +453,7 @@ text = "MKULTRA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label5" type="Label" parent="." unique_id=1138131485]
+[node name="Label5" type="Label" parent="txt" unique_id=1138131485]
 offset_left = 900.0
 offset_top = 2911.0
 offset_right = 1091.0
@@ -237,7 +465,7 @@ Marble"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label6" type="Label" parent="." unique_id=1668600054]
+[node name="Label6" type="Label" parent="txt" unique_id=1668600054]
 offset_left = 900.0
 offset_top = -92.0
 offset_right = 1091.0
@@ -269,34 +497,25 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 position = Vector2(996.5, 1497.875)
 shape = SubResource("RectangleShape2D_vf124")
 
-[node name="portal" parent="." unique_id=871669185 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
-position = Vector2(993, 1339)
-rotation = 1.5707964
-portal_target = NodePath("../portal3")
+[node name="portals" type="Node2D" parent="." unique_id=1501362111]
 
-[node name="portal2" parent="." unique_id=1307896710 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+[node name="portal2" parent="portals" unique_id=1307896710 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
 position = Vector2(2994, 1339)
 rotation = 1.5707964
 portal_target = NodePath("../portal4")
 portal_reverse_color = true
 
-[node name="portal3" parent="." unique_id=1211566120 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
-position = Vector2(999, -348)
-rotation = -1.5707964
-portal_target = NodePath("../portal")
-portal_reverse_color = true
-
-[node name="portal4" parent="." unique_id=555710292 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+[node name="portal4" parent="portals" unique_id=555710292 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
 position = Vector2(2994, 1652)
 rotation = -1.5707964
 portal_target = NodePath("../portal2")
 
-[node name="portal5" parent="." unique_id=1104655613 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+[node name="portal5" parent="portals" unique_id=1104655613 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
 position = Vector2(993, 3339)
 rotation = 1.5707964
 portal_target = NodePath("../portal6")
 
-[node name="portal6" parent="." unique_id=1135614717 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
+[node name="portal6" parent="portals" unique_id=1135614717 node_paths=PackedStringArray("portal_target") instance=ExtResource("9_anba5")]
 position = Vector2(993, 1652)
 rotation = -1.5707964
 portal_target = NodePath("../portal5")
@@ -375,11 +594,160 @@ position = Vector2(-725, 1139)
 [node name="pt_blueprint10" parent="first_pont" unique_id=1973263679 instance=ExtResource("10_lory2")]
 position = Vector2(-645, 1139)
 
-[node name="OTHER COLL" type="StaticBody2D" parent="." unique_id=878275039]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=764508637]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OTHER COLL" unique_id=857123303]
-position = Vector2(3845, 1351)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=540928018]
+position = Vector2(4006.25, 981.5)
 shape = SubResource("RectangleShape2D_lory2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=98168326]
+position = Vector2(-2414, 2430)
+shape = SubResource("RectangleShape2D_88ojq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1622042040]
+position = Vector2(3836.25, 3367.5)
+shape = SubResource("RectangleShape2D_nvtr1")
+
+[node name="platforming" type="Node2D" parent="." unique_id=577614523]
+
+[node name="pt_blueprint" parent="platforming" unique_id=1848840839 instance=ExtResource("10_lory2")]
+position = Vector2(910, 1110)
+
+[node name="pt_blueprint2" parent="platforming" unique_id=401731474 instance=ExtResource("10_lory2")]
+position = Vector2(1098, 1051)
+
+[node name="pt_blueprint4" parent="platforming" unique_id=1222157240 instance=ExtResource("10_lory2")]
+position = Vector2(1126, 810)
+
+[node name="pt_blueprint7" parent="platforming" unique_id=1263753162 instance=ExtResource("10_lory2")]
+position = Vector2(1126, 810)
+
+[node name="pt_blueprint5" parent="platforming" unique_id=1993791647 instance=ExtResource("10_lory2")]
+position = Vector2(1126, 774)
+
+[node name="pt_blueprint8" parent="platforming" unique_id=10167271 instance=ExtResource("10_lory2")]
+position = Vector2(1126, 727)
+
+[node name="3platformblueprint" parent="platforming" unique_id=853668133 instance=ExtResource("11_88ojq")]
+position = Vector2(865, 320)
+rotation = 1.5707964
+
+[node name="pt_blueprint3" parent="platforming" unique_id=1396402770 instance=ExtResource("10_lory2")]
+position = Vector2(924, 917)
+
+[node name="pt_blueprint6" parent="platforming" unique_id=1838713429 instance=ExtResource("10_lory2")]
+position = Vector2(924, 868)
+
+[node name="3platformblueprint" parent="." unique_id=1490050212 instance=ExtResource("11_88ojq")]
+position = Vector2(-1102, 3139)
+
+[node name="3platformblueprint2" parent="." unique_id=667691794 instance=ExtResource("11_88ojq")]
+position = Vector2(-1144, 2580)
+rotation = 1.5707964
+
+[node name="platfoming2" type="Node2D" parent="." unique_id=1855611932]
+
+[node name="pt_blueprint" parent="platfoming2" unique_id=1596535939 instance=ExtResource("10_lory2")]
+position = Vector2(-931, 2966)
+
+[node name="pt_blueprint2" parent="platfoming2" unique_id=681739335 instance=ExtResource("10_lory2")]
+position = Vector2(-957, 2724)
+
+[node name="sol" type="Node2D" parent="." unique_id=1053019949]
+position = Vector2(-995, 712)
+
+[node name="pt_blueprint3" parent="sol" unique_id=861422240 instance=ExtResource("10_lory2")]
+position = Vector2(2917, 2371)
+
+[node name="pt_blueprint4" parent="sol" unique_id=1561627617 instance=ExtResource("10_lory2")]
+position = Vector2(2999, 2371)
+
+[node name="pt_blueprint5" parent="sol" unique_id=175997516 instance=ExtResource("10_lory2")]
+position = Vector2(3082, 2371)
+
+[node name="pt_blueprint6" parent="sol" unique_id=904947611 instance=ExtResource("10_lory2")]
+position = Vector2(3233, 541)
+
+[node name="bloquermurs" type="Node2D" parent="." unique_id=674101552]
+visible = false
+
+[node name="pt_blueprint" parent="bloquermurs" unique_id=2136793961 instance=ExtResource("10_lory2")]
+position = Vector2(-1461, 2093)
+
+[node name="pt_blueprint2" parent="bloquermurs" unique_id=261364081 instance=ExtResource("10_lory2")]
+position = Vector2(-1474, 2046)
+
+[node name="pt_blueprint3" parent="bloquermurs" unique_id=243047329 instance=ExtResource("10_lory2")]
+position = Vector2(-1569, 2096)
+
+[node name="pt_blueprint4" parent="bloquermurs" unique_id=1089256775 instance=ExtResource("10_lory2")]
+position = Vector2(-1461, 1999)
+
+[node name="pt_blueprint5" parent="bloquermurs" unique_id=766225171 instance=ExtResource("10_lory2")]
+position = Vector2(-1481, 1951)
+
+[node name="pt_blueprint6" parent="bloquermurs" unique_id=226084679 instance=ExtResource("10_lory2")]
+position = Vector2(-1465, 1907)
+
+[node name="pt_blueprint7" parent="bloquermurs" unique_id=542875022 instance=ExtResource("10_lory2")]
+position = Vector2(3548, 2093)
+
+[node name="pt_blueprint8" parent="bloquermurs" unique_id=655118402 instance=ExtResource("10_lory2")]
+position = Vector2(3535, 2046)
+
+[node name="pt_blueprint9" parent="bloquermurs" unique_id=1590206391 instance=ExtResource("10_lory2")]
+position = Vector2(3440, 2096)
+
+[node name="pt_blueprint10" parent="bloquermurs" unique_id=454614695 instance=ExtResource("10_lory2")]
+position = Vector2(3548, 1999)
+
+[node name="pt_blueprint11" parent="bloquermurs" unique_id=1893864682 instance=ExtResource("10_lory2")]
+position = Vector2(3528, 1951)
+
+[node name="pt_blueprint12" parent="bloquermurs" unique_id=1295405054 instance=ExtResource("10_lory2")]
+position = Vector2(3544, 1907)
+
+[node name="pt_blueprint13" parent="bloquermurs" unique_id=796744804 instance=ExtResource("10_lory2")]
+position = Vector2(3510, 1098)
+
+[node name="pt_blueprint14" parent="bloquermurs" unique_id=1462482173 instance=ExtResource("10_lory2")]
+position = Vector2(3497, 1051)
+
+[node name="pt_blueprint15" parent="bloquermurs" unique_id=1664846412 instance=ExtResource("10_lory2")]
+position = Vector2(3387, 1097)
+
+[node name="pt_blueprint16" parent="bloquermurs" unique_id=452746341 instance=ExtResource("10_lory2")]
+position = Vector2(3510, 1004)
+
+[node name="pt_blueprint17" parent="bloquermurs" unique_id=1564150363 instance=ExtResource("10_lory2")]
+position = Vector2(3490, 956)
+
+[node name="pt_blueprint18" parent="bloquermurs" unique_id=270584392 instance=ExtResource("10_lory2")]
+position = Vector2(3506, 912)
+
+[node name="pt_blueprint19" parent="bloquermurs" unique_id=97206046 instance=ExtResource("10_lory2")]
+position = Vector2(3476, 2043)
+
+[node name="pt_blueprint20" parent="bloquermurs" unique_id=1066120297 instance=ExtResource("10_lory2")]
+position = Vector2(3545, 100)
+
+[node name="pt_blueprint21" parent="bloquermurs" unique_id=620289483 instance=ExtResource("10_lory2")]
+position = Vector2(3415, 100)
+
+[node name="pt_blueprint22" parent="bloquermurs" unique_id=1199931686 instance=ExtResource("10_lory2")]
+position = Vector2(3474, 55)
+
+[node name="pt_blueprint23" parent="bloquermurs" unique_id=114590483 instance=ExtResource("10_lory2")]
+position = Vector2(3450, 10)
+
+[node name="pt_blueprint24" parent="bloquermurs" unique_id=220799677 instance=ExtResource("10_lory2")]
+position = Vector2(3516, 45)
+
+[node name="pt_blueprint25" parent="bloquermurs" unique_id=820858722 instance=ExtResource("10_lory2")]
+position = Vector2(3499, -38)
+
+[node name="pt_blueprint26" parent="bloquermurs" unique_id=1410427995 instance=ExtResource("10_lory2")]
+position = Vector2(3482, -95)
 
 [connection signal="body_entered" from="buttons/button" to="." method="_on_button_body_entered1"]
 [connection signal="body_entered" from="buttons/button2" to="." method="_on_button_2_body_entered3"]
@@ -387,3 +755,6 @@ shape = SubResource("RectangleShape2D_lory2")
 [connection signal="body_entered" from="buttons2/button2" to="." method="_on_button_2_body_entered4"]
 [connection signal="body_entered" from="cam_zone" to="." method="_on_cam_zone_body_entered"]
 [connection signal="body_exited" from="cam_zone" to="." method="_on_cam_zone_body_exited"]
+
+[editable path="room_piece5"]
+[editable path="room_piece6"]

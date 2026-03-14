@@ -16,7 +16,10 @@ var game_can_begin : bool = false
 
 @onready var lvl_1: Node2D = $lvl1
 @onready var lvl_2: Node2D = $lvl2
+@onready var lvl_3: Node2D = $lvl3
+
 var lvl_2_loaded:bool = false
+
 
 @onready var tentacles: Node2D = $void/tentacles
 
@@ -45,6 +48,9 @@ func _ready() -> void:
 	
 	lvl_2.hide()
 	lvl_2.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	lvl_3.hide()
+	lvl_3.process_mode = Node.PROCESS_MODE_DISABLED
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,11 +58,14 @@ func _process(delta: float) -> void:
 	if player.position.x < -3562:
 		audio_fadeout.play("fadoutsong")
 	
-	if !lvl_2_loaded and player.position.x < -4763:
+	if !lvl_2_loaded and player.global_position.x < -4763:
 		lvl_2_loaded = true
 		
 		lvl_2.show()
 		lvl_2.process_mode = Node.PROCESS_MODE_INHERIT
+		
+		lvl_3.show()
+		lvl_3.process_mode = Node.PROCESS_MODE_INHERIT
 		
 		lvl_1.hide()
 		lvl_1.process_mode = Node.PROCESS_MODE_DISABLED
@@ -113,3 +122,13 @@ func _on_no_offset_zone_lvl_2_body_exited(body: Node2D) -> void:
 	if body is Player : 
 		camoffesetbottom.priority = 0
 		camoffesetbottom_2.priority = 0
+
+
+func _on_change_scene_zone_body_entered(body: Node2D) -> void:
+
+		
+		lvl_1.show()
+		lvl_1.process_mode = Node.PROCESS_MODE_INHERIT
+		
+		lvl_2.hide()
+		lvl_2.process_mode = Node.PROCESS_MODE_DISABLED

@@ -29,9 +29,10 @@
 [ext_resource type="Shader" uid="uid://dbpcmnusybmk2" path="res://shaders/wind.gdshader" id="28_vb8r4"]
 [ext_resource type="Texture2D" uid="uid://bm6t2257e58y0" path="res://sprites/Mossy Tileset/Mossy - Hanging PlantsREVERSE.png" id="29_7rpky"]
 [ext_resource type="Texture2D" uid="uid://ptro2irm7vk1" path="res://sprites/Mossy Tileset/Mossy - Decorations&Hazards.png" id="29_vb8r4"]
-[ext_resource type="PackedScene" uid="uid://dq34lg5k1ytnm" path="res://src/elements/vault.tscn" id="30_f3u0r"]
+[ext_resource type="PackedScene" uid="uid://3d4xp58s7wbm" path="res://src/elements/cube.tscn" id="30_f3u0r"]
 [ext_resource type="PackedScene" uid="uid://c1ye8j32cc6js" path="res://src/levels/meta_room_piece.tscn" id="30_lqu8a"]
 [ext_resource type="PackedScene" uid="uid://j3gcywxflkf1" path="res://src/tentacle/scenes/arm.tscn" id="31_k4edk"]
+[ext_resource type="PackedScene" uid="uid://mtmitx3k0avp" path="res://src/platforms/3_platformblueprint.tscn" id="32_f3u0r"]
 [ext_resource type="PackedScene" uid="uid://panlfw5wbxdr" path="res://src/cinematic/cinematic.tscn" id="32_hw218"]
 
 [sub_resource type="Animation" id="Animation_lqu8a"]
@@ -285,15 +286,6 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 gradient = SubResource("Gradient_lqu8a")
 width = 1024
 
-[sub_resource type="Gradient" id="Gradient_hw218"]
-colors = PackedColorArray(0.37791926, 0.37791872, 0.37791875, 1, 0.99215686, 0.99215686, 0.99215686, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lqu8a"]
-gradient = SubResource("Gradient_hw218")
-height = 512
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-
 [sub_resource type="Gradient" id="Gradient_7rpky"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
@@ -304,6 +296,18 @@ fill_from = Vector2(0.16591929, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u0r"]
 size = Vector2(47958, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpyur"]
+size = Vector2(679, 417)
+
+[sub_resource type="Gradient" id="Gradient_hw218"]
+colors = PackedColorArray(0.37791926, 0.37791872, 0.37791875, 1, 0.99215686, 0.99215686, 0.99215686, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lqu8a"]
+gradient = SubResource("Gradient_hw218")
+height = 512
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
@@ -1102,8 +1106,8 @@ shape = SubResource("RectangleShape2D_hw218")
 position = Vector2(12789, 1)
 shape = SubResource("RectangleShape2D_lqu8a")
 
-[node name="vault" parent="lvl1" unique_id=1633533475 instance=ExtResource("30_f3u0r")]
-position = Vector2(19335, 86)
+[node name="cube" parent="lvl1" unique_id=1811157897 instance=ExtResource("30_f3u0r")]
+position = Vector2(18359, 73)
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
 position = Vector2(132, 0)
@@ -1211,37 +1215,31 @@ texture = SubResource("GradientTexture2D_f3u0r")
 offset_left = 1171.0
 offset_top = -1911.0
 offset_right = 4407.0
-offset_bottom = 3273.0
+offset_bottom = 4812.0
 color = Color(0, 0, 0, 1)
 
-[node name="lvl3" type="Node2D" parent="." unique_id=1704687252]
-visible = false
+[node name="Polygon2D" type="Polygon2D" parent="lvl2" unique_id=561294384]
+position = Vector2(-132, 0)
+color = Color(0.17283267, 0.17283267, 0.17283261, 1)
+polygon = PackedVector2Array(2253, 2124, 2521, 2760, 2283, 2623)
 
-[node name="ColorRect" type="ColorRect" parent="lvl3" unique_id=81362923]
-offset_left = -3968.0
-offset_top = 3169.0
-offset_right = 3043.0
-offset_bottom = 5362.0
-color = Color(0, 0, 0, 1)
+[node name="Polygon2D2" type="Polygon2D" parent="lvl2" unique_id=2128111304]
+position = Vector2(-132, 0)
+color = Color(0.21950102, 0.21950102, 0.21950093, 1)
+polygon = PackedVector2Array(2675, 2689, 2470, 3096, 2677, 3158)
 
-[node name="intro" type="Node2D" parent="." unique_id=1520859281]
+[node name="3platformblueprint" parent="lvl2" unique_id=12004601 instance=ExtResource("32_f3u0r")]
+position = Vector2(1583, 2146)
 
-[node name="ColorRect" type="ColorRect" parent="intro" unique_id=333639218]
-offset_left = -1360.0
-offset_top = -3826.0
-offset_right = 1676.0
-offset_bottom = -2565.0
-color = Color(0.99116415, 0.99116427, 0.99116415, 1)
+[node name="StaticBody2D" type="StaticBody2D" parent="lvl2" unique_id=458216510]
+position = Vector2(-132, 0)
 
-[node name="cinematic" parent="intro" unique_id=2045197238 instance=ExtResource("32_hw218")]
-position = Vector2(0, -2934)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="lvl2/StaticBody2D" unique_id=668964798]
+z_index = 200
+polygon = PackedVector2Array(2253, 2124, 2521, 2760, 2283, 2623)
 
-[node name="TextureRect" type="TextureRect" parent="intro" unique_id=650193205]
-offset_left = -1285.0
-offset_top = -2572.0
-offset_right = 1663.0
-offset_bottom = -2060.0
-texture = SubResource("GradientTexture2D_lqu8a")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="lvl2/StaticBody2D" unique_id=1767149866]
+polygon = PackedVector2Array(2675, 2689, 2470, 3096, 2677, 3158)
 
 [node name="void" type="Node2D" parent="." unique_id=1239576127]
 
@@ -1268,8 +1266,30 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 72
 text = "Enjoy the Void"
 
+[node name="Label2" type="Label" parent="void" unique_id=2020269347]
+z_index = 1
+offset_left = 3352.0
+offset_top = 3919.0
+offset_right = 4259.0
+offset_bottom = 4018.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 72
+text = "Ceux qui savent se taisent"
+
 [node name="ball" parent="void" unique_id=429654710 instance=ExtResource("14_k548o")]
-position = Vector2(-4764, 106)
+position = Vector2(-5207, 106)
+
+[node name="ball2" parent="void" unique_id=1241022116 instance=ExtResource("14_k548o")]
+z_index = 1
+position = Vector2(4294, 3988)
+
+[node name="ball3" parent="void" unique_id=1660370679 instance=ExtResource("14_k548o")]
+z_index = 1
+position = Vector2(4341, 3988)
+
+[node name="ball4" parent="void" unique_id=967135124 instance=ExtResource("14_k548o")]
+z_index = 1
+position = Vector2(4385, 3988)
 
 [node name="tentacles" type="Node2D" parent="void" unique_id=1961198955]
 
@@ -1309,10 +1329,135 @@ target = NodePath("../../../Player")
 position = Vector2(-27433, 484)
 shape = SubResource("RectangleShape2D_f3u0r")
 
+[node name="lvl3" type="Node2D" parent="." unique_id=1704687252]
+
+[node name="platform" parent="lvl3" unique_id=1760977641 instance=ExtResource("8_ltygr")]
+position = Vector2(3628, 3083)
+
+[node name="platform2" parent="lvl3" unique_id=442092305 instance=ExtResource("8_ltygr")]
+position = Vector2(3763, 3021)
+
+[node name="platform3" parent="lvl3" unique_id=1518499811 instance=ExtResource("8_ltygr")]
+position = Vector2(2443, 3241)
+
+[node name="platform4" parent="lvl3" unique_id=165633770 instance=ExtResource("8_ltygr")]
+position = Vector2(2365, 3241)
+
+[node name="platform5" parent="lvl3" unique_id=1467364907 instance=ExtResource("8_ltygr")]
+position = Vector2(2292, 3241)
+
+[node name="pt_blueprint" parent="lvl3" unique_id=18483671 instance=ExtResource("16_nfd4m")]
+position = Vector2(2555, 3312)
+
+[node name="pt_blueprint2" parent="lvl3" unique_id=1244344121 instance=ExtResource("16_nfd4m")]
+position = Vector2(2656, 3377)
+
+[node name="pt_blueprint3" parent="lvl3" unique_id=1124613912 instance=ExtResource("16_nfd4m")]
+position = Vector2(2117, 3732)
+
+[node name="pt_blueprint5" parent="lvl3" unique_id=1486608165 instance=ExtResource("16_nfd4m")]
+position = Vector2(2807, 3880)
+
+[node name="pt_blueprint4" parent="lvl3" unique_id=615881065 instance=ExtResource("16_nfd4m")]
+position = Vector2(2039, 3732)
+
+[node name="pt_blueprint6" parent="lvl3" unique_id=2100320573 instance=ExtResource("16_nfd4m")]
+position = Vector2(3114, 4001)
+
+[node name="pt_blueprint7" parent="lvl3" unique_id=184907153 instance=ExtResource("16_nfd4m")]
+position = Vector2(3036, 4001)
+
+[node name="pt_blueprint8" parent="lvl3" unique_id=1682629960 instance=ExtResource("16_nfd4m")]
+position = Vector2(4592, 3977)
+
+[node name="pt_blueprint9" parent="lvl3" unique_id=639221890 instance=ExtResource("16_nfd4m")]
+position = Vector2(4521, 3977)
+
+[node name="3platformblueprint2" parent="lvl3" unique_id=853668133 instance=ExtResource("32_f3u0r")]
+position = Vector2(2012, 3925)
+
+[node name="3platformblueprint3" parent="lvl3" unique_id=1580980550 instance=ExtResource("32_f3u0r")]
+position = Vector2(3404, 4066)
+
+[node name="3platformblueprint4" parent="lvl3" unique_id=108376716 instance=ExtResource("32_f3u0r")]
+position = Vector2(4159, 4026)
+
+[node name="3platformblueprint" parent="lvl3" unique_id=614552391 instance=ExtResource("32_f3u0r")]
+position = Vector2(2312, 3619)
+rotation = -0.15533431
+
+[node name="platform6" parent="lvl3" unique_id=1666926922 instance=ExtResource("8_ltygr")]
+position = Vector2(4642, 3780)
+
+[node name="pt_blueprint10" parent="lvl3" unique_id=1527362764 instance=ExtResource("16_nfd4m")]
+position = Vector2(4721, 3876)
+
+[node name="platform7" parent="lvl3" unique_id=2066706125 instance=ExtResource("8_ltygr")]
+position = Vector2(4483, 3726)
+
+[node name="platform8" parent="lvl3" unique_id=1704275224 instance=ExtResource("8_ltygr")]
+position = Vector2(4224, 3759)
+
+[node name="pt_blueprint11" parent="lvl3" unique_id=64219029 instance=ExtResource("16_nfd4m")]
+position = Vector2(4053, 3730)
+
+[node name="platform9" parent="lvl3" unique_id=307914365 instance=ExtResource("8_ltygr")]
+position = Vector2(3949, 3592)
+
+[node name="pt_blueprint12" parent="lvl3" unique_id=167234601 instance=ExtResource("16_nfd4m")]
+position = Vector2(3794.0002, 3604)
+rotation = 1.2409291
+scale = Vector2(2, 2)
+
+[node name="pt_blueprint13" parent="lvl3" unique_id=1737338357 instance=ExtResource("16_nfd4m")]
+position = Vector2(3803.9998, 3316)
+rotation = 1.2409291
+scale = Vector2(2, 2)
+
+[node name="pt_blueprint14" parent="lvl3" unique_id=354321791 instance=ExtResource("16_nfd4m")]
+position = Vector2(4099, 3424.0002)
+rotation = -1.2409291
+scale = Vector2(2, 2)
+
+[node name="platform10" parent="lvl3" unique_id=2029132258 instance=ExtResource("8_ltygr")]
+position = Vector2(3988, 3208)
+
+[node name="pt_blueprint15" parent="lvl3" unique_id=1828024774 instance=ExtResource("16_nfd4m")]
+position = Vector2(3776, 3246)
+
+[node name="platform11" parent="lvl3" unique_id=711722132 instance=ExtResource("8_ltygr")]
+position = Vector2(3725, 3159)
+
+[node name="change_scene_zone" type="Area2D" parent="lvl3" unique_id=1214581139]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl3/change_scene_zone" unique_id=154632159]
+position = Vector2(4290.5, 3991.5)
+shape = SubResource("RectangleShape2D_tpyur")
+
+[node name="intro" type="Node2D" parent="." unique_id=1520859281]
+
+[node name="ColorRect" type="ColorRect" parent="intro" unique_id=333639218]
+offset_left = -1360.0
+offset_top = -3826.0
+offset_right = 1676.0
+offset_bottom = -2565.0
+color = Color(0.99116415, 0.99116427, 0.99116415, 1)
+
+[node name="cinematic" parent="intro" unique_id=2045197238 instance=ExtResource("32_hw218")]
+position = Vector2(0, -2934)
+
+[node name="TextureRect" type="TextureRect" parent="intro" unique_id=650193205]
+offset_left = -1285.0
+offset_top = -2572.0
+offset_right = 1663.0
+offset_bottom = -2060.0
+texture = SubResource("GradientTexture2D_lqu8a")
+
 [connection signal="body_entered" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_entered"]
 [connection signal="body_exited" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_exited"]
 [connection signal="body_entered" from="lvl1/cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_entered"]
 [connection signal="body_exited" from="lvl1/cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_exited"]
 [connection signal="body_entered" from="lvl2/cam_zone/no_offset_zone_lvl2" to="." method="_on_no_offset_zone_lvl_2_body_entered"]
 [connection signal="body_exited" from="lvl2/cam_zone/no_offset_zone_lvl2" to="." method="_on_no_offset_zone_lvl_2_body_exited"]
+[connection signal="body_entered" from="lvl3/change_scene_zone" to="." method="_on_change_scene_zone_body_entered"]
 [connection signal="animation_finished" from="intro/cinematic" to="." method="_on_cinematic_animation_finished"]
