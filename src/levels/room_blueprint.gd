@@ -126,9 +126,11 @@ func _on_no_offset_zone_lvl_2_body_exited(body: Node2D) -> void:
 
 func _on_change_scene_zone_body_entered(body: Node2D) -> void:
 
-		
+	if body is Player:
 		lvl_1.show()
 		lvl_1.process_mode = Node.PROCESS_MODE_INHERIT
 		
 		lvl_2.hide()
 		lvl_2.process_mode = Node.PROCESS_MODE_DISABLED
+		
+		lvl_2_loaded = false
