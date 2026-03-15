@@ -17,22 +17,18 @@ size = Vector2(209.5, 191)
 [node name="room_piece" type="Node2D" unique_id=1832363316]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=285788743]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_dgoar")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=817096741]
 position = Vector2(998.99994, -2.3841858e-07)
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_poyec")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=921425444]
 position = Vector2(0, 999.99994)
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_6avyc")
 
 [node name="Sprite2D5" type="Sprite2D" parent="." unique_id=2055580749]
 position = Vector2(998.99994, 999.99994)
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_6avyc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=99470810]

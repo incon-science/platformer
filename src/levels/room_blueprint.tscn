@@ -35,42 +35,19 @@
 [ext_resource type="PackedScene" uid="uid://mtmitx3k0avp" path="res://src/platforms/3_platformblueprint.tscn" id="32_f3u0r"]
 [ext_resource type="PackedScene" uid="uid://panlfw5wbxdr" path="res://src/cinematic/cinematic.tscn" id="32_hw218"]
 
-[sub_resource type="Animation" id="Animation_lqu8a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-8.0]
-}
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f3u0r"]
+random_pitch = 1.1949222
+streams_count = 1
+stream_0/stream = ExtResource("23_f1fom")
 
-[sub_resource type="Animation" id="Animation_f3u0r"]
-resource_name = "fadoutsong"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-8.0, -80.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrlky"]
-_data = {
-&"RESET": SubResource("Animation_lqu8a"),
-&"fadoutsong": SubResource("Animation_f3u0r")
-}
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_qrlky"]
+clip_count = 2
+clip_0/name = &"Portal Soundtrack Self Esteem Fund"
+clip_0/stream = ExtResource("23_f1fom")
+clip_0/auto_advance = 0
+clip_1/name = &""
+clip_1/stream = SubResource("AudioStreamRandomizer_f3u0r")
+clip_1/auto_advance = 0
 
 [sub_resource type="Environment" id="Environment_vb8r4"]
 background_mode = 3
@@ -223,7 +200,7 @@ curve = SubResource("Curve_tpyur")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41y7b"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(1000, 1, 1)
+emission_box_extents = Vector3(500, 1, 1)
 direction = Vector3(0, 0, 0)
 spread = 0.0
 initial_velocity_min = 4.0
@@ -397,13 +374,8 @@ fill_to = Vector2(0, 0)
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=395379884]
-stream = ExtResource("23_f1fom")
-volume_db = -8.0
-parameters/looping = true
-
-[node name="audio_fadeout" type="AnimationPlayer" parent="AudioStreamPlayer" unique_id=2094138239]
-libraries/ = SubResource("AnimationLibrary_qrlky")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2028558489]
+stream = SubResource("AudioStreamInteractive_qrlky")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1187769887]
 environment = SubResource("Environment_vb8r4")
@@ -520,7 +492,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
 [node name="paralaxmulticlolor" type="Parallax2D" parent="lvl1" unique_id=1615437823]
-scroll_scale = Vector2(0.1, 1)
+scroll_scale = Vector2(0.5, 1)
 
 [node name="gradient" type="TextureRect" parent="lvl1/paralaxmulticlolor" unique_id=404732774]
 offset_left = -2820.0
@@ -572,10 +544,10 @@ color = Color(0.35531357, 0.35531357, 0.3553135, 1)
 scroll_scale = Vector2(0, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="lvl1/Parallax2D2" unique_id=1809780474]
-position = Vector2(0, 34)
-amount = 1000
+position = Vector2(715, 34)
+amount = 500
 texture = SubResource("GradientTexture2D_qrlky")
-visibility_rect = Rect2(-1000, -1, 2000, 2)
+visibility_rect = Rect2(-500, -1, 1000, 2)
 process_material = SubResource("ParticleProcessMaterial_41y7b")
 
 [node name="TextureRect" type="TextureRect" parent="lvl1/Parallax2D2" unique_id=764365305]
@@ -1222,7 +1194,6 @@ shape = SubResource("RectangleShape2D_lqu8a")
 position = Vector2(18359, 73)
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
-visible = false
 position = Vector2(132, 0)
 
 [node name="ColorRect" type="ColorRect" parent="lvl2" unique_id=1319015657]
@@ -1274,48 +1245,6 @@ position = Vector2(-2327, -993)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvl2/cam_zone/no_offset_zone_lvl2" unique_id=1077839574]
 position = Vector2(-1338, 514)
 shape = SubResource("RectangleShape2D_01erx")
-
-[node name="blocks" type="Node2D" parent="lvl2" unique_id=1205615149]
-
-[node name="block" parent="lvl2/blocks" unique_id=576578086 instance=ExtResource("27_514du")]
-position = Vector2(-2708, -1041)
-
-[node name="block2" parent="lvl2/blocks" unique_id=1257185330 instance=ExtResource("27_514du")]
-position = Vector2(-2780, -974)
-
-[node name="block3" parent="lvl2/blocks" unique_id=406781808 instance=ExtResource("27_514du")]
-position = Vector2(-2675, -965)
-
-[node name="block4" parent="lvl2/blocks" unique_id=1432422270 instance=ExtResource("27_514du")]
-position = Vector2(-2746, -899)
-
-[node name="block5" parent="lvl2/blocks" unique_id=1735618111 instance=ExtResource("27_514du")]
-position = Vector2(-2809, -1129)
-
-[node name="block6" parent="lvl2/blocks" unique_id=75699878 instance=ExtResource("27_514du")]
-position = Vector2(-2847, -1046)
-
-[node name="block7" parent="lvl2/blocks" unique_id=1784752103 instance=ExtResource("27_514du")]
-modulate = Color(0.2, 0.2, 0.2, 1)
-position = Vector2(-2710, -1312)
-
-[node name="block8" parent="lvl2/blocks" unique_id=1532148882 instance=ExtResource("27_514du")]
-position = Vector2(-2770, -1221)
-
-[node name="block9" parent="lvl2/blocks" unique_id=1647045312 instance=ExtResource("27_514du")]
-position = Vector2(-2774, -1089)
-
-[node name="block10" parent="lvl2/blocks" unique_id=1959826423 instance=ExtResource("27_514du")]
-position = Vector2(-2827, -948)
-
-[node name="block11" parent="lvl2/blocks" unique_id=692936793 instance=ExtResource("27_514du")]
-position = Vector2(-2740, -1032)
-
-[node name="block12" parent="lvl2/blocks" unique_id=1000631450 instance=ExtResource("27_514du")]
-position = Vector2(-2761, -1151)
-
-[node name="block13" parent="lvl2/blocks" unique_id=534386619 instance=ExtResource("27_514du")]
-position = Vector2(-2767, -1279)
 
 [node name="TextureRect" type="TextureRect" parent="lvl2" unique_id=126828299]
 offset_left = 147.0

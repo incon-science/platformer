@@ -8,7 +8,6 @@ extends Node2D
 
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-@onready var audio_fadeout: AnimationPlayer = $AudioStreamPlayer/audio_fadeout
 
 @onready var canvas_modulate: CanvasModulate = $CanvasModulate
 
@@ -61,7 +60,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if player.position.x < -3562:
-		audio_fadeout.play("fadoutsong")
+		#audio_stream_player
+		pass
 	
 	if !lvl_2_loaded and player.global_position.x < -4763:
 		lvl_2_loaded = true
