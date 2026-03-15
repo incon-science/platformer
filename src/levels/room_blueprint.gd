@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 		if lvl_2_loaded :
 			if audio_stream_player.get_stream_playback().get_current_clip_index() !=2:
 				audio_stream_player.get_stream_playback().switch_to_clip_by_name("stimulation")
-	
+				audio_stream_player.volume_db=-10
 	if !lvl_2_loaded and player.global_position.x < -4763:
 		lvl_2_loaded = true
 		
