@@ -103,6 +103,20 @@ randomize_noise_seed = 1
 positional_noise = false
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
+[sub_resource type="Gradient" id="Gradient_f3u0r"]
+offsets = PackedFloat32Array(0, 0.11111111, 0.22222222, 0.33333334, 0.44444445, 0.5555556, 0.6666667, 0.7777778, 0.8888889)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.36666667, 0, 1, 1, 0.8666667, 0, 1, 0.45000005, 1, 0, 1, 0, 1, 0.88333344, 1, 0, 0.10000014, 1, 1, 0.5, 0, 1, 1, 1, 0, 0.916667, 1, 1, 0, 0.016666412, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 9
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qrlky"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_01erx"]
+width = 4096
+height = 2048
+noise = SubResource("FastNoiseLite_qrlky")
+color_ramp = SubResource("Gradient_f3u0r")
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7rpky"]
 frequency = 0.0457
 
@@ -138,6 +152,9 @@ tracks/0/keys = {
 "values": [1.0]
 }
 
+[sub_resource type="Animation" id="Animation_qrlky"]
+resource_name = "multicolor_anim"
+
 [sub_resource type="Animation" id="Animation_k4edk"]
 resource_name = "new_animation"
 loop_mode = 2
@@ -154,11 +171,79 @@ tracks/0/keys = {
 "values": [1.0, 0.8190000389025]
 }
 
+[sub_resource type="Animation" id="Animation_01erx"]
+resource_name = "true_anim_multicolor"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.50000002375]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hw218"]
 _data = {
 &"RESET": SubResource("Animation_7rpky"),
-&"new_animation": SubResource("Animation_k4edk")
+&"multicolor_anim": SubResource("Animation_qrlky"),
+&"new_animation": SubResource("Animation_k4edk"),
+&"true_anim_multicolor": SubResource("Animation_01erx")
 }
+
+[sub_resource type="Gradient" id="Gradient_p7rqh"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qrlky"]
+gradient = SubResource("Gradient_p7rqh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_01erx"]
+offsets = PackedFloat32Array(0, 0.3, 0.7, 0.9)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_28ilu"]
+gradient = SubResource("Gradient_01erx")
+
+[sub_resource type="Curve" id="Curve_tpyur"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1590909, 1), 0.0, 0.0, 0, 0, Vector2(0.8484848, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_t0qxu"]
+curve = SubResource("Curve_tpyur")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41y7b"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1000, 1, 1)
+direction = Vector3(0, 0, 0)
+spread = 0.0
+initial_velocity_min = 4.0
+initial_velocity_max = 8.0
+gravity = Vector3(-1, -20, 0)
+scale_min = 0.01
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_t0qxu")
+color_ramp = SubResource("GradientTexture1D_28ilu")
+
+[sub_resource type="Gradient" id="Gradient_qrlky"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.525641, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.25, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_01erx"]
+gradient = SubResource("Gradient_qrlky")
+width = 1
+height = 20
+fill_from = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76snk"]
 size = Vector2(6836, 53)
@@ -434,6 +519,16 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
+[node name="paralaxmulticlolor" type="Parallax2D" parent="lvl1" unique_id=1615437823]
+scroll_scale = Vector2(0.1, 1)
+
+[node name="gradient" type="TextureRect" parent="lvl1/paralaxmulticlolor" unique_id=404732774]
+offset_left = -2820.0
+offset_top = -4176.0
+offset_right = 10301.0
+offset_bottom = 35.0
+texture = SubResource("NoiseTexture2D_01erx")
+
 [node name="ground" type="Sprite2D" parent="lvl1" unique_id=417271694]
 position = Vector2(-5391, -82.90402)
 scale = Vector2(0.274, 0.274)
@@ -450,7 +545,7 @@ offset_right = 17236.0
 offset_bottom = 35.0
 texture = SubResource("GradientTexture1D_7rpky")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="lvl1/Parallax2D/burningBG" unique_id=1781422004]
+[node name="animparalaxburn" type="AnimationPlayer" parent="lvl1/Parallax2D/burningBG" unique_id=1781422004]
 libraries/ = SubResource("AnimationLibrary_hw218")
 autoplay = &"new_animation"
 speed_scale = 0.1
@@ -472,6 +567,23 @@ offset_top = 36.0
 offset_right = 14469.592
 offset_bottom = 342.0
 color = Color(0.35531357, 0.35531357, 0.3553135, 1)
+
+[node name="Parallax2D2" type="Parallax2D" parent="lvl1" unique_id=1884114840]
+scroll_scale = Vector2(0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="lvl1/Parallax2D2" unique_id=1809780474]
+position = Vector2(0, 34)
+amount = 1000
+texture = SubResource("GradientTexture2D_qrlky")
+visibility_rect = Rect2(-1000, -1, 2000, 2)
+process_material = SubResource("ParticleProcessMaterial_41y7b")
+
+[node name="TextureRect" type="TextureRect" parent="lvl1/Parallax2D2" unique_id=764365305]
+offset_left = -2048.0
+offset_top = 16.0
+offset_right = 3445.0
+offset_bottom = 36.0
+texture = SubResource("GradientTexture2D_01erx")
 
 [node name="Structure" type="Node2D" parent="lvl1" unique_id=837771015]
 
@@ -1046,7 +1158,7 @@ offset_top = 1792.0
 offset_right = 4626.0
 offset_bottom = 2708.0
 theme_override_font_sizes/normal_font_size = 26
-text = "La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin "
+text = "La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue La réalité est une conspiration Reality is FAKE Tout est faux Seul le néant dit la vérité La Voie du vide est l'unique chemin Mais il est sans issue "
 horizontal_alignment = 3
 
 [node name="ouvriront" type="RichTextLabel" parent="lvl1" unique_id=1013986313]
@@ -1110,6 +1222,7 @@ shape = SubResource("RectangleShape2D_lqu8a")
 position = Vector2(18359, 73)
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
+visible = false
 position = Vector2(132, 0)
 
 [node name="ColorRect" type="ColorRect" parent="lvl2" unique_id=1319015657]
@@ -1266,30 +1379,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 72
 text = "Enjoy the Void"
 
-[node name="Label2" type="Label" parent="void" unique_id=2020269347]
-z_index = 1
-offset_left = 3352.0
-offset_top = 3919.0
-offset_right = 4259.0
-offset_bottom = 4018.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 72
-text = "Ceux qui savent se taisent"
-
 [node name="ball" parent="void" unique_id=429654710 instance=ExtResource("14_k548o")]
 position = Vector2(-5207, 106)
-
-[node name="ball2" parent="void" unique_id=1241022116 instance=ExtResource("14_k548o")]
-z_index = 1
-position = Vector2(4294, 3988)
-
-[node name="ball3" parent="void" unique_id=1660370679 instance=ExtResource("14_k548o")]
-z_index = 1
-position = Vector2(4341, 3988)
-
-[node name="ball4" parent="void" unique_id=967135124 instance=ExtResource("14_k548o")]
-z_index = 1
-position = Vector2(4385, 3988)
 
 [node name="tentacles" type="Node2D" parent="void" unique_id=1961198955]
 

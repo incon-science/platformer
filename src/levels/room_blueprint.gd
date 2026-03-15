@@ -17,6 +17,9 @@ var game_can_begin : bool = false
 @onready var lvl_1: Node2D = $lvl1
 @onready var lvl_2: Node2D = $lvl2
 @onready var lvl_3: Node2D = $lvl3
+@onready var paralaxmulticlolor: Parallax2D = $lvl1/paralaxmulticlolor
+@onready var animparalaxburn: AnimationPlayer = $lvl1/Parallax2D/burningBG/animparalaxburn
+
 
 var lvl_2_loaded:bool = false
 
@@ -51,6 +54,8 @@ func _ready() -> void:
 	
 	lvl_3.hide()
 	lvl_3.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	paralaxmulticlolor.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -134,3 +139,6 @@ func _on_change_scene_zone_body_entered(body: Node2D) -> void:
 		lvl_2.process_mode = Node.PROCESS_MODE_DISABLED
 		
 		lvl_2_loaded = false
+		
+		paralaxmulticlolor.show()
+		animparalaxburn.play("true_anim_multicolor")
