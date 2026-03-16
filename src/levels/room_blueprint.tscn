@@ -228,6 +228,9 @@ size = Vector2(6836, 53)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7157o"]
 size = Vector2(1307.3567, 21.999954)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41y7b"]
+size = Vector2(1885, 45)
+
 [sub_resource type="Gradient" id="Gradient_76snk"]
 offsets = PackedFloat32Array(0, 0.98214287, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.26190478, 0.26190478, 0.26190478, 1, 1, 1, 1, 1)
@@ -588,7 +591,7 @@ shape = SubResource("RectangleShape2D_76snk")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=1357711770]
 z_index = 1
-position = Vector2(17680.713, 230.90402)
+position = Vector2(20115.713, 230.90402)
 shape = SubResource("RectangleShape2D_76snk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=587111306]
@@ -612,6 +615,10 @@ position = Vector2(12591.713, -10.095978)
 
 [node name="pt_blueprint6" parent="lvl1/Structure/sol collision & balcon & door" unique_id=640792385 instance=ExtResource("16_nfd4m")]
 position = Vector2(12529.713, -42.095978)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=691344508]
+position = Vector2(15622.213, 226.90402)
+shape = SubResource("RectangleShape2D_41y7b")
 
 [node name="platforms" type="Node2D" parent="lvl1/Structure" unique_id=1655471774]
 
@@ -1193,7 +1200,7 @@ position = Vector2(12789, 1)
 shape = SubResource("RectangleShape2D_lqu8a")
 
 [node name="cube" parent="lvl1" unique_id=1811157897 instance=ExtResource("30_f3u0r")]
-position = Vector2(18359, 73)
+position = Vector2(16623, 64)
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
 visible = false

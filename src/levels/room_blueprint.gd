@@ -38,7 +38,7 @@ func duplicate_room1(offset_x):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var len = 0.274 * 13902
-	for i in range(6):
+	for i in range(7):
 		duplicate_room1(i*len)
 	ground.hide()
 	ground.process_mode = Node.PROCESS_MODE_DISABLED
