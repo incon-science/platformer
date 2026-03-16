@@ -59,6 +59,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	if Global.vuleloup and !Global.restarted:
+		if audio_stream_player.get_stream_playback().get_current_clip_index() !=1:
+			audio_stream_player.get_stream_playback().switch_to_clip_by_name("noise")
+	
 	if player.position.x < -3562:
 		if audio_stream_player.get_stream_playback().get_current_clip_index() !=1:
 			audio_stream_player.get_stream_playback().switch_to_clip_by_name("noise")
