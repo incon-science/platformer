@@ -84,6 +84,9 @@ func _process(delta: float) -> void:
 	
 	if player.is_on_floor():
 		game_can_begin = true
+		if Global.vuleloup and Global.restarted:
+			player.let_him_die = true
+			
 	
 	if !audio_stream_player.playing and game_can_begin:
 		audio_stream_player.play()
@@ -91,8 +94,6 @@ func _process(delta: float) -> void:
 		intro.process_mode = Node.PROCESS_MODE_DISABLED
 		
 	if player.global_position.y > 5000:
-		player.respawn()
-	if player.global_position.y > 2000 and player.global_position.x > 13734:
 		player.respawn()
 
 
@@ -147,3 +148,8 @@ func _on_change_scene_zone_body_entered(body: Node2D) -> void:
 		
 		paralaxmulticlolor.show()
 		animparalaxburn.play("true_anim_multicolor")
+
+
+func _on_pressstart_zone_body_entered(body: Node2D) -> void:
+	if body is Player:
+		Global.vuleloup=true

@@ -77,6 +77,38 @@ region = Rect2(192, 256, 32, 32)
 atlas = ExtResource("12_jcdrv")
 region = Rect2(224, 256, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fw2w"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(0, 931, 133, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmhh8"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(133, 931, 133, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awger"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(266, 931, 133, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2swit"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(399, 931, 133, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qo8f"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(532, 931, 133, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ayw0"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(665, 931, 133, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxcdl"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(798, 931, 133, 133)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4k14"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(931, 931, 133, 133)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4uy46"]
 atlas = ExtResource("14_4uy46")
 region = Rect2(0, 3, 133, 133)
@@ -239,6 +271,35 @@ animations = [{
 "loop": false,
 "name": &"attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fw2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmhh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awger")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2swit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qo8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ayw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxcdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4k14")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -602,10 +663,8 @@ material = SubResource("ShaderMaterial_a4vah")
 position = Vector2(0, -36)
 scale = Vector2(0.55, 0.55)
 sprite_frames = SubResource("SpriteFrames_j2873")
-animation = &"jumpdown"
+animation = &"die"
 autoplay = "idle"
-frame = 1
-frame_progress = 1.0
 script = ExtResource("14_5efpn")
 
 [node name="jump_sound" type="AudioStreamPlayer" parent="." unique_id=703265265]

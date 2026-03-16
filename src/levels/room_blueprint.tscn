@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dayo7lbiwbhw3" path="res://src/elements/tas_de_cadavre.tscn" id="7_j2cwt"]
 [ext_resource type="PackedScene" uid="uid://do35bbyy0qllr" path="res://src/platforms/platform.tscn" id="8_ltygr"]
 [ext_resource type="PackedScene" uid="uid://bl14lcvp4g2nh" path="res://src/levels/room_1.tscn" id="9_7157o"]
+[ext_resource type="Texture2D" uid="uid://iyg0q8tiaeyv" path="res://sprites/lol rndr.png" id="11_tpyur"]
 [ext_resource type="PackedScene" uid="uid://c07ghb70rt8ft" path="res://src/levels/escalier_room.tscn" id="12_7ls7j"]
 [ext_resource type="PackedScene" uid="uid://dhihe4rrnqw3d" path="res://src/levels/transition_rooms.tscn" id="13_h1car"]
 [ext_resource type="PackedScene" uid="uid://jitchrxcsgsf" path="res://src/elements/ball.tscn" id="14_k548o"]
@@ -79,6 +80,9 @@ frequency = 0.8
 randomize_noise_seed = 1
 positional_noise = false
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4kdv"]
+size = Vector2(895, 763)
 
 [sub_resource type="Gradient" id="Gradient_f3u0r"]
 offsets = PackedFloat32Array(0, 0.11111111, 0.22222222, 0.33333334, 0.44444445, 0.5555556, 0.6666667, 0.7777778, 0.8888889)
@@ -492,6 +496,37 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("6_ltygr")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="jail" type="Node2D" parent="." unique_id=1554215756]
+
+[node name="ColorRect" type="ColorRect" parent="jail" unique_id=1528768766]
+offset_left = 14060.0
+offset_top = 357.0
+offset_right = 24378.0
+offset_bottom = 5972.0
+color = Color(0, 0, 0, 1)
+
+[node name="3platformblueprint" parent="jail" unique_id=705479190 instance=ExtResource("32_f3u0r")]
+position = Vector2(16390, 2174)
+
+[node name="Sprite2D" type="Sprite2D" parent="jail" unique_id=1233527066]
+position = Vector2(16636.002, 1901)
+scale = Vector2(0.57211536, 0.57211536)
+texture = ExtResource("11_tpyur")
+
+[node name="Label" type="Label" parent="jail" unique_id=1311782026]
+offset_left = 16432.0
+offset_top = 2194.0
+offset_right = 16952.0
+offset_bottom = 2293.0
+theme_override_font_sizes/font_size = 72
+text = "Press Start now!"
+
+[node name="pressstart_zone" type="Area2D" parent="jail" unique_id=904418340]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jail/pressstart_zone" unique_id=1412076480]
+position = Vector2(16656.5, 1912.5)
+shape = SubResource("RectangleShape2D_f4kdv")
 
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
@@ -1483,6 +1518,7 @@ offset_right = 1663.0
 offset_bottom = -2060.0
 texture = SubResource("GradientTexture2D_lqu8a")
 
+[connection signal="body_entered" from="jail/pressstart_zone" to="." method="_on_pressstart_zone_body_entered"]
 [connection signal="body_entered" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_entered"]
 [connection signal="body_exited" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_exited"]
 [connection signal="body_entered" from="lvl1/cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_entered"]
