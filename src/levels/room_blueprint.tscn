@@ -81,9 +81,6 @@ randomize_noise_seed = 1
 positional_noise = false
 metadata/_custom_type_script = "uid://dimvdouy8g0sv"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4kdv"]
-size = Vector2(895, 1930)
-
 [sub_resource type="Gradient" id="Gradient_f3u0r"]
 offsets = PackedFloat32Array(0, 0.11111111, 0.22222222, 0.33333334, 0.44444445, 0.5555556, 0.6666667, 0.7777778, 0.8888889)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.36666667, 0, 1, 1, 0.8666667, 0, 1, 0.45000005, 1, 0, 1, 0, 1, 0.88333344, 1, 0, 0.10000014, 1, 1, 0.5, 0, 1, 1, 1, 0, 0.916667, 1, 1, 0, 0.016666412, 1)
@@ -113,10 +110,16 @@ shader_parameter/burn_size = 0.03999999910592
 shader_parameter/burn_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_vb8r4"]
-colors = PackedColorArray(0.3553136, 0.35531354, 0.35531357, 1, 0.5689727, 0.56897277, 0.5689727, 1)
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.25565878, 0.25565878, 0.25565878, 1, 0.48570347, 0.48570353, 0.48570347, 1, 0.25490198, 0.25490198, 0.25490198, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_7rpky"]
 gradient = SubResource("Gradient_vb8r4")
+width = 16384
 
 [sub_resource type="Animation" id="Animation_7rpky"]
 length = 0.001
@@ -233,7 +236,7 @@ size = Vector2(6836, 53)
 size = Vector2(1307.3567, 21.999954)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41y7b"]
-size = Vector2(1885, 45)
+size = Vector2(2017, 45)
 
 [sub_resource type="Gradient" id="Gradient_76snk"]
 offsets = PackedFloat32Array(0, 0.98214287, 1)
@@ -345,6 +348,9 @@ size = Vector2(2116, 1380)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqu8a"]
 size = Vector2(584, 1512)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4kdv"]
+size = Vector2(864, 954)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01erx"]
 size = Vector2(5040, 4218)
 
@@ -368,15 +374,6 @@ size = Vector2(47958, 720)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpyur"]
 size = Vector2(679, 417)
-
-[sub_resource type="Gradient" id="Gradient_hw218"]
-colors = PackedColorArray(0.37791926, 0.37791872, 0.37791875, 1, 0.99215686, 0.99215686, 0.99215686, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lqu8a"]
-gradient = SubResource("Gradient_hw218")
-height = 512
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
 
 [node name="room_blueprint" type="Node2D" unique_id=1528742533]
 script = ExtResource("1_76snk")
@@ -502,8 +499,8 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="ColorRect" type="ColorRect" parent="jail" unique_id=1528768766]
 offset_left = 14060.0
 offset_top = 357.0
-offset_right = 24378.0
-offset_bottom = 5972.0
+offset_right = 36007.0
+offset_bottom = 13895.0
 color = Color(0, 0, 0, 1)
 
 [node name="3platformblueprint" parent="jail" unique_id=705479190 instance=ExtResource("32_f3u0r")]
@@ -513,20 +510,6 @@ position = Vector2(16390, 2174)
 position = Vector2(16636.002, 1901)
 scale = Vector2(0.57211536, 0.57211536)
 texture = ExtResource("11_tpyur")
-
-[node name="Label" type="Label" parent="jail" unique_id=1311782026]
-offset_left = 16432.0
-offset_top = 2194.0
-offset_right = 16952.0
-offset_bottom = 2293.0
-theme_override_font_sizes/font_size = 72
-text = "Press Start now!"
-
-[node name="pressstart_zone" type="Area2D" parent="jail" unique_id=904418340]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jail/pressstart_zone" unique_id=1412076480]
-position = Vector2(16656.5, 1329)
-shape = SubResource("RectangleShape2D_f4kdv")
 
 [node name="lvl1" type="Node2D" parent="." unique_id=300588503]
 
@@ -552,13 +535,30 @@ scroll_scale = Vector2(0.9, 1)
 material = SubResource("ShaderMaterial_hw218")
 offset_left = -3724.0
 offset_top = -4206.0
-offset_right = 17236.0
+offset_right = 12660.0
 offset_bottom = 35.0
 texture = SubResource("GradientTexture1D_7rpky")
 
 [node name="animparalaxburn" type="AnimationPlayer" parent="lvl1/Parallax2D/burningBG" unique_id=1781422004]
 libraries/ = SubResource("AnimationLibrary_hw218")
-autoplay = &"new_animation"
+autoplay = &"true_anim_multicolor"
+speed_scale = 0.1
+
+[node name="Parallax2D3" type="Parallax2D" parent="lvl1" unique_id=1010859372]
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(20960, 0)
+
+[node name="burningBG" type="TextureRect" parent="lvl1/Parallax2D3" unique_id=1447797205]
+material = SubResource("ShaderMaterial_hw218")
+offset_left = -8300.0
+offset_top = -4206.0
+offset_right = 8084.0
+offset_bottom = 35.0
+texture = SubResource("GradientTexture1D_7rpky")
+
+[node name="animparalaxburn" type="AnimationPlayer" parent="lvl1/Parallax2D3/burningBG" unique_id=682738422]
+libraries/ = SubResource("AnimationLibrary_hw218")
+autoplay = &"true_anim_multicolor"
 speed_scale = 0.1
 
 [node name="colors_bg" type="Node2D" parent="lvl1" unique_id=1620225080]
@@ -626,7 +626,7 @@ shape = SubResource("RectangleShape2D_76snk")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=1357711770]
 z_index = 1
-position = Vector2(20115.713, 230.90402)
+position = Vector2(20218.713, 230.90402)
 shape = SubResource("RectangleShape2D_76snk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=587111306]
@@ -652,7 +652,7 @@ position = Vector2(12591.713, -10.095978)
 position = Vector2(12529.713, -42.095978)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=691344508]
-position = Vector2(15622.213, 226.90402)
+position = Vector2(15688.213, 226.90402)
 shape = SubResource("RectangleShape2D_41y7b")
 
 [node name="platforms" type="Node2D" parent="lvl1/Structure" unique_id=1655471774]
@@ -833,6 +833,10 @@ polygon = PackedVector2Array(12677, 119, 12598, 125, 12576, 200, 12608, 438, 127
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="lvl1/Structure/right_decor" unique_id=661375560]
 position = Vector2(-38, 0)
 polygon = PackedVector2Array(12677, 119, 12598, 125, 12576, 200, 12608, 438, 12707, 438, 12726, 551, 12772, 513, 12806, 437, 12815, 204, 12813, 134)
+
+[node name="Polygon2D4" type="Polygon2D" parent="lvl1/Structure/right_decor" unique_id=1415003473]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(11262, 1124, 11749, 937, 12118, 936, 12439, 843, 12590, 843, 12593, 753, 12837, 706, 12878, 602, 12997, 600, 12900, 3749, 11200, 3724)
 
 [node name="right_pt_zone" type="Node2D" parent="lvl1/Structure" unique_id=868377465]
 position = Vector2(-312, -74)
@@ -1235,10 +1239,15 @@ position = Vector2(12789, 1)
 shape = SubResource("RectangleShape2D_lqu8a")
 
 [node name="cube" parent="lvl1" unique_id=1811157897 instance=ExtResource("30_f3u0r")]
-position = Vector2(16623, 64)
+position = Vector2(16734, 66)
+
+[node name="change_scene_whenvoid" type="Area2D" parent="lvl1" unique_id=1124360721]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl1/change_scene_whenvoid" unique_id=1420140464]
+position = Vector2(-5143, -265)
+shape = SubResource("RectangleShape2D_f4kdv")
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
-visible = false
 position = Vector2(132, 0)
 
 [node name="ColorRect" type="ColorRect" parent="lvl2" unique_id=1319015657]
@@ -1357,35 +1366,59 @@ text = "Enjoy the Void"
 position = Vector2(-5207, 106)
 
 [node name="tentacles" type="Node2D" parent="void" unique_id=1961198955]
+position = Vector2(777, 861)
 
 [node name="Arm4" parent="void/tentacles" unique_id=1104907447 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
-position = Vector2(-4694, -1301)
-scale = Vector2(4, 4)
+position = Vector2(-4592, -1056)
 target = NodePath("../../../Player")
 
 [node name="Arm3" parent="void/tentacles" unique_id=432466288 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
-position = Vector2(-4653, -878)
-scale = Vector2(4, 4)
+position = Vector2(-4578, -1022)
 target = NodePath("../../../Player")
 
 [node name="Arm2" parent="void/tentacles" unique_id=1279670222 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
-position = Vector2(-4609, -1436)
-scale = Vector2(4, 4)
+position = Vector2(-4577, -1099)
 target = NodePath("../../../Player")
 
 [node name="Arm" parent="void/tentacles" unique_id=1842735877 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
-position = Vector2(-4536, -1127)
-scale = Vector2(4, 4)
+position = Vector2(-4583, -1154)
 target = NodePath("../../../Player")
 
 [node name="Arm6" parent="void/tentacles" unique_id=249043 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
-position = Vector2(-4586, -1208)
-scale = Vector2(4, 4)
+position = Vector2(-4623, -958)
 target = NodePath("../../../Player")
 
 [node name="Arm5" parent="void/tentacles" unique_id=2025319050 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
-position = Vector2(-4557, -798)
-scale = Vector2(4, 4)
+position = Vector2(-4624, -1203)
+target = NodePath("../../../Player")
+
+[node name="Arm7" parent="void/tentacles" unique_id=1019320292 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4899, -1193)
+scale = Vector2(2, 2)
+target = NodePath("../../../Player")
+
+[node name="Arm8" parent="void/tentacles" unique_id=1312848388 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-5140, -1777)
+scale = Vector2(3, 3)
+target = NodePath("../../../Player")
+
+[node name="Arm9" parent="void/tentacles" unique_id=1063576977 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-5119, -1375)
+scale = Vector2(3, 3)
+target = NodePath("../../../Player")
+
+[node name="Arm10" parent="void/tentacles" unique_id=1819677094 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4898, -1326)
+scale = Vector2(2, 2)
+target = NodePath("../../../Player")
+
+[node name="Arm11" parent="void/tentacles" unique_id=287364496 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-5151, -1671)
+scale = Vector2(3, 3)
+target = NodePath("../../../Player")
+
+[node name="Arm12" parent="void/tentacles" unique_id=733590477 node_paths=PackedStringArray("target") instance=ExtResource("31_k4edk")]
+position = Vector2(-4635, -997)
 target = NodePath("../../../Player")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="void" unique_id=463877495]
@@ -1466,9 +1499,6 @@ position = Vector2(4224, 3759)
 [node name="pt_blueprint11" parent="lvl3" unique_id=64219029 instance=ExtResource("16_nfd4m")]
 position = Vector2(4053, 3730)
 
-[node name="platform9" parent="lvl3" unique_id=307914365 instance=ExtResource("8_ltygr")]
-position = Vector2(3949, 3592)
-
 [node name="pt_blueprint12" parent="lvl3" unique_id=167234601 instance=ExtResource("16_nfd4m")]
 position = Vector2(3794.0002, 3604)
 rotation = 1.2409291
@@ -1487,9 +1517,6 @@ scale = Vector2(2, 2)
 [node name="platform10" parent="lvl3" unique_id=2029132258 instance=ExtResource("8_ltygr")]
 position = Vector2(3988, 3208)
 
-[node name="pt_blueprint15" parent="lvl3" unique_id=1828024774 instance=ExtResource("16_nfd4m")]
-position = Vector2(3776, 3246)
-
 [node name="platform11" parent="lvl3" unique_id=711722132 instance=ExtResource("8_ltygr")]
 position = Vector2(3725, 3159)
 
@@ -1501,28 +1528,14 @@ shape = SubResource("RectangleShape2D_tpyur")
 
 [node name="intro" type="Node2D" parent="." unique_id=1520859281]
 
-[node name="ColorRect" type="ColorRect" parent="intro" unique_id=333639218]
-offset_left = -1360.0
-offset_top = -3826.0
-offset_right = 1676.0
-offset_bottom = -2565.0
-color = Color(0.99116415, 0.99116427, 0.99116415, 1)
-
 [node name="cinematic" parent="intro" unique_id=2045197238 instance=ExtResource("32_hw218")]
 position = Vector2(0, -2934)
 
-[node name="TextureRect" type="TextureRect" parent="intro" unique_id=650193205]
-offset_left = -1285.0
-offset_top = -2572.0
-offset_right = 1663.0
-offset_bottom = -2060.0
-texture = SubResource("GradientTexture2D_lqu8a")
-
-[connection signal="body_entered" from="jail/pressstart_zone" to="." method="_on_pressstart_zone_body_entered"]
 [connection signal="body_entered" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_entered"]
 [connection signal="body_exited" from="lvl1/cam_zones/zoom_zone" to="." method="_on_zoom_zone_body_exited"]
 [connection signal="body_entered" from="lvl1/cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_entered"]
 [connection signal="body_exited" from="lvl1/cam_zones/no_bottom_offset_zone" to="." method="_on_no_bottom_offset_zone_body_exited"]
+[connection signal="body_entered" from="lvl1/change_scene_whenvoid" to="." method="_on_change_scene_whenvoid_body_entered"]
 [connection signal="body_entered" from="lvl2/cam_zone/no_offset_zone_lvl2" to="." method="_on_no_offset_zone_lvl_2_body_entered"]
 [connection signal="body_exited" from="lvl2/cam_zone/no_offset_zone_lvl2" to="." method="_on_no_offset_zone_lvl_2_body_exited"]
 [connection signal="body_entered" from="lvl3/change_scene_zone" to="." method="_on_change_scene_zone_body_entered"]

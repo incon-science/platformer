@@ -363,7 +363,6 @@ func portal_logic():
 	else :
 		if !inside_portal : save_velocity.y = -jump_velocity
 
-var let_him_die:bool =false		
 func logic_spe():
 	
 	if Input.is_action_pressed("timeslow"):
@@ -371,18 +370,14 @@ func logic_spe():
 	else :
 			Engine.time_scale = 1
 			
-	if let_him_die:
-		if sprite.animation != "die":
-			sprite.play("die")
-	else :
-		portal_logic()
-		respawn_logic()
-		
-		sprite_animation()
-		
-		sound_animation()
-		
-		camera_logic()
+	portal_logic()
+	respawn_logic()
+	
+	sprite_animation()
+	
+	sound_animation()
+	
+	camera_logic()
 	
 func camera_logic()->void:
 	if velocity.x > 0 and is_on_floor_only(): 

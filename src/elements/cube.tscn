@@ -49,10 +49,10 @@ _data = {
 size = Vector2(27, 84)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xtlu"]
-size = Vector2(7.5, 106)
+size = Vector2(6, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0rqph"]
-size = Vector2(124, 6)
+size = Vector2(109, 6)
 
 [node name="cube" type="Node2D" unique_id=1811157897]
 script = ExtResource("1_ksnvo")
@@ -214,6 +214,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_1xtlu")
 
 [node name="Label" type="RichTextLabel" parent="front" unique_id=1829085221]
+visible = false
 offset_left = -41.0
 offset_top = -41.0
 offset_right = 74.0
@@ -233,11 +234,11 @@ text = "The only thing you have to do now is reboot, restart your character, fin
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1281244091]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1652528800]
-position = Vector2(75.25, 11)
+position = Vector2(61, 11)
 shape = SubResource("RectangleShape2D_1xtlu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1971734795]
-position = Vector2(17, -44)
+position = Vector2(9.5, -44)
 shape = SubResource("RectangleShape2D_0rqph")
 
 [connection signal="body_entered" from="openlockzone" to="." method="_on_openlockzone_body_entered"]

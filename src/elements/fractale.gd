@@ -1,9 +1,7 @@
-extends RigidBody2D
+extends Node2D
 
 @onready var touchedsong: AudioStreamPlayer2D = $touchedsong
 @onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
-@onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
-@onready var cam: PhantomCamera2D = %cam
 
 var touched = false
 
@@ -23,7 +21,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		touched = true
 		touchedsong.play()
 		animation_player.play("disapear")
-		collision_polygon_2d.set_deferred("disabled", true)
 		
 		body.shakecamtimer.start()
 		

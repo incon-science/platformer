@@ -9,7 +9,7 @@
 shader = ExtResource("2_46e40")
 shader_parameter/outline_color = Color(0.9038556, 0.35497046, 0, 1)
 shader_parameter/outline_size = 16.0
-shader_parameter/alpha_threshold = 0.0
+shader_parameter/alpha_threshold = 0.999999977648
 shader_parameter/outline_samples = 8
 shader_parameter/shade_color = Color(1, 1, 1, 0.5)
 
@@ -146,14 +146,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6s3g"]
-size = Vector2(32, 28)
+size = Vector2(42, 36)
 
-[node name="fractale" type="RigidBody2D" unique_id=764819064]
-freeze = true
+[node name="fractale" type="Node2D" unique_id=442593888]
 script = ExtResource("1_i6y4e")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1305410271]
-polygon = PackedVector2Array(-14, 12, 0, -12, 14, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=861767194]
 material = SubResource("ShaderMaterial_ofbnq")
