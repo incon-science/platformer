@@ -474,11 +474,21 @@ func respawn_logic():
 			last_floor_pos = position - Vector2(25,0)
 		if velocity.x <0 :
 			last_floor_pos = position + Vector2(25,0)
+@onready var animated_sprite_for_teleport_shader: AnimatedSprite2D = $AnimatedSpriteForTeleportShader
+@onready var animation_player: AnimationPlayer = $AnimatedSpriteForTeleportShader/AnimationPlayer
 func respawn():
-	hide()
+	sprite.hide()
 	position = last_floor_pos
 	velocity = Vector2(0,0)
 	await get_tree().create_timer(0.5).timeout
-	show()
+	if get_facing_dir() > 0 :
+		animated_sprite_for_teleport_shader.flip_h = false
+	if get_facing_dir() < 0 :
+		animated_sprite_for_teleport_shader.flip_h = true
+	animated_sprite_for_teleport_shader.show()
+	animation_player.play("new_animation")
+	await get_tree().create_timer(1).timeout
+	animated_sprite_for_teleport_shader.hide()
+	sprite.show()
 			
 			

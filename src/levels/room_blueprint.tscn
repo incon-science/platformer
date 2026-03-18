@@ -340,7 +340,7 @@ size = Vector2(1584.5, 498)
 size = Vector2(1200, 1114.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4edk"]
-size = Vector2(3039, 874)
+size = Vector2(3039, 4235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw218"]
 size = Vector2(2116, 1380)
@@ -391,12 +391,12 @@ color = Color(0.40832946, 0.40832946, 0.40832946, 1)
 [node name="Player" parent="." unique_id=2070335124 instance=ExtResource("3_4j1ba")]
 unique_name_in_owner = true
 z_index = 5
-position = Vector2(0, -2876)
+position = Vector2(-83, 3519)
 
 [node name="cam" type="Node2D" parent="." unique_id=1498018793 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(50, -2630)
+position = Vector2(-33, 3359)
 script = ExtResource("4_mu531")
 priority = 1
 follow_mode = 2
@@ -415,7 +415,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="cam2" type="Node2D" parent="." unique_id=390199709 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(-50, -2630)
+position = Vector2(-133, 3359)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -433,7 +433,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="camoffesetbottom" type="Node2D" parent="." unique_id=1643240695 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(50, -2876)
+position = Vector2(-33, 3519)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -449,7 +449,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="camoffesetbottom2" type="Node2D" parent="." unique_id=277007732 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(-50, -2876)
+position = Vector2(-133, 3519)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -465,7 +465,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="zoomcam" type="Node2D" parent="." unique_id=1299573748 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 top_level = true
-position = Vector2(0, -3036)
+position = Vector2(-83, 3359)
 script = ExtResource("4_mu531")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -482,7 +482,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1039615960]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(50, -2630)
+position = Vector2(-33, 3359)
 process_callback = 0
 limit_left = -2712
 limit_top = -2990
@@ -650,6 +650,12 @@ position = Vector2(12591.713, -10.095978)
 
 [node name="pt_blueprint6" parent="lvl1/Structure/sol collision & balcon & door" unique_id=640792385 instance=ExtResource("16_nfd4m")]
 position = Vector2(12529.713, -42.095978)
+
+[node name="pt_blueprint7" parent="lvl1/Structure/sol collision & balcon & door" unique_id=1524507924 instance=ExtResource("16_nfd4m")]
+position = Vector2(12387.713, 32.904022)
+
+[node name="pt_blueprint8" parent="lvl1/Structure/sol collision & balcon & door" unique_id=102385827 instance=ExtResource("16_nfd4m")]
+position = Vector2(12260.713, 115.90402)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="lvl1/Structure/sol collision & balcon & door" unique_id=691344508]
 position = Vector2(15688.213, 226.90402)
@@ -1227,7 +1233,7 @@ position = Vector2(-1516, 2973.25)
 shape = SubResource("RectangleShape2D_7rpky")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="lvl1/cam_zones/no_bottom_offset_zone" unique_id=122346216]
-position = Vector2(-452.5, 3643)
+position = Vector2(-452.5, 5323.5)
 shape = SubResource("RectangleShape2D_k4edk")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="lvl1/cam_zones/no_bottom_offset_zone" unique_id=78418315]
@@ -1248,6 +1254,7 @@ position = Vector2(-5143, -265)
 shape = SubResource("RectangleShape2D_f4kdv")
 
 [node name="lvl2" type="Node2D" parent="." unique_id=2029691245]
+visible = false
 position = Vector2(132, 0)
 
 [node name="white_bg" type="ColorRect" parent="lvl2" unique_id=1319015657]

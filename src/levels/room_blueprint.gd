@@ -35,6 +35,7 @@ func creer_ground():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#player.global_position = Vector2(0,-2876.0)
 	creer_ground()
 
 	canvas_modulate.hide()

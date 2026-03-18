@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://kur8cpiyrv8b" path="res://src/particles/ground_particle.tscn" id="20_o04tx"]
 [ext_resource type="PackedScene" uid="uid://wok5htmqtlc8" path="res://src/particles/slide_particle.tscn" id="21_hja65"]
 [ext_resource type="Script" uid="uid://b6rm5gkxphdna" path="res://src/player/spritetrail.gd" id="22_5shm8"]
+[ext_resource type="Shader" uid="uid://chycd0t8penwl" path="res://shaders/teleport.gdshader" id="26_a4vah"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qnmj6"]
 size = Vector3(48, 64, 1)
@@ -499,6 +500,64 @@ fill_to = Vector2(0.85, 0.15)
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwi60"]
+shader = ExtResource("26_a4vah")
+shader_parameter/progress = 1.0
+shader_parameter/noise_desnity = 60.0
+shader_parameter/beam_size = 0.15000000596046
+shader_parameter/color = Color(0, 1.02, 1.2, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3rjw"]
+atlas = ExtResource("14_4uy46")
+region = Rect2(0, 0, 133, 133)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd7k5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3rjw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_a4vah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vwi60"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.2150000102125, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o04tx"]
+_data = {
+&"RESET": SubResource("Animation_a4vah"),
+&"new_animation": SubResource("Animation_vwi60")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=2070335124]
 z_index = 1
 collision_layer = 3
@@ -708,6 +767,16 @@ script = ExtResource("22_5shm8")
 
 [node name="shakecamtimer" type="Timer" parent="." unique_id=1457225656]
 one_shot = true
+
+[node name="AnimatedSpriteForTeleportShader" type="AnimatedSprite2D" parent="." unique_id=793368792]
+visible = false
+material = SubResource("ShaderMaterial_vwi60")
+position = Vector2(0, -36)
+scale = Vector2(0.55, 0.55)
+sprite_frames = SubResource("SpriteFrames_fd7k5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSpriteForTeleportShader" unique_id=238446722]
+libraries/ = SubResource("AnimationLibrary_o04tx")
 
 [connection signal="wall_entered" from="." to="." method="_on_wall_entered"]
 [connection signal="wall_exited" from="." to="." method="_on_wall_exited"]
