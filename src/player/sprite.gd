@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func updateAlpha(newValue : float):
+	
 	modulate.a = newValue
 	if newValue == 0.0 :
 		queue_free()

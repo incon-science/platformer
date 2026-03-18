@@ -505,7 +505,7 @@ shader = ExtResource("26_a4vah")
 shader_parameter/progress = 1.0
 shader_parameter/noise_desnity = 60.0
 shader_parameter/beam_size = 0.15000000596046
-shader_parameter/color = Color(0, 1.02, 1.2, 1)
+shader_parameter/color = Color(1.2, 1.2, 1.2, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3rjw"]
 atlas = ExtResource("14_4uy46")

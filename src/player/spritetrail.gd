@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 		return
 	#if (get_tree().get_frame()%1)==0:
 	var newSprite : AnimatedSprite2D = sprite.duplicate()
+	
+	
 	newSprite.stop()
 	newSprite.global_position = player.global_position+sprite.position
 	get_tree().root.add_child(newSprite)
