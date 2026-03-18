@@ -2,7 +2,6 @@ extends Node
 
 @onready var sprite: AnimatedSprite2D = $"../Sprite"
 @onready var player: Player = $".."
-@onready var cam: PhantomCamera2D = $"../../cam"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +17,9 @@ func _process(delta: float) -> void:
 	var newSprite : AnimatedSprite2D = sprite.duplicate()
 	
 	
+	
 	newSprite.stop()
 	newSprite.global_position = player.global_position+sprite.position
+	newSprite.modulate = Color(0.0, 0.0, 0.0)
 	get_tree().root.add_child(newSprite)
 	newSprite.startFading()
